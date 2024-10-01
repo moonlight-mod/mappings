@@ -6,6 +6,10 @@
     "type": "git",
     "url": "git+https://github.com/moonlight-mod/mappings.git"
   },
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/mappings/*.js"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
