@@ -1,0 +1,89 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@moonlight-mod/lunast':
+        specifier: git+https://github.com/moonlight-mod/lunast.git
+        version: https://codeload.github.com/moonlight-mod/lunast/tar.gz/af98b963bf8b6d00301229b094811a55f96eca0a
+      '@moonlight-mod/moonmap':
+        specifier: git+https://github.com/moonlight-mod/moonmap.git
+        version: https://codeload.github.com/moonlight-mod/moonmap/tar.gz/79cfb0f84f62c910ff6eb3cf314e045110b9d319
+    devDependencies:
+      prettier:
+        specifier: ^3.3.3
+        version: 3.3.3
+      typescript:
+        specifier: ^5.6.2
+        version: 5.6.2
+
+packages:
+
+  '@moonlight-mod/lunast@https://codeload.github.com/moonlight-mod/lunast/tar.gz/af98b963bf8b6d00301229b094811a55f96eca0a':
+    resolution: {tarball: https://codeload.github.com/moonlight-mod/lunast/tar.gz/af98b963bf8b6d00301229b094811a55f96eca0a}
+    version: 1.0.0
+
+  '@moonlight-mod/moonmap@https://codeload.github.com/moonlight-mod/moonmap/tar.gz/79cfb0f84f62c910ff6eb3cf314e045110b9d319':
+    resolution: {tarball: https://codeload.github.com/moonlight-mod/moonmap/tar.gz/79cfb0f84f62c910ff6eb3cf314e045110b9d319}
+    version: 1.0.0
+
+  '@types/estree-jsx@1.0.5':
+    resolution: {integrity: sha512-52CcUVNFyfb1A2ALocQw/Dd1BQFNmSdkuC3BkZ6iqhdMfQz7JWOFRuJFloOzjk+6WijU56m9oKXFAXc7o3Towg==}
+
+  '@types/estree@1.0.6':
+    resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
+
+  astring@1.9.0:
+    resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
+    hasBin: true
+
+  estree-toolkit@1.7.8:
+    resolution: {integrity: sha512-v0Q0L+0agSDFe3x9Sj7aAzrI9afvsfr5r7AM2SNk/8bKYRQ3tUf4PQEUWe99LkWysmT1PsuSpW+W1w/xZmCKeg==}
+
+  meriyah@6.0.1:
+    resolution: {integrity: sha512-OyvYIOgpzXREySYJ1cqEb2pOKdeQMTfF9M8dRU6nC4hi/GXMmNpe9ssZCrSoTHazu05BSAoRBN/uYeco+ymfOg==}
+    engines: {node: '>=18.0.0'}
+
+  prettier@3.3.3:
+    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
+    engines: {node: '>=14'}
+    hasBin: true
+
+  typescript@5.6.2:
+    resolution: {integrity: sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+snapshots:
+
+  '@moonlight-mod/lunast@https://codeload.github.com/moonlight-mod/lunast/tar.gz/af98b963bf8b6d00301229b094811a55f96eca0a':
+    dependencies:
+      astring: 1.9.0
+      estree-toolkit: 1.7.8
+      meriyah: 6.0.1
+
+  '@moonlight-mod/moonmap@https://codeload.github.com/moonlight-mod/moonmap/tar.gz/79cfb0f84f62c910ff6eb3cf314e045110b9d319': {}
+
+  '@types/estree-jsx@1.0.5':
+    dependencies:
+      '@types/estree': 1.0.6
+
+  '@types/estree@1.0.6': {}
+
+  astring@1.9.0: {}
+
+  estree-toolkit@1.7.8:
+    dependencies:
+      '@types/estree': 1.0.6
+      '@types/estree-jsx': 1.0.5
+
+  meriyah@6.0.1: {}
+
+  prettier@3.3.3: {}
+
+  typescript@5.6.2: {}
