@@ -14,13 +14,13 @@ importers:
       '@moonlight-mod/moonmap':
         specifier: git+https://github.com/moonlight-mod/moonmap.git
         version: https://codeload.github.com/moonlight-mod/moonmap/tar.gz/ad6ee2686333058e5547b0de3f541549a15e964d
-    devDependencies:
       '@types/flux':
         specifier: ^3.1.14
         version: 3.1.14
       '@types/react':
         specifier: ^18.3.10
         version: 18.3.10
+    devDependencies:
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
