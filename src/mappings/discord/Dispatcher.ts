@@ -26,6 +26,10 @@ type Dispatcher = OrigDispatcher<any> & {
   addDependencies: (id: string, deps: string[]) => void;
 };
 
+type DispatcherExports = {
+  Dispatcher: Dispatcher;
+};
+
 register((moonmap) => {
   const name = "discord/Dispatcher";
   moonmap.register({
@@ -34,9 +38,14 @@ register((moonmap) => {
     process({ id }) {
       moonmap.addModule(id, name);
 
+      moonmap.addExport(name, "Dispatcher", {
+        type: ModuleExportType.Constant,
+        find: "Z"
+      });
+
       return true;
     }
   });
 });
 
-export default Dispatcher;
+export default DispatcherExports;

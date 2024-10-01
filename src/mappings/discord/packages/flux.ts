@@ -69,19 +69,15 @@ register((moonmap) => {
 
       moonmap.addExport(name, "BatchedStoreListener", {
         type: ModuleExportType.Function,
-        find: '" stores before error."'
+        find: " tried to load a non-existent store."
       });
       moonmap.addExport(name, "Dispatcher", {
         type: ModuleExportType.Function,
-        find: ".isDispatching="
+        find: "_dispatchWithDevtools("
       });
       moonmap.addExport(name, "Store", {
-        type: ModuleExportType.Key,
-        find: "getAll"
-      });
-      moonmap.addExport(name, "default", {
-        type: ModuleExportType.Key,
-        find: "Store"
+        type: ModuleExportType.Function,
+        find: "registerActionHandlers("
       });
       moonmap.addExport(name, "statesWillNeverBeEqual", {
         type: ModuleExportType.Function,

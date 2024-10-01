@@ -51,6 +51,7 @@ import "./mappings/discord/modules/user_settings/ThemeStore";
 import "./mappings/discord/modules/user_settings/UserSettings";
 import "./mappings/discord/modules/user_settings/UserSettingsProtoStore";
 import "./mappings/discord/packages/flux";
+import "./mappings/discord/packages/react";
 import "./mappings/discord/stores/AuthenticationStore";
 import "./mappings/discord/stores/ApplicationStreamingStore";
 import "./mappings/discord/stores/ChannelStore";
