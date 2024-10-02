@@ -9,11 +9,7 @@ register((moonmap) => {
   const name = "discord/modules/guild_settings/IntegrationCard.css";
   moonmap.register({
     name,
-    find: [
-      "renderArtisanalHack",
-      /\[(?:.\.e\("\d+?"\),?)+\][^}]+?webpackId:\d+,name:"ChannelSettings"/,
-      /webpackId:(\d+),name:"ChannelSettings"/
-    ],
+    find: ["card:", "cardHeader:", "inModal:"],
     process({ id }) {
       moonmap.addModule(id, name);
 
