@@ -1,10 +1,13 @@
 const fs = require("fs");
 
 const types = {
+  "discord/Dispatcher": "_Dispatcher", // "Dispatcher" may be reserved in some scenarios
   "discord/components/common/index": "Components",
+  "discord/modules/guild_settings/IntegrationCard.css": "IntegrationCardCSS",
+  "discord/modules/markup/MarkupUtils": "MarkupUtils",
   "discord/packages/flux": "Flux",
   "discord/packages/react": "React",
-  "discord/Dispatcher": "_Dispatcher" // "Dispatcher" may be reserved in some scenarios
+  "discord/uikit/Flex": "Flex"
 };
 
 const write = process.argv.includes("--write");

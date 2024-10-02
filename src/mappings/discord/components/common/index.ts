@@ -212,61 +212,6 @@ export type Button = ComponentType<
   Sizes: typeof ButtonSizes;
 };
 
-export enum FlexDirection {
-  VERTICAL = "vertical",
-  HORIZONTAL = "horizontal",
-  HORIZONTAL_REVERSE = "horizontalReverse"
-}
-
-export enum FlexAlign {
-  START = "alignStart",
-  END = "alignEnd",
-  CENTER = "alignCenter",
-  STRETCH = "alignStretch",
-  BASELINE = "alignBaseline"
-}
-export enum FlexJustify {
-  START = "justifyStart",
-  END = "justifyEnd",
-  CENTER = "justifyCenter",
-  BETWEEN = "justifyBetween",
-  AROUND = "justifyAround"
-}
-export enum FlexWrap {
-  NO_WRAP = "noWrap",
-  WRAP = "wrap",
-  WRAP_REVERSE = "wrapReverse"
-}
-export interface Flex
-  extends ComponentClass<
-    PropsWithChildren<{
-      className?: string;
-      direction?: FlexDirection;
-      justify?: FlexJustify;
-      align?: FlexAlign;
-      wrap?: FlexWrap;
-      shrink?: CSS.Property.FlexShrink;
-      grow?: CSS.Property.FlexGrow;
-      basis?: CSS.Property.FlexBasis;
-      style?: CSSProperties;
-    }>
-  > {
-  Direction: typeof FlexDirection;
-  Align: typeof FlexAlign;
-  Justify: typeof FlexJustify;
-  Wrap: typeof FlexWrap;
-  Child: Component<
-    PropsWithChildren<{
-      className?: string;
-      shrink?: CSS.Property.FlexShrink;
-      grow?: CSS.Property.FlexGrow;
-      basis?: CSS.Property.FlexBasis;
-      style?: CSSProperties;
-      wrap?: boolean;
-    }>
-  >;
-}
-
 // TODO: wtaf is up with react types not working in jsx
 type CommonComponents = {
   [index: string]: any;
@@ -348,8 +293,6 @@ type CommonComponents = {
   Scroller: Component;
   Text: ComponentClass<PropsWithChildren<any>>;
   Heading: ComponentClass<PropsWithChildren<any>>;
-  LegacyText: Component;
-  Flex: Flex;
   Card: ComponentClass<PropsWithChildren<any>>;
   Popout: ComponentClass<PropsWithChildren<any>>;
   Dialog: ComponentClass<PropsWithChildren<any>>;
@@ -357,24 +300,6 @@ type CommonComponents = {
   MenuItem: ComponentClass<PropsWithChildren<any>>;
   MenuGroup: ComponentClass<PropsWithChildren<any>>;
   MenuCheckboxItem: ComponentClass<PropsWithChildren<any>>;
-  CardClasses: {
-    card: string;
-    cardHeader: string;
-  };
-  ControlClasses: {
-    container: string;
-    control: string;
-    disabled: string;
-    dividerDefault: string;
-    labelRow: string;
-    note: string;
-    title: string;
-    titleDefault: string;
-    titleMini: string;
-  };
-  MarkdownParser: {
-    parse: (text: string) => ReactElement;
-  };
   SettingsNotice: React.ComponentType<{
     submitting: boolean;
     onReset: () => void;
