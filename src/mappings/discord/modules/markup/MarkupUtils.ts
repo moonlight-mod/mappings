@@ -18,7 +18,7 @@ register((moonmap) => {
     process({ id }) {
       moonmap.addModule(id, name);
 
-      moonmap.addExport(id, "MarkupUtils", {
+      moonmap.addExport(name, "MarkupUtils", {
         type: ModuleExportType.Constant,
         find: "Z"
       });
