@@ -1,6 +1,7 @@
 const fs = require("fs");
 
 const types = {
+  "discord/components/common/index": "Components",
   "discord/packages/flux": "Flux",
   "discord/packages/react": "React",
   "discord/Dispatcher": "_Dispatcher" // "Dispatcher" may be reserved in some scenarios
