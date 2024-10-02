@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@moonlight-mod/lunast':
-        specifier: git+https://github.com/moonlight-mod/lunast.git
-        version: https://codeload.github.com/moonlight-mod/lunast/tar.gz/af98b963bf8b6d00301229b094811a55f96eca0a
+        specifier: ^1.0.0
+        version: 1.0.0
       '@moonlight-mod/moonmap':
-        specifier: git+https://github.com/moonlight-mod/moonmap.git
-        version: https://codeload.github.com/moonlight-mod/moonmap/tar.gz/ad6ee2686333058e5547b0de3f541549a15e964d
+        specifier: ^1.0.0
+        version: 1.0.0
       '@types/flux':
         specifier: ^3.1.14
         version: 3.1.14
@@ -33,13 +33,11 @@ importers:
 
 packages:
 
-  '@moonlight-mod/lunast@https://codeload.github.com/moonlight-mod/lunast/tar.gz/af98b963bf8b6d00301229b094811a55f96eca0a':
-    resolution: {tarball: https://codeload.github.com/moonlight-mod/lunast/tar.gz/af98b963bf8b6d00301229b094811a55f96eca0a}
-    version: 1.0.0
+  '@moonlight-mod/lunast@1.0.0':
+    resolution: {integrity: sha512-kJgf41K12i6/2LbXK97CNO+pNO7ADGh9N4bCQcOPwosocKMcwKHDEZUgPqeihNshY3c3AEW1LiyXjlsl24PdDw==}
 
-  '@moonlight-mod/moonmap@https://codeload.github.com/moonlight-mod/moonmap/tar.gz/ad6ee2686333058e5547b0de3f541549a15e964d':
-    resolution: {tarball: https://codeload.github.com/moonlight-mod/moonmap/tar.gz/ad6ee2686333058e5547b0de3f541549a15e964d}
-    version: 1.0.0
+  '@moonlight-mod/moonmap@1.0.0':
+    resolution: {integrity: sha512-qQ/WCt8bKq6/4KFLJxsWLrzi8sMZ8HbN+PSI/c7mr6pEroOm08ETSIRarbAUvwHJ9dWtpRDnkrvKfoPWs2SlwA==}
 
   '@types/estree-jsx@1.0.5':
     resolution: {integrity: sha512-52CcUVNFyfb1A2ALocQw/Dd1BQFNmSdkuC3BkZ6iqhdMfQz7JWOFRuJFloOzjk+6WijU56m9oKXFAXc7o3Towg==}
@@ -85,13 +83,13 @@ packages:
 
 snapshots:
 
-  '@moonlight-mod/lunast@https://codeload.github.com/moonlight-mod/lunast/tar.gz/af98b963bf8b6d00301229b094811a55f96eca0a':
+  '@moonlight-mod/lunast@1.0.0':
     dependencies:
       astring: 1.9.0
       estree-toolkit: 1.7.8
       meriyah: 6.0.1
 
-  '@moonlight-mod/moonmap@https://codeload.github.com/moonlight-mod/moonmap/tar.gz/ad6ee2686333058e5547b0de3f541549a15e964d': {}
+  '@moonlight-mod/moonmap@1.0.0': {}
 
   '@types/estree-jsx@1.0.5':
     dependencies:
