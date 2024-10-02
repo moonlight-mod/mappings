@@ -64,10 +64,6 @@ export interface Flex
   >;
 }
 
-export type FlexExports = {
-  Flex: Flex;
-};
-
 register((moonmap) => {
   const name = "discord/uikit/Flex";
   moonmap.register({
@@ -76,14 +72,9 @@ register((moonmap) => {
     process({ id }) {
       moonmap.addModule(id, name);
 
-      moonmap.addExport(name, "Flex", {
-        type: ModuleExportType.Constant,
-        find: "Z"
-      });
-
       return true;
     }
   });
 });
 
-export default FlexExports;
+export default Flex;

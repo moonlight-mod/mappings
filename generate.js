@@ -6,8 +6,8 @@ const types = {
   "discord/modules/guild_settings/IntegrationCard.css": "IntegrationCardCSS",
   "discord/modules/markup/MarkupUtils": "MarkupUtils",
   "discord/packages/flux": "Flux",
-  "discord/packages/react": "React",
-  "discord/uikit/Flex": "Flex"
+  "discord/uikit/Flex": "Flex",
+  react: "React"
 };
 
 const write = process.argv.includes("--write");

@@ -1,9 +1,9 @@
-import register from "../../../registry";
+import register from "../registry";
 
 type React = typeof import("react");
 
 register((moonmap) => {
-  const name = "discord/packages/react";
+  const name = "react";
   moonmap.register({
     name,
     find: [
