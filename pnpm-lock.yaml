@@ -13,7 +13,7 @@ importers:
         version: 1.0.0
       '@moonlight-mod/moonmap':
         specifier: ^1.0.0
-        version: 1.0.0
+        version: 1.0.2
       '@types/flux':
         specifier: ^3.1.14
         version: 3.1.14
@@ -36,8 +36,8 @@ packages:
   '@moonlight-mod/lunast@1.0.0':
     resolution: {integrity: sha512-kJgf41K12i6/2LbXK97CNO+pNO7ADGh9N4bCQcOPwosocKMcwKHDEZUgPqeihNshY3c3AEW1LiyXjlsl24PdDw==}
 
-  '@moonlight-mod/moonmap@1.0.0':
-    resolution: {integrity: sha512-qQ/WCt8bKq6/4KFLJxsWLrzi8sMZ8HbN+PSI/c7mr6pEroOm08ETSIRarbAUvwHJ9dWtpRDnkrvKfoPWs2SlwA==}
+  '@moonlight-mod/moonmap@1.0.2':
+    resolution: {integrity: sha512-dqMFwk8o0duRfvBNYo6EwalEUWWR3bNF5V2N04ogHp4gYON6/5+XOUrTlQ9BFBDj9anZwGgVwGqnxV42Qs9pPw==}
 
   '@types/estree-jsx@1.0.5':
     resolution: {integrity: sha512-52CcUVNFyfb1A2ALocQw/Dd1BQFNmSdkuC3BkZ6iqhdMfQz7JWOFRuJFloOzjk+6WijU56m9oKXFAXc7o3Towg==}
@@ -89,7 +89,7 @@ snapshots:
       estree-toolkit: 1.7.8
       meriyah: 6.0.1
 
-  '@moonlight-mod/moonmap@1.0.0': {}
+  '@moonlight-mod/moonmap@1.0.2': {}
 
   '@types/estree-jsx@1.0.5':
     dependencies:

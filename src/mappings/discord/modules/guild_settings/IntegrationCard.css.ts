@@ -10,6 +10,10 @@ register((moonmap) => {
   moonmap.register({
     name,
     find: ["card:", "cardHeader:", "inModal:"],
+    lazy: {
+      find: "renderArtisanalHack",
+      chunk: /\[(?:.\.e\("\d+?"\),?)+\][^}]+?webpackId:\d+,name:"GuildSettings"/
+    },
     process({ id }) {
       moonmap.addModule(id, name);
 
