@@ -10,10 +10,3 @@ After setting up moonmap and LunAST, call the load function before Webpack initi
 import loadMappings from "@moonlight-mod/mappings";
 loadMappings(moonmap, lunast);
 ```
-
-## TODO
-
-- [x] Publish
-- [ ] Export types with Webpack require
-- [ ] Export types with import statements
-- [ ] Release to NPM
