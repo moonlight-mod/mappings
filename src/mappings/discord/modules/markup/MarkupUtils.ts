@@ -9,11 +9,11 @@ export type MarkupConfig = {
   isInteracting?: boolean;
   allowHeading?: boolean;
   allowList?: boolean;
+  allowLinks?: boolean;
   allowSubtext?: boolean;
   allowDevLinks?: boolean;
   previewLinkTarget?: boolean;
   shouldFilterKeywords?: boolean;
-  viewingChannelId?: boolean;
 };
 
 export type MarkupUtils = {
