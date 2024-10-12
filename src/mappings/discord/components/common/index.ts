@@ -213,6 +213,7 @@ export type Button = ComponentType<
 };
 
 // TODO: wtaf is up with react types not working in jsx
+// FIXME: tsc doesnt see [index: string]: any;
 type CommonComponents = {
   [index: string]: any;
   Clickable: ComponentClass<
