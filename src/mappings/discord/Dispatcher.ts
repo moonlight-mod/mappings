@@ -5,7 +5,7 @@ type Dispatcher = OrigDispatcher<any> & {
   dispatch: (payload: any) => void;
   isDispatching: () => boolean;
 
-  addInterceptor: (interceptor: (event: any) => boolean | undefined) => void;
+  addInterceptor: (interceptor: (event: any) => boolean | void) => void;
 
   flushWaitQueue: () => void;
   wait: (callback: () => void) => void;
