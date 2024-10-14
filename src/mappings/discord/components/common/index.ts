@@ -643,14 +643,18 @@ export type Text = ComponentType<
 export type MenuVariant = "flexible";
 
 export type MenuSeparator = ComponentType<PropsWithoutRef<{}>>;
-export type MenuGroup = ComponentType<PropsWithChildren<{}>>;
+export type MenuGroup = ComponentType<
+  PropsWithChildren<{
+    label?: ReactNode;
+  }>
+>;
 
 export type MenuItemProps = {
   className?: string;
   id: string;
   navigatable?: boolean;
   render?: (props: MenuItemProps) => ReactNode;
-  label: string;
+  label: ReactNode;
   onChildrenScroll?: () => void;
   childRowHeight?: number;
   listClassName?: string;
