@@ -1,6 +1,13 @@
 import { ModuleExportType } from "@moonlight-mod/moonmap";
 import register from "../../../registry";
 
+type ContextMenuActionCreators = {
+  closeContextMenu: () => void;
+  // TODO: these have some extra args
+  openContextMenu: (event: Event, element: () => React.ReactNode) => void;
+  openContextMenuLazy: Function;
+};
+
 register((moonmap) => {
   const name = "discord/actions/ContextMenuActionCreators";
   moonmap.register({
@@ -26,3 +33,5 @@ register((moonmap) => {
     }
   });
 });
+
+export default ContextMenuActionCreators;

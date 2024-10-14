@@ -16,6 +16,8 @@ export declare abstract class Store<T> extends FluxStore<T> {
   static getAll: () => Store<any>[];
   getName: () => string;
   emitChange: () => void;
+  addChangeListener: (callback: () => void) => void;
+  removeChangeListener: (callback: () => void) => void;
 }
 
 interface ConnectStores {

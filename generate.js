@@ -14,11 +14,16 @@ const fs = require("fs");
 };*/
 
 const mappedTypes = {
+  "discord/actions/ContextMenuActionCreators": "ContextMenuActionCreators",
   "discord/Dispatcher": "_Dispatcher", // "Dispatcher" may be reserved in some scenarios
   "discord/components/common/index": "Components",
   "discord/modules/guild_settings/IntegrationCard.css": "IntegrationCardCSS",
   "discord/modules/markup/MarkupUtils": "MarkupUtils",
+  "discord/modules/user_settings/web/openUserSettings": "OpenUserSettings",
   "discord/packages/flux": "Flux",
+  "discord/utils/ClipboardUtils": "ClipboardUtils",
+  "discord/utils/HTTPUtils": "HTTPUtils",
+  "discord/utils/NativeUtils": "NativeUtils",
   "discord/uikit/Flex": "Flex",
   react: "React"
 };
@@ -85,7 +90,7 @@ function generateTypes() {
 function generateDeclares(prefix) {
   let str = "// auto-generated\n";
 
-  for (const path of OBject.keys(mappedTypes).sort()) {
+  for (const path of Object.keys(mappedTypes).sort()) {
     str += `declare module "${prefix}${path}" {\n`;
     str += `  import { MappedModules } from "@moonlight-mod/mappings";\n`;
     str += `  const _: MappedModules["${path}"];\n`;
