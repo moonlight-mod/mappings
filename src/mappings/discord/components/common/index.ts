@@ -639,19 +639,18 @@ export type Text = ComponentType<
 // #endregion
 
 // #region Menu
-// TODO: find others
-export type MenuVariant = "flexible";
-
 export type MenuSeparator = ComponentType<PropsWithoutRef<{}>>;
 export type MenuGroup = ComponentType<
   PropsWithChildren<{
     label?: ReactNode;
+    className?: string;
+    color?: string;
   }>
 >;
 
 export type MenuItemProps = {
   className?: string;
-  id: string;
+  id: any;
   navigatable?: boolean;
   render?: (props: MenuItemProps) => ReactNode;
   label: ReactNode;
@@ -691,7 +690,7 @@ export type MenuItem = ComponentType<PropsWithChildren<MenuItemProps>>;
 export type MenuCheckboxItem = ComponentType<
   PropsWithoutRef<{
     className?: string;
-    id: string;
+    id: any;
     color?: string;
     label: string;
     checked: boolean;
@@ -706,9 +705,9 @@ export type MenuCheckboxItem = ComponentType<
 
 export type MenuRadioItem = ComponentType<
   PropsWithoutRef<{
-    id: string;
-    color?: string;
+    id: any;
     label: string;
+    color?: string;
     checked: boolean;
     subtext?: string;
     disabled?: string;
@@ -737,12 +736,20 @@ export type Menu = ComponentType<
   PropsWithChildren<{
     className?: string;
     navId: string;
-    variant?: MenuVariant;
+    variant?: string;
     hideScroller?: boolean;
     onClose?: () => void;
     onSelect?: () => void;
   }>
 >;
+
+export type MenuElement =
+  | MenuSeparator
+  | MenuGroup
+  | MenuItem
+  | MenuCheckboxItem
+  | MenuRadioItem
+  | MenuControlItem;
 // #endregion
 
 export type TitleTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -947,6 +954,7 @@ type CommonComponents = {
   MenuRadioItem: MenuRadioItem;
   MenuCheckboxItem: MenuCheckboxItem;
   MenuControlItem: MenuControlItem;
+  MenuSeparator: MenuSeparator;
   SettingsNotice: React.ComponentType<{
     submitting: boolean;
     onReset: () => void;
