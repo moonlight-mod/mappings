@@ -4,7 +4,10 @@ import register from "../../../registry";
 type ContextMenuActionCreators = {
   closeContextMenu: () => void;
   // TODO: these have some extra args
-  openContextMenu: (event: Event, element: () => React.ReactNode) => void;
+  openContextMenu: (
+    event: React.SyntheticEvent,
+    element: () => React.ReactNode
+  ) => void;
   openContextMenuLazy: Function;
 };
 

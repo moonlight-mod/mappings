@@ -19,12 +19,16 @@ export type HTTPUtilsFunction = (
   data: HTTPUtilsRequest
 ) => Promise<HTTPUtilsResponse>;
 
-type HTTPUtils = {
+type HTTP = {
   get: HTTPUtilsFunction;
   post: HTTPUtilsFunction;
   put: HTTPUtilsFunction;
   patch: HTTPUtilsFunction;
   del: HTTPUtilsFunction;
+};
+
+type HTTPUtils = {
+  HTTP: HTTP;
 };
 
 register((moonmap) => {

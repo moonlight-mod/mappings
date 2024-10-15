@@ -14,58 +14,39 @@ import type {
 } from "react";
 import * as CSS from "csstype";
 
+type Modify<T, R> = Pick<T, Exclude<keyof T, keyof R>> & R;
+
 // #region TextInput
 export enum TextInputSizes {
   DEFAULT = "inputDefault",
   MINI = "inputMini"
 }
 
+export type TextInputProps = Modify<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  {
+    value?: string;
+    name?: string;
+    className?: string;
+    inputClassName?: string;
+    inputPrefix?: string;
+    disabled?: boolean;
+    size?: TextInputSizes;
+    editable?: boolean;
+    inputRef?: Ref<any>;
+    prefixElement?: Component;
+    focusProps?: PropsWithoutRef<any>;
+    error?: string;
+    minLength?: number;
+    maxLength?: number;
+    onChange?: (value: string, name: string) => void;
+    onFocus?: (event: any, name: string) => void;
+    onBlur?: (event: any, name: string) => void;
+  }
+>;
+
 export interface TextInput
-  extends ComponentClass<
-    PropsWithoutRef<{
-      value?: string;
-      name?: string;
-      className?: string;
-      inputClassName?: string;
-      inputPrefix?: string;
-      disabled?: boolean;
-      size?: TextInputSizes;
-      editable?: boolean;
-      inputRef?: Ref<any>;
-      prefixElement?: Component;
-      focusProps?: PropsWithoutRef<any>;
-      error?: string;
-      minLength?: number;
-      maxLength?: number;
-      onChange?: (value: string, name: string) => void;
-      onFocus?: (event: any, name: string) => void;
-      onBlur?: (event: any, name: string) => void;
-      // this is literally just the input element's type field
-      type?:
-        | "button"
-        | "checkbox"
-        | "color"
-        | "date"
-        | "datetime-local"
-        | "email"
-        | "file"
-        | "hidden"
-        | "image"
-        | "month"
-        | "number"
-        | "password"
-        | "radio"
-        | "range"
-        | "reset"
-        | "search"
-        | "submit"
-        | "tel"
-        | "text"
-        | "time"
-        | "url"
-        | "week";
-    }>
-  > {
+  extends ComponentClass<PropsWithoutRef<TextInputProps>> {
   Sizes: typeof TextInputSizes;
 }
 // #endregion
@@ -624,17 +605,22 @@ export type TextVariant =
   | "code";
 
 export type Text = ComponentType<
-  PropsWithChildren<{
-    className?: string;
-    style?: CSSProperties;
-    variant: TextVariant;
-    tag?: string;
-    selectable?: boolean;
-    lineClamp?: number;
-    color?: string;
-    tabularNumbers?: boolean;
-    scaleFontToUserSettings?: boolean;
-  }>
+  PropsWithChildren<
+    Modify<
+      React.HTMLAttributes<HTMLDivElement>,
+      {
+        className?: string;
+        style?: CSSProperties;
+        variant: TextVariant;
+        tag?: string;
+        selectable?: boolean;
+        lineClamp?: number;
+        color?: string;
+        tabularNumbers?: boolean;
+        scaleFontToUserSettings?: boolean;
+      }
+    >
+  >
 >;
 // #endregion
 
