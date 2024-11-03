@@ -1,10 +1,10 @@
 import register from "../../registry";
 
 register((moonmap) => {
-  const name = "discord/i18n";
+  const name = "discord/intl";
   moonmap.register({
     name,
-    find: ["getMessages:", "getLanguages:", ".jsona"],
+    find: ["formatToPlainString:"],
     process({ id }) {
       moonmap.addModule(id, name);
 

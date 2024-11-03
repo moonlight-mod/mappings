@@ -5,7 +5,7 @@ register((moonmap) => {
   const name = "discord/uikit/search/SearchBar";
   moonmap.register({
     name,
-    find: [".Messages.SEARCH,", ".small,"],
+    find: ["hideSearchIcon"],
     process({ id }) {
       moonmap.addModule(id, name);
 

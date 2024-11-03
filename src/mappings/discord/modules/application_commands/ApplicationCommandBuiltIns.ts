@@ -6,7 +6,7 @@ register((moonmap) => {
     "discord/modules/application_commands/ApplicationCommandBuiltIns";
   moonmap.register({
     name,
-    find: ".Messages.COMMAND_SECTION_BUILT_IN_NAME",
+    find: ["BUILT_IN,get name"],
     process({ id }) {
       moonmap.addModule(id, name);
 
