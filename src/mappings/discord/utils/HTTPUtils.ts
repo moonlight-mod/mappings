@@ -5,7 +5,7 @@ export type HTTPUtilsRequest = {
   url: string;
   query?: Record<string, string>;
   headers?: Record<string, string>;
-  body?: string;
+  body?: any;
 };
 
 export type HTTPUtilsResponse = {
@@ -13,6 +13,7 @@ export type HTTPUtilsResponse = {
   ok: boolean;
   status: number;
   text?: string;
+  body?: any;
 };
 
 export type HTTPUtilsFunction = (
