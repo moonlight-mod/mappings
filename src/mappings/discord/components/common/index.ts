@@ -978,6 +978,7 @@ type CommonComponents = {
     clearable?: boolean;
     value?: string;
     options?: SelectOption[];
+    placeholder?: React.ReactNode;
     onChange?: (value: string) => void;
   }>;
   Select: React.ComponentType<
