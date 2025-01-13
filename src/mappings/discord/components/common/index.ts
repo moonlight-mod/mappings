@@ -385,7 +385,7 @@ export enum TooltipColors {
 }
 
 type TooltipProps = {
-  text: string;
+  text: React.ReactNode;
   align?: LayerAlign;
   position?: LayerPosition;
   color?: TooltipColors;
@@ -410,7 +410,7 @@ type TooltipProps = {
 
 export type Tooltip = React.ComponentType<
   TooltipProps & {
-    children: ((props: any) => ReactNode) | ReactNode;
+    children: ((props: any) => React.ReactNode) | React.ReactNode;
   }
 > & {
   Colors: TooltipColors;
