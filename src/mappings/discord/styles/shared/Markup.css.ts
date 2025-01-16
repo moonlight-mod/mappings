@@ -1,6 +1,6 @@
 import register from "../../../../registry";
 
-type MarkupCSS = {
+type Exports = {
   markup: string;
   inlineFormat: string;
   codeContainer: string;
@@ -15,6 +15,7 @@ type MarkupCSS = {
   timestamp: string;
   timestampTooltip: string;
 };
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/styles/shared/Markup.css";
@@ -28,5 +29,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default MarkupCSS;

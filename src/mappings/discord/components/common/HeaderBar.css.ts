@@ -1,6 +1,6 @@
 import register from "../../../../registry";
 
-export type HeaderBarCSS = {
+type Exports = {
   caret: string;
   children: string;
   clickable: string;
@@ -23,6 +23,7 @@ export type HeaderBarCSS = {
   transparent: string;
   upperContainer: string;
 };
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/components/common/HeaderBar.css";
@@ -36,5 +37,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default HeaderBarCSS;

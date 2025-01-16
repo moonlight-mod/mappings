@@ -71,6 +71,11 @@ export type BaseHeaderBar = ComponentType<BaseHeaderBarProps> & {
   Caret: Caret;
 };
 
+type Exports = {
+  default: BaseHeaderBar;
+};
+export default Exports;
+
 register((moonmap) => {
   const name = "discord/components/common/BaseHeaderBar";
   moonmap.register({
@@ -92,5 +97,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default BaseHeaderBar;

@@ -16,6 +16,12 @@ export type ConfirmModalProps = {
   transitionState?: ModalTransitionState;
   titleClassName?: string;
 };
+export type ConfirmModal = ComponentType<ConfirmModalProps>;
+
+type Exports = {
+  default: ConfirmModal;
+};
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/components/modals/ConfirmModal";
@@ -29,6 +35,3 @@ register((moonmap) => {
     }
   });
 });
-
-type ConfirmModal = ComponentType<ConfirmModalProps>;
-export default ConfirmModal;

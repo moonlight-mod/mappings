@@ -25,6 +25,11 @@ export type MarkupUtils = {
   ) => ReactElement;
 };
 
+type Exports = {
+  default: MarkupUtils;
+};
+export default Exports;
+
 register((moonmap) => {
   const name = "discord/modules/markup/MarkupUtils";
   moonmap.register({
@@ -37,5 +42,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default MarkupUtils;

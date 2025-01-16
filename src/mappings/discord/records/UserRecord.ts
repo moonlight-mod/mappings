@@ -1,5 +1,5 @@
 import register from "../../../registry";
-import BaseRecord from "../lib/BaseRecord";
+import { BaseRecord } from "../lib/BaseRecord";
 import { UserFlags } from "../Constants";
 
 interface AvatarDecorationData {
@@ -45,11 +45,7 @@ declare class UserRecord extends BaseRecord {
 
   get createdAt(): Date;
   hasVerifiedEmailOrPhone(): boolean;
-  getAvatarURL(
-    guildId: string | undefined,
-    size: number,
-    canAnimate?: boolean
-  ): string | undefined;
+  getAvatarURL(guildId: string | undefined, size: number, canAnimate?: boolean): string | undefined;
   addGuildAvatarHash(guildId: string, hash: string): this;
   removeGuildAvatarHash(guildId: string): this;
   getAvatarSource(guildId: string | undefined): { uri: string } | undefined;
@@ -75,6 +71,11 @@ declare class UserRecord extends BaseRecord {
   set avatarDecoration(value: AvatarDecorationData | null);
 }
 
+type Exports = {
+  default: UserRecord;
+};
+export default Exports;
+
 register((moonmap) => {
   const name = "discord/records/UserRecord";
   moonmap.register({
@@ -87,5 +88,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default UserRecord;

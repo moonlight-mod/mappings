@@ -4,6 +4,11 @@ type OpenUserSettings = {
   open: (section: string, index?: number, unk?: any) => void;
 };
 
+type Exports = {
+  default: OpenUserSettings;
+};
+export default Exports;
+
 register((moonmap) => {
   const name = "discord/modules/user_settings/web/openUserSettings";
   moonmap.register({
@@ -16,5 +21,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default OpenUserSettings;

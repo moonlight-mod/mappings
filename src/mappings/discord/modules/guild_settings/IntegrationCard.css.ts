@@ -1,9 +1,10 @@
 import register from "../../../../registry";
 
-export type IntegrationCardCSS = {
+type Exports = {
   card: string;
   cardHeader: string;
 };
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/modules/guild_settings/IntegrationCard.css";
@@ -21,5 +22,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default IntegrationCardCSS;

@@ -1,6 +1,6 @@
 import register from "../../../../../registry";
 
-export type DiscoveryCSS = {
+type Exports = {
   header: string;
   headerImage: string;
   headerImageSimple: string;
@@ -18,6 +18,7 @@ export type DiscoveryCSS = {
   tabBarItem: string;
   sectionHeader: string;
 };
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/modules/discovery/web/Discovery.css";
@@ -31,5 +32,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default DiscoveryCSS;

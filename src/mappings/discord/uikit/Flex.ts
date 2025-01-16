@@ -1,12 +1,6 @@
-import { ModuleExportType } from "@moonlight-mod/moonmap";
 import register from "../../../registry";
 
-import {
-  Component,
-  ComponentClass,
-  CSSProperties,
-  PropsWithChildren
-} from "react";
+import { Component, ComponentClass, CSSProperties, PropsWithChildren } from "react";
 import * as CSS from "csstype";
 
 export enum FlexDirection {
@@ -64,6 +58,11 @@ export interface Flex
   >;
 }
 
+type Exports = {
+  default: Flex;
+};
+export default Exports;
+
 register((moonmap) => {
   const name = "discord/uikit/Flex";
   moonmap.register({
@@ -76,5 +75,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default Flex;

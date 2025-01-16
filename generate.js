@@ -1,11 +1,11 @@
-const fs = require("fs");
+const fs = require("node:fs");
+const path = require("node:path");
 const ts = require("typescript");
 
 const mappedTypes = {
   "discord/actions/ContextMenuActionCreators": "ContextMenuActionCreators",
   "discord/actions/UserSettingsModalActionCreators": "UserSettingsModalActionCreators",
   "discord/components/common/BaseHeaderBar": "BaseHeaderBar",
-  "discord/components/common/Breadcrumbs.css": "BreadcrumbsCSS",
   "discord/components/common/FormSwitch.css": "FormSwitchCSS",
   "discord/components/common/HeaderBar.css": "HeaderBarCSS",
   "discord/components/common/HelpMessage.css": "HelpMessageCSS",
@@ -38,20 +38,20 @@ const mappedTypes = {
 
 const write = process.argv.includes("--write");
 
-/*function getPaths() {
+function getPaths() {
   const paths = fs.readdirSync("src/mappings", { recursive: true });
   const out = [];
 
-  for (const path of paths) {
-    if (!path.endsWith(".ts")) continue;
-
-    out.push(path.replace(".ts", "").replaceAll("\\", "/"));
+  for (const filePath of paths) {
+    if (!filePath.endsWith(".ts")) continue;
+    if (path.basename(filePath).startsWith("_")) continue;
+    out.push(filePath.replace(".ts", "").replaceAll("\\", "/"));
   }
 
   return out.sort();
-}*/
+}
 
-/*function generateImports() {
+function generateImports() {
   let str = "// auto-generated\n";
 
   for (const path of getPaths()) {
@@ -63,7 +63,7 @@ const write = process.argv.includes("--write");
   } else {
     console.log(str);
   }
-}*/
+}
 
 function generateTypes() {
   const paths = Object.keys(mappedTypes).sort();
@@ -111,13 +111,19 @@ function generateDeclares(prefix) {
     const typeChecker = program.getTypeChecker();
     const alias = source.statements.find((s) => ts.isTypeAliasDeclaration(s) && s.name.getText(source) === "Exports");
     const type = typeChecker.getTypeAtLocation(alias);
-    for (const property of type.getProperties()) {
-      const name = property.getName();
-      if (name === "default") {
-        str += `  const _default: MappedModules["${path}"]["default"];\n`;
-        str += `  export default _default;\n`;
-      } else {
-        str += `  export const ${name}: MappedModules["${path}"]["${name}"];\n`;
+    const properties = type.getProperties().map((p) => p.getName());
+
+    if (properties.some((s) => s === "__mappings_exportEquals")) {
+      str += `  const _: Omit<MappedModules["${path}"], "__mappings_exportEquals">;\n`;
+      str += `  export = _;\n`;
+    } else {
+      for (const name of properties) {
+        if (name === "default") {
+          str += `  const _default: MappedModules["${path}"]["default"];\n`;
+          str += `  export default _default;\n`;
+        } else {
+          str += `  export const ${name}: MappedModules["${path}"]["${name}"];\n`;
+        }
       }
     }
 
@@ -130,11 +136,9 @@ function generateDeclares(prefix) {
 const command = process.argv.length > 2 ? process.argv[2] : null;
 
 switch (command) {
-  // "do not use the imports argument that's for when we finish every type (imports file loads every single module to register them, right now it'd only register the ones with types and break 90% of it)"
-  // "it should probably just be removed tbh, since we aren't gonna type every module"
-  /*case "imports":
+  case "imports":
     generateImports();
-    break;*/
+    break;
 
   case "types":
     generateTypes();
@@ -145,6 +149,6 @@ switch (command) {
     break;
 
   default:
-    console.error(`Usage: node generate.js <types|declares>`);
+    console.error(`Usage: node generate.js <imports|types|declares>`);
     break;
 }

@@ -1,6 +1,6 @@
 import register from "../../../../../registry";
 
-type BuildOverrideCSS = {
+type Exports = {
   wrapper: string;
   titleRegion: string;
   title: string;
@@ -21,6 +21,7 @@ type BuildOverrideCSS = {
   buttonLoader: string;
   disabledButtonOverride: string;
 };
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/modules/build_overrides/web/BuildOverride.css";
@@ -34,5 +35,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default BuildOverrideCSS;

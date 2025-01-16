@@ -953,7 +953,7 @@ type UntypedFunctions = Record<FunctionNames, any>;
 
 // TODO: wtaf is up with react types not working in jsx
 // FIXME: tsc doesnt see [index: string]: any;
-type CommonComponents = IconComponents &
+type Exports = IconComponents &
   UntypedComponents &
   UntypedFunctions &
   UnsortedComponentTypes &
@@ -1281,6 +1281,7 @@ type CommonComponents = IconComponents &
     closeModal: (id: string) => void;
     useModalsStore: any;
   };
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/components/common/index";
@@ -1294,5 +1295,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default CommonComponents;

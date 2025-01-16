@@ -1,6 +1,6 @@
 import register from "../../../../registry";
 
-type HelpMessageCSS = {
+type Exports = {
   container: string;
   icon: string;
   iconDiv: string;
@@ -10,6 +10,7 @@ type HelpMessageCSS = {
   info: string;
   error: string;
 };
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/components/common/HelpMessage.css";
@@ -23,5 +24,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default HelpMessageCSS;
