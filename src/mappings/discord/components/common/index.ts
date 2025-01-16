@@ -20,14 +20,7 @@ import { FunctionNames, ComponentNames, IconNames } from "./_indexNames";
 type Modify<T, R> = Pick<T, Exclude<keyof T, keyof R>> & R;
 
 // #region Icons
-export type IconSize =
-  | "xxs"
-  | "xs"
-  | "sm"
-  | "md"
-  | "lg"
-  | "custom"
-  | "refresh_sm";
+export type IconSize = "xxs" | "xs" | "sm" | "md" | "lg" | "custom" | "refresh_sm";
 
 export type IconProps = {
   size?: IconSize;
@@ -70,8 +63,7 @@ export type TextInputProps = Modify<
   }
 >;
 
-export interface TextInput
-  extends ComponentClass<PropsWithoutRef<TextInputProps>> {
+export interface TextInput extends ComponentClass<PropsWithoutRef<TextInputProps>> {
   Sizes: typeof TextInputSizes;
 }
 // #endregion
@@ -367,10 +359,7 @@ export type SelectInteraction = {
   updated?: Set<SelectOption>;
 };
 
-export type SelectInteractionCallback = (
-  newValue: SelectOption,
-  oldValue: SelectOption
-) => SelectInteraction;
+export type SelectInteractionCallback = (newValue: SelectOption, oldValue: SelectOption) => SelectInteraction;
 
 export type SelectProps = {
   value: Set<string>;
@@ -397,13 +386,7 @@ export type ModalCallback = (props: ModalProps) => React.ReactNode;
 // #endregion
 
 // #region Tooltip
-export type LayerPosition =
-  | "top"
-  | "bottom"
-  | "left"
-  | "right"
-  | "center"
-  | "window_center";
+export type LayerPosition = "top" | "bottom" | "left" | "right" | "center" | "window_center";
 export type LayerAlign = "top" | "bottom" | "center";
 
 export enum TooltipColors {
@@ -762,13 +745,7 @@ export type Menu = ComponentType<
   }>
 >;
 
-export type MenuElement =
-  | MenuSeparator
-  | MenuGroup
-  | MenuItem
-  | MenuCheckboxItem
-  | MenuRadioItem
-  | MenuControlItem;
+export type MenuElement = MenuSeparator | MenuGroup | MenuItem | MenuCheckboxItem | MenuRadioItem | MenuControlItem;
 // #endregion
 
 // #startregion Unsorted
@@ -1139,13 +1116,7 @@ type CommonComponents = IconComponents &
         position?: string;
         onRequestOpen?: () => void;
         onRequestClose?: () => void;
-        align?:
-          | "top"
-          | "bottom"
-          | "left"
-          | "right"
-          | "center"
-          | "window_center";
+        align?: "top" | "bottom" | "left" | "right" | "center" | "window_center";
         autoInvert?: boolean;
         fixed?: boolean;
         nudgeAlignIntoViewport?: boolean;
@@ -1192,7 +1163,6 @@ type CommonComponents = IconComponents &
         style?: CSSProperties;
         "aria-label"?: string;
         orientation?: "horizontal" | "vertical";
-
         selectedItem: any;
         onItemSelect: (id: any) => void;
         look?: string;
@@ -1266,10 +1236,7 @@ type CommonComponents = IconComponents &
       PropsWithChildren<{
         activeId: string;
         breadcrumbs: Breadcrumb[];
-        renderCustomBreadcrumb?: (
-          breadcrumb: Breadcrumb,
-          last: boolean
-        ) => ReactNode;
+        renderCustomBreadcrumb?: (breadcrumb: Breadcrumb, last: boolean) => ReactNode;
         onBreadcrumbClick?: (breadcrumb: Breadcrumb) => void;
         className?: string;
         separatorClassName?: string;

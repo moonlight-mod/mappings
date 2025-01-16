@@ -23,6 +23,7 @@ const mappedTypes = {
   "discord/utils/ClipboardUtils": "ClipboardUtils",
   "discord/utils/HTTPUtils": "HTTPUtils",
   "discord/utils/NativeUtils": "NativeUtils",
+  "discord/styles/shared/Margins.css": "MarginsCSS",
   "discord/uikit/Flex": "Flex",
   "ctrl/tinycolor": "TinyColor",
   classnames: "classNames",
@@ -108,10 +109,7 @@ function generateDeclares(prefix) {
     });
     const source = program.getSourceFile(sourcePath);
     const typeChecker = program.getTypeChecker();
-    const alias = source.statements.find(
-      (s) =>
-        ts.isTypeAliasDeclaration(s) && s.name.getText(source) === "Exports"
-    );
+    const alias = source.statements.find((s) => ts.isTypeAliasDeclaration(s) && s.name.getText(source) === "Exports");
     const type = typeChecker.getTypeAtLocation(alias);
     for (const property of type.getProperties()) {
       const name = property.getName();
