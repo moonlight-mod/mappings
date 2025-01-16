@@ -3,7 +3,6 @@ import register from "../../../registry";
 
 import { DependencyList } from "react";
 import { Store as FluxStore } from "flux/utils";
-import { Dispatcher as FluxDispatcher } from "flux";
 import { ComponentConstructor } from "flux/lib/FluxContainer";
 
 /*
@@ -12,7 +11,62 @@ import { ComponentConstructor } from "flux/lib/FluxContainer";
   edges, please contribute!
 */
 
-export declare abstract class Store<T> extends FluxStore<T> {
+export type BasePayload = {
+  type: string;
+};
+export type Interceptor<T extends BasePayload> = (payload: T) => boolean;
+export type Listener<T extends BasePayload> = (payload: T) => void;
+
+export type ActionHandler = {
+	name: string;
+	band?: string;
+	actionHandler: any;
+	storeDidChange(): void;
+}
+
+export declare class DepGraph<T> {
+	nodes: Record<string, T>;
+	outgoingEdges: Record<string, T>;
+	incomingEdges: Record<string, T>;
+	circular: boolean;
+
+	size(): number;
+	addNode(id: string, node: T): void;
+	removeNode(id: string): void;
+	hasNode(id: string): boolean;
+	getNodeData(id: string): T;
+	setNodeData(id: string, node: T): void;
+	addDependency(outgoing: T, incoming: T): boolean;
+	removeDependency(outgoing: T, incoming: T): void;
+	clone(): DepGraph<T>;
+	dependenciesOf(node1: T, node2: T): T[];
+	dependantsOf(node1: T, node2: T): T[];
+	overallOrder(node: T): T[];
+
+	constructor(toClone?: DepGraph<T>);
+}
+
+export declare class ActionHandlers {
+	_orderedActionHandlers: Record<string, ActionHandler>;
+	_orderedCallbackTokens: any | null; // TODO
+	_lastID: number;
+	_dependencyGraph: DepGraph<ActionHandler>;
+
+	getOrderedActionHandlers(type: string): Record<string, ActionHandler>;
+  register(name: string, )
+}
+
+declare class Dispatcher<T extends BasePayload> {
+	_defaultBand: number;
+	_interceptors: Interceptor<T>[];
+	_subscriptions: Record<string, Listener<T>>;
+	_waitQueue: T[];
+	_processingWaitQueue: boolean;
+	_currentDispatchActionType: string | null;
+	_actionHandlers:
+}
+
+declare abstract class Store<T> extends FluxStore<T> {
   static getAll: () => Store<any>[];
   getName: () => string;
   emitChange: () => void;
@@ -21,28 +75,8 @@ export declare abstract class Store<T> extends FluxStore<T> {
 }
 
 interface ConnectStores {
-  <T>(
-    stores: Store<any>[],
-    callback: T,
-    context?: any
-  ): ComponentConstructor<T>;
+  <T>(stores: Store<any>[], callback: T, context?: any): ComponentConstructor<T>;
 }
-
-type Flux = {
-  DeviceSettingsStore: any; // TODO
-  Emitter: any; // @types/fbemitter
-  OfflineCacheStore: any; // TODO
-  PersistedStore: any; // TODO
-  Store: typeof Store;
-  Dispatcher: typeof FluxDispatcher;
-  connectStores: ConnectStores;
-  initialize: () => void;
-  initialized: Promise<boolean>;
-  destroy: () => void;
-  useStateFromStores: UseStateFromStores;
-  useStateFromStoresArray: UseStateFromStoresArray;
-  useStateFromStoresObject: UseStateFromStoresObject;
-};
 
 interface UseStateFromStores {
   <T>(
@@ -60,6 +94,40 @@ interface UseStateFromStoresArray {
 interface UseStateFromStoresObject {
   <T>(stores: Store<any>[], callback: () => T, deps?: DependencyList): T;
 }
+
+type Flux = {
+  DeviceSettingsStore: any; // TODO
+  Emitter: any; // @types/fbemitter
+  OfflineCacheStore: any; // TODO
+  PersistedStore: any; // TODO
+  Store: typeof Store;
+  Dispatcher: typeof Dispatcher;
+  connectStores: ConnectStores;
+  initialize: () => void;
+  initialized: Promise<boolean>;
+  destroy: () => void;
+  useStateFromStores: UseStateFromStores;
+  useStateFromStoresArray: UseStateFromStoresArray;
+  useStateFromStoresObject: UseStateFromStoresObject;
+};
+
+declare class BatchedStoreListener {
+  stores: Store<any>[];
+  changeCallback(): void;
+  storeVersionHandled: number;
+  handleStoreChange(): void;
+
+  attach(name: string): void;
+  detatch(): void;
+
+  constructor(stores: Store<any>[], changeCallback: () => void);
+}
+
+export type Exports = {
+  BatchedStoreListener: BatchedStoreListener;
+  default: Flux;
+};
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/packages/flux";
@@ -102,5 +170,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default Flux;

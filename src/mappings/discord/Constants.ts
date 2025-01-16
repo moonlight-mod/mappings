@@ -1,6 +1,32 @@
 import { ModuleExportType } from "@moonlight-mod/moonmap";
 import register from "../../registry";
 
+export enum UserFlags {
+  STAFF = 1 << 0,
+  PARTNER = 1 << 1,
+  HYPESQUAD = 1 << 2,
+  BUG_HUNTER_LEVEL_1 = 1 << 3,
+  MFA_SMS = 1 << 4,
+  PREMIUM_PROMO_DISMISSED = 1 << 5,
+  HYPESQUAD_ONLINE_HOUSE_1 = 1 << 6,
+  HYPESQUAD_ONLINE_HOUSE_2 = 1 << 7,
+  HYPESQUAD_ONLINE_HOUSE_3 = 1 << 8,
+  PREMIUM_EARLY_SUPPORTER = 1 << 9,
+  HAS_UNREAD_URGENT_MESSAGES = 1 << 13,
+  BUG_HUNTER_LEVEL_2 = 1 << 14,
+  VERIFIED_BOT = 1 << 16,
+  VERIFIED_DEVELOPER = 1 << 17,
+  CERTIFIED_MODERATOR = 1 << 18,
+  BOT_HTTP_INTERACTIONS = 1 << 19,
+  SPAMMER = 1 << 20,
+  DISABLE_PREMIUM = 1 << 21,
+  ACTIVE_DEVELOPER = 1 << 22,
+  PROVISIONAL_ACCOUNT = 1 << 23,
+  QUARANTINED = 17592186044416, // 1 << 44
+  COLLABORATOR = 0x4000000000000, // 1 << 50
+  RESTRICTED_COLLABORATOR = 0x8000000000000 // 1 << 51
+}
+
 register((moonmap) => {
   const name = "discord/Constants";
   moonmap.register({
