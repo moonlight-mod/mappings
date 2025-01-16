@@ -1,22 +1,21 @@
 const fs = require("fs");
-
-/*const typeNames = {
-  "chroma-js": "chroma",
-  "discord/Dispatcher": "_Dispatcher", // "Dispatcher" may be reserved in some scenarios
-  "discord/components/common/index": "Components",
-  "discord/packages/flux": "Flux",
-  "highlight.js": "HighlightJS",
-  "highlight.js/lib/core": "HighlightJSCore",
-  "platform.js": "platformjs",
-  react: "React",
-  "simple-markdown": "SimpleMarkdown",
-  "uuid/v4": "UUIDv4"
-};*/
+const ts = require("typescript");
 
 const mappedTypes = {
   "discord/actions/ContextMenuActionCreators": "ContextMenuActionCreators",
-  "discord/Dispatcher": "_Dispatcher", // "Dispatcher" may be reserved in some scenarios
+  "discord/actions/UserSettingsModalActionCreators": "UserSettingsModalActionCreators",
+  "discord/components/common/BaseHeaderBar": "BaseHeaderBar",
+  "discord/components/common/Breadcrumbs.css": "BreadcrumbsCSS",
+  "discord/components/common/FormSwitch.css": "FormSwitchCSS",
+  "discord/components/common/HeaderBar.css": "HeaderBarCSS",
+  "discord/components/common/HelpMessage.css": "HelpMessageCSS",
   "discord/components/common/index": "Components",
+  "discord/components/common/PanelButton": "PanelButton",
+  "discord/components/modals/ConfirmModal": "ConfirmModal",
+  "discord/Constants": "Constants",
+  "discord/Dispatcher": "_Dispatcher", // "Dispatcher" may be reserved in some scenarios
+  "discord/lib/BaseRecord": "BaseRecord",
+  "discord/lib/web/Storage": "Storage",
   "discord/modules/guild_settings/IntegrationCard.css": "IntegrationCardCSS",
   "discord/modules/markup/MarkupUtils": "MarkupUtils",
   "discord/modules/user_settings/web/openUserSettings": "OpenUserSettings",
@@ -25,7 +24,15 @@ const mappedTypes = {
   "discord/utils/HTTPUtils": "HTTPUtils",
   "discord/utils/NativeUtils": "NativeUtils",
   "discord/uikit/Flex": "Flex",
-  react: "React"
+  "ctrl/tinycolor": "TinyColor",
+  classnames: "classNames",
+  "chroma-js": "ChromaJS",
+  "highlight.js": "HighlightJS",
+  lodash: "lodash",
+  murmurhash: "murmurhash",
+  "platform.js": "PlatformJS",
+  react: "React",
+  "uuid/v4": "UUID"
 };
 
 const write = process.argv.includes("--write");
@@ -77,8 +84,7 @@ function generateTypes() {
   }
   str += "};\n\n";
 
-  str +=
-    "export declare function WebpackRequire<T extends keyof MappedModules>(\n  module: T\n): MappedModules[T];\n";
+  str += "export declare function WebpackRequire<T extends keyof MappedModules>(\n  module: T\n): MappedModules[T];\n";
 
   if (write) {
     fs.writeFileSync("src/types.ts", str);
@@ -93,8 +99,30 @@ function generateDeclares(prefix) {
   for (const path of Object.keys(mappedTypes).sort()) {
     str += `declare module "${prefix}${path}" {\n`;
     str += `  import { MappedModules } from "@moonlight-mod/mappings";\n`;
-    str += `  const _: MappedModules["${path}"];\n`;
-    str += `  export = _;\n`;
+
+    const sourcePath = "./src/mappings/" + path + ".ts";
+    const program = ts.createProgram([sourcePath], {
+      target: ts.ScriptTarget.ES2022,
+      module: ts.ScriptTarget.ES2022,
+      noEmit: true
+    });
+    const source = program.getSourceFile(sourcePath);
+    const typeChecker = program.getTypeChecker();
+    const alias = source.statements.find(
+      (s) =>
+        ts.isTypeAliasDeclaration(s) && s.name.getText(source) === "Exports"
+    );
+    const type = typeChecker.getTypeAtLocation(alias);
+    for (const property of type.getProperties()) {
+      const name = property.getName();
+      if (name === "default") {
+        str += `  const _default: MappedModules["${path}"]["default"];\n`;
+        str += `  export default _default;\n`;
+      } else {
+        str += `  export const ${name}: MappedModules["${path}"]["${name}"];\n`;
+      }
+    }
+
     str += `}\n\n`;
   }
 
