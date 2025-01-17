@@ -2,6 +2,13 @@
 // the 2017 path is components/contextmenus
 import { ModuleExportType } from "@moonlight-mod/moonmap";
 import register from "../../../../../registry";
+import type { Menu } from "../../../components/common/index";
+
+type Exports = {
+  MenuSpinner: React.ComponentType<{}>;
+  Menu: Menu;
+};
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/modules/menus/web/Menu";

@@ -18,7 +18,7 @@ type Exports = {
 export default Exports;
 
 register((moonmap) => {
-  const name = "discord/styles/shared/Markup.css";
+  const name = "discord/modules/markup/Markup.css";
   moonmap.register({
     name,
     find: ["markup:", "inlineFormat:"],

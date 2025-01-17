@@ -1,5 +1,8 @@
 import register from "../registry";
 
+type Exports = typeof import("chroma-js");
+export default Exports;
+
 register((moonmap) => {
   const name = "chroma-js";
   moonmap.register({

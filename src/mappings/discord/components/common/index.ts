@@ -735,16 +735,16 @@ export type MenuControlItem = ComponentType<
   }>
 >;
 
-export type Menu = ComponentType<
-  PropsWithChildren<{
-    className?: string;
-    navId: string;
-    variant?: string;
-    hideScroller?: boolean;
-    onClose?: () => void;
-    onSelect?: () => void;
-  }>
->;
+export type MenuProps = {
+  className?: string;
+  navId: string;
+  variant?: string;
+  hideScroller?: boolean;
+  onClose?: () => void;
+  onSelect?: () => void;
+};
+
+export type Menu = ComponentType<PropsWithChildren<MenuProps>>;
 
 export type MenuElement = MenuSeparator | MenuGroup | MenuItem | MenuCheckboxItem | MenuRadioItem | MenuControlItem;
 // #endregion
