@@ -14,7 +14,12 @@ export declare class ActionLog {
   error: Error | null;
 
   get name(): string;
-  toJSON(): { actionType: string; created_at: Date; totalTime: number; traces: LogTrace[] };
+  toJSON(): {
+    actionType: string;
+    created_at: Date;
+    totalTime: number;
+    traces: LogTrace[];
+  };
 
   constructor(action: string);
 }
@@ -24,7 +29,9 @@ export declare class ActionLogger {
 
   log(type: string, value: any): ActionLog; // TODO: this function is a mess to decipher as its like a stack of 3 function calls for the parameter
   getSlowestActions(type: string): ActionLog[];
-  getLastActionMetrics(type: string): [traceName: string, name: string, time: number][];
+  getLastActionMetrics(
+    type: string
+  ): [traceName: string, name: string, time: number][];
 
   constructor(options: { persist: boolean });
 }

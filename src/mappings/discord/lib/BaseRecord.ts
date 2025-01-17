@@ -4,7 +4,11 @@ export declare class BaseRecord {
   toJS(): this;
   set(key: string, value: unknown): this;
   merge(record: this): this;
-  update(key: string, defaultValue: unknown, reducer: (value: unknown) => unknown): this;
+  update(
+    key: string,
+    defaultValue: unknown,
+    reducer: (value: unknown) => unknown
+  ): this;
   update(key: string, reducer: (value: unknown) => unknown): this;
 }
 

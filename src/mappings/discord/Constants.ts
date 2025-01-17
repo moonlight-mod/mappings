@@ -27,6 +27,10 @@ export enum UserFlags {
   RESTRICTED_COLLABORATOR = 0x8000000000000 // 1 << 51
 }
 
+// TODO
+type Exports = {};
+export default Exports;
+
 register((moonmap) => {
   const name = "discord/Constants";
   moonmap.register({

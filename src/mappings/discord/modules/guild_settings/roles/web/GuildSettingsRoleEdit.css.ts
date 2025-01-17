@@ -19,7 +19,8 @@ type Exports = {
 export default Exports;
 
 register((moonmap) => {
-  const name = "discord/modules/guild_settings/roles/web/GuildSettingsRoleEdit.css";
+  const name =
+    "discord/modules/guild_settings/roles/web/GuildSettingsRoleEdit.css";
   moonmap.register({
     name,
     find: "removeButtonContainer:",

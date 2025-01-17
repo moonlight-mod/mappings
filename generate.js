@@ -4,7 +4,8 @@ const ts = require("typescript");
 
 const mappedTypes = {
   "discord/actions/ContextMenuActionCreators": "ContextMenuActionCreators",
-  "discord/actions/UserSettingsModalActionCreators": "UserSettingsModalActionCreators",
+  "discord/actions/UserSettingsModalActionCreators":
+    "UserSettingsModalActionCreators",
   "discord/components/common/Alerts": "Alerts",
   "discord/components/common/BaseHeaderBar": "BaseHeaderBar",
   "discord/components/common/FileUpload": "FileUpload",
@@ -26,18 +27,20 @@ const mappedTypes = {
   "discord/modules/forums/web/SortMenu.css": "ForumSortMenuCSS",
   "discord/modules/forums/web/Tag": "ForumTag",
   "discord/modules/guild_settings/IntegrationCard.css": "IntegrationCardCSS",
-  "discord/modules/guild_settings/roles/web/GuildSettingsRoleEdit.css": "GuildSettingsRoleEditCSS",
+  "discord/modules/guild_settings/roles/web/GuildSettingsRoleEdit.css":
+    "GuildSettingsRoleEditCSS",
   "discord/modules/guild_settings/web/AppCard.css": "AppCardCSS",
   "discord/modules/guild_settings/web/AppCardItem.css": "AppCardItemCSS",
-  "discord/modules/guild_settings/web/SearchSection.css": "GuildSettingsSearchSectionCSS",
+  "discord/modules/guild_settings/web/SearchSection.css":
+    "GuildSettingsSearchSectionCSS",
   "discord/modules/markup/MarkupUtils": "MarkupUtils",
   "discord/modules/menus/web/Menu": "Menu",
   "discord/modules/oauth2/index": "Oauth2",
-  "discord/modules/user_settings/web/openUserSettings": "OpenUserSettings",
   "discord/modules/messages/web/Markup.css": "MarkupCSS",
   "discord/modules/messages/web/Message.css": "MessageCSS",
   "discord/modules/people/web/PeoplePage.css": "PeoplePageCSS",
-  "discord/modules/user_profile/web/BiteSizeActivity.css": "ByteSizeActivityCSS",
+  "discord/modules/user_profile/web/BiteSizeActivity.css":
+    "ByteSizeActivityCSS",
   "discord/packages/flux": "Flux",
   "discord/utils/ClipboardUtils": "ClipboardUtils",
   "discord/utils/HTTPUtils": "HTTPUtils",
@@ -104,7 +107,8 @@ function generateTypes() {
   }
   str += "};\n\n";
 
-  str += "export declare function WebpackRequire<T extends keyof MappedModules>(\n  module: T\n): MappedModules[T];\n";
+  str +=
+    "export declare function WebpackRequire<T extends keyof MappedModules>(\n  module: T\n): MappedModules[T];\n";
 
   if (write) {
     fs.writeFileSync("src/types.ts", str);
@@ -120,7 +124,9 @@ function generateDeclares(prefix) {
     str += `declare module "${prefix}${path}" {\n`;
     str += `  import { MappedModules } from "@moonlight-mod/mappings";\n`;
 
-    const sourcePath = "./src/mappings/" + path + ".ts";
+    let sourcePath = "./src/mappings/" + path + ".ts";
+    if (!fs.existsSync(sourcePath))
+      sourcePath = "./src/mappings/" + path + "/index.ts";
     const program = ts.createProgram([sourcePath], {
       target: ts.ScriptTarget.ES2022,
       module: ts.ScriptTarget.ES2022,
@@ -128,7 +134,10 @@ function generateDeclares(prefix) {
     });
     const source = program.getSourceFile(sourcePath);
     const typeChecker = program.getTypeChecker();
-    const alias = source.statements.find((s) => ts.isTypeAliasDeclaration(s) && s.name.getText(source) === "Exports");
+    const alias = source.statements.find(
+      (s) =>
+        ts.isTypeAliasDeclaration(s) && s.name.getText(source) === "Exports"
+    );
     const type = typeChecker.getTypeAtLocation(alias);
     const properties = type.getProperties().map((p) => p.getName());
 
@@ -141,6 +150,9 @@ function generateDeclares(prefix) {
           str += `  const _default: MappedModules["${path}"]["default"];\n`;
           str += `  export default _default;\n`;
         } else {
+          // :(
+          if (name.includes("-")) continue;
+
           str += `  export const ${name}: MappedModules["${path}"]["${name}"];\n`;
         }
       }

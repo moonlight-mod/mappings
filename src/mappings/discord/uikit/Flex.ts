@@ -1,6 +1,11 @@
 import register from "../../../registry";
 
-import { Component, ComponentClass, CSSProperties, PropsWithChildren } from "react";
+import {
+  Component,
+  ComponentClass,
+  CSSProperties,
+  PropsWithChildren
+} from "react";
 import * as CSS from "csstype";
 
 export enum FlexDirection {
