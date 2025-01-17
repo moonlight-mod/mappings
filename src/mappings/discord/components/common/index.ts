@@ -20,14 +20,7 @@ import { FunctionNames, ComponentNames, IconNames } from "./_indexNames";
 type Modify<T, R> = Pick<T, Exclude<keyof T, keyof R>> & R;
 
 // #region Icons
-export type IconSize =
-  | "xxs"
-  | "xs"
-  | "sm"
-  | "md"
-  | "lg"
-  | "custom"
-  | "refresh_sm";
+export type IconSize = "xxs" | "xs" | "sm" | "md" | "lg" | "custom" | "refresh_sm";
 
 export type IconProps = {
   size?: IconSize;
@@ -70,8 +63,7 @@ export type TextInputProps = Modify<
   }
 >;
 
-export interface TextInput
-  extends ComponentClass<PropsWithoutRef<TextInputProps>> {
+export interface TextInput extends ComponentClass<PropsWithoutRef<TextInputProps>> {
   Sizes: typeof TextInputSizes;
 }
 // #endregion
@@ -144,7 +136,7 @@ interface FormText
       style?: CSSProperties;
     }>
   > {
-  Types: FormTextTypes;
+  Types: typeof FormTextTypes;
 }
 // #endregion
 
@@ -367,10 +359,7 @@ export type SelectInteraction = {
   updated?: Set<SelectOption>;
 };
 
-export type SelectInteractionCallback = (
-  newValue: SelectOption,
-  oldValue: SelectOption
-) => SelectInteraction;
+export type SelectInteractionCallback = (newValue: SelectOption, oldValue: SelectOption) => SelectInteraction;
 
 export type SelectProps = {
   value: Set<string>;
@@ -391,19 +380,14 @@ export enum ModalTransitionState {
 
 export type ModalProps = PropsWithoutRef<{
   transitionState?: ModalTransitionState;
+  onClose: () => void;
 }>;
 
 export type ModalCallback = (props: ModalProps) => React.ReactNode;
 // #endregion
 
 // #region Tooltip
-export type LayerPosition =
-  | "top"
-  | "bottom"
-  | "left"
-  | "right"
-  | "center"
-  | "window_center";
+export type LayerPosition = "top" | "bottom" | "left" | "right" | "center" | "window_center";
 export type LayerAlign = "top" | "bottom" | "center";
 
 export enum TooltipColors {
@@ -751,24 +735,18 @@ export type MenuControlItem = ComponentType<
   }>
 >;
 
-export type Menu = ComponentType<
-  PropsWithChildren<{
-    className?: string;
-    navId: string;
-    variant?: string;
-    hideScroller?: boolean;
-    onClose?: () => void;
-    onSelect?: () => void;
-  }>
->;
+export type MenuProps = {
+  className?: string;
+  navId: string;
+  variant?: string;
+  hideScroller?: boolean;
+  onClose?: () => void;
+  onSelect?: () => void;
+};
 
-export type MenuElement =
-  | MenuSeparator
-  | MenuGroup
-  | MenuItem
-  | MenuCheckboxItem
-  | MenuRadioItem
-  | MenuControlItem;
+export type Menu = ComponentType<PropsWithChildren<MenuProps>>;
+
+export type MenuElement = MenuSeparator | MenuGroup | MenuItem | MenuCheckboxItem | MenuRadioItem | MenuControlItem;
 // #endregion
 
 // #startregion Unsorted
@@ -976,7 +954,7 @@ type UntypedFunctions = Record<FunctionNames, any>;
 
 // TODO: wtaf is up with react types not working in jsx
 // FIXME: tsc doesnt see [index: string]: any;
-type CommonComponents = IconComponents &
+type Exports = IconComponents &
   UntypedComponents &
   UntypedFunctions &
   UnsortedComponentTypes &
@@ -1024,6 +1002,7 @@ type CommonComponents = IconComponents &
         disabled?: boolean;
         required?: boolean;
         error?: string;
+        style?: CSSProperties;
       }>
     >;
     FormSwitch: ComponentClass<
@@ -1035,7 +1014,7 @@ type CommonComponents = IconComponents &
         hideBorder?: boolean;
         tooltipNote?: string;
         onChange?: (value: boolean) => void;
-        note?: string;
+        note?: React.ReactNode;
         disabledText?: string;
       }>
     >;
@@ -1139,13 +1118,7 @@ type CommonComponents = IconComponents &
         position?: string;
         onRequestOpen?: () => void;
         onRequestClose?: () => void;
-        align?:
-          | "top"
-          | "bottom"
-          | "left"
-          | "right"
-          | "center"
-          | "window_center";
+        align?: "top" | "bottom" | "left" | "right" | "center" | "window_center";
         autoInvert?: boolean;
         fixed?: boolean;
         nudgeAlignIntoViewport?: boolean;
@@ -1192,7 +1165,6 @@ type CommonComponents = IconComponents &
         style?: CSSProperties;
         "aria-label"?: string;
         orientation?: "horizontal" | "vertical";
-
         selectedItem: any;
         onItemSelect: (id: any) => void;
         look?: string;
@@ -1266,10 +1238,7 @@ type CommonComponents = IconComponents &
       PropsWithChildren<{
         activeId: string;
         breadcrumbs: Breadcrumb[];
-        renderCustomBreadcrumb?: (
-          breadcrumb: Breadcrumb,
-          last: boolean
-        ) => ReactNode;
+        renderCustomBreadcrumb?: (breadcrumb: Breadcrumb, last: boolean) => ReactNode;
         onBreadcrumbClick?: (breadcrumb: Breadcrumb) => void;
         className?: string;
         separatorClassName?: string;
@@ -1314,6 +1283,7 @@ type CommonComponents = IconComponents &
     closeModal: (id: string) => void;
     useModalsStore: any;
   };
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/components/common/index";
@@ -1327,5 +1297,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default CommonComponents;

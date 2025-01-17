@@ -1,6 +1,6 @@
 import register from "../../../../../../registry";
 
-type GuildSettingsRoleEditCSS = {
+type Exports = {
   addButton: string;
   container: string;
   emptyRowContainer: string;
@@ -16,10 +16,10 @@ type GuildSettingsRoleEditCSS = {
   searchContainer: string;
   searchWarning: string;
 };
+export default Exports;
 
 register((moonmap) => {
-  const name =
-    "discord/modules/guild_settings/roles/web/GuildSettingsRoleEdit.css";
+  const name = "discord/modules/guild_settings/roles/web/GuildSettingsRoleEdit.css";
   moonmap.register({
     name,
     find: "removeButtonContainer:",
@@ -30,5 +30,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default GuildSettingsRoleEditCSS;

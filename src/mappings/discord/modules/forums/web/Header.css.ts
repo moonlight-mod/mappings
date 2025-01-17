@@ -1,6 +1,6 @@
 import register from "../../../../../registry";
 
-export type HeaderCSS = {
+type Exports = {
   container: string;
   header: string;
   headerLeft: string;
@@ -13,6 +13,7 @@ export type HeaderCSS = {
   row: string;
   separator: string;
 };
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/modules/forums/web/Header.css";
@@ -26,5 +27,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default HeaderCSS;

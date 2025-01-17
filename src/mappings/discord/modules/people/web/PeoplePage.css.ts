@@ -2,7 +2,7 @@
 // mobile has `modules/people(/native)`
 import register from "../../../../../registry";
 
-export type PeoplePageCSS = {
+type Exports = {
   addFriend: string;
   badge: string;
   container: string;
@@ -13,6 +13,7 @@ export type PeoplePageCSS = {
   tabBar: string;
   tabBody: string;
 };
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/modules/people/web/PeoplePage.css";
@@ -26,5 +27,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default PeoplePageCSS;

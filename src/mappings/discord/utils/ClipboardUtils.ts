@@ -1,10 +1,11 @@
 import { ModuleExportType } from "@moonlight-mod/moonmap";
 import register from "../../../registry";
 
-type ClipboardUtils = {
+type Exports = {
   SUPPORTS_COPY: boolean;
   copy: (text: string) => boolean;
 };
+export default Exports;
 
 register((moonmap, lunast) => {
   const name = "discord/utils/ClipboardUtils";
@@ -40,5 +41,3 @@ register((moonmap, lunast) => {
     }
   });
 });
-
-export default ClipboardUtils;

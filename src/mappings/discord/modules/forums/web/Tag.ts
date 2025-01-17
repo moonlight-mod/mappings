@@ -25,6 +25,12 @@ export type TagProps = {
   ariaLabel?: string;
 };
 
+type Exports = {
+  default: ComponentType<TagProps> & { Sizes: typeof TagSize };
+  TagBar: ComponentType<any>;
+};
+export default Exports;
+
 register((moonmap) => {
   const name = "discord/modules/forums/web/Tag";
   moonmap.register({
@@ -42,6 +48,3 @@ register((moonmap) => {
     }
   });
 });
-
-type TagComponent = ComponentType<TagProps> & { Sizes: TagSize };
-export default TagComponent;

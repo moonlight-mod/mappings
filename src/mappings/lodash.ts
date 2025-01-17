@@ -1,5 +1,7 @@
-import { ModuleExportType } from "@moonlight-mod/moonmap";
 import register from "../registry";
+
+type Exports = typeof import("lodash");
+export default Exports;
 
 register((moonmap) => {
   const name = "lodash";

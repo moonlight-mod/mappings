@@ -1,6 +1,6 @@
 import register from "../../../../registry";
 
-type FormSwitchCSS = {
+type Exports = {
   container: string;
   labelRow: string;
   control: string;
@@ -10,6 +10,7 @@ type FormSwitchCSS = {
   disabledText: string;
   dividerDefault: string;
 };
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/components/common/FormSwitch.css";
@@ -23,5 +24,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default FormSwitchCSS;

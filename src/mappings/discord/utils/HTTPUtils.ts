@@ -6,6 +6,7 @@ export type HTTPUtilsRequest = {
   query?: Record<string, string>;
   headers?: Record<string, string>;
   body?: any;
+  oldFormErrors?: boolean;
 };
 
 export type HTTPUtilsResponse = {
@@ -16,9 +17,7 @@ export type HTTPUtilsResponse = {
   body?: any;
 };
 
-export type HTTPUtilsFunction = (
-  data: HTTPUtilsRequest
-) => Promise<HTTPUtilsResponse>;
+export type HTTPUtilsFunction = (data: HTTPUtilsRequest) => Promise<HTTPUtilsResponse>;
 
 type HTTP = {
   get: HTTPUtilsFunction;
@@ -28,9 +27,10 @@ type HTTP = {
   del: HTTPUtilsFunction;
 };
 
-type HTTPUtils = {
+type Exports = {
   HTTP: HTTP;
 };
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/utils/HTTPUtils";
@@ -49,5 +49,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default HTTPUtils;

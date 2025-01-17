@@ -1,6 +1,6 @@
 import register from "../../../../../registry";
 
-export type ForumsCSS = {
+type Exports = {
   container: string;
   uploadArea: string;
   label: string;
@@ -59,6 +59,7 @@ export type ForumsCSS = {
   countText: string;
   optInNotice: string;
 };
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/modules/forums/web/Forums.css";
@@ -72,5 +73,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default ForumsCSS;

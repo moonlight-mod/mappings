@@ -1,65 +1,38 @@
 import { ModuleExportType } from "@moonlight-mod/moonmap";
-import register from "../../../registry";
-
-import { DependencyList } from "react";
-import { Store as FluxStore } from "flux/utils";
-import { Dispatcher as FluxDispatcher } from "flux";
-import { ComponentConstructor } from "flux/lib/FluxContainer";
-
-/*
-  It seems like Discord maintains their own version of Flux that doesn't match
-  the types on NPM. This is a heavy work in progress - if you encounter rough
-  edges, please contribute!
-*/
-
-export declare abstract class Store<T> extends FluxStore<T> {
-  static getAll: () => Store<any>[];
-  getName: () => string;
-  emitChange: () => void;
-  addChangeListener: (callback: () => void) => void;
-  removeChangeListener: (callback: () => void) => void;
-}
-
-interface ConnectStores {
-  <T>(
-    stores: Store<any>[],
-    callback: T,
-    context?: any
-  ): ComponentConstructor<T>;
-}
+import register from "../../../../registry";
+import type { Dispatcher } from "./Dispatcher";
+import type { Store } from "./Store";
+import type { DeviceSettingsStore, OfflineCacheStore, PersistedStore } from "./PersistedStore";
+import type { Emitter } from "./Emitter";
+import type { ConnectStores } from "./connectStores";
+import type { BatchedStoreListener } from "./BatchedStoreListener";
+import type { UseStateFromStores, UseStateFromStoresArray, UseStateFromStoresObject } from "./useStateFromStores";
 
 type Flux = {
-  DeviceSettingsStore: any; // TODO
-  Emitter: any; // @types/fbemitter
-  OfflineCacheStore: any; // TODO
-  PersistedStore: any; // TODO
+  Emitter: typeof Emitter;
   Store: typeof Store;
-  Dispatcher: typeof FluxDispatcher;
+  PersistedStore: typeof PersistedStore;
+  DeviceSettingsStore: typeof DeviceSettingsStore;
+  OfflineCacheStore: typeof OfflineCacheStore;
   connectStores: ConnectStores;
   initialize: () => void;
-  initialized: Promise<boolean>;
-  destroy: () => void;
+  get initialized(): Promise<boolean>;
+};
+
+type Exports = {
+  BatchedStoreListener: BatchedStoreListener;
+  Dispatcher: typeof Dispatcher;
+  Store: typeof Store;
+  default: Flux;
+  /**
+   * This function always returns false.
+   */
+  statesWillNeverBeEqual(state1: any, state2: any): boolean;
   useStateFromStores: UseStateFromStores;
   useStateFromStoresArray: UseStateFromStoresArray;
   useStateFromStoresObject: UseStateFromStoresObject;
 };
-
-interface UseStateFromStores {
-  <T>(
-    stores: Store<any>[],
-    callback: () => T,
-    deps?: DependencyList,
-    shouldUpdate?: (oldState: T, newState: T) => boolean
-  ): T;
-}
-
-interface UseStateFromStoresArray {
-  <T>(stores: Store<any>[], callback: () => T, deps?: DependencyList): T;
-}
-
-interface UseStateFromStoresObject {
-  <T>(stores: Store<any>[], callback: () => T, deps?: DependencyList): T;
-}
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/packages/flux";
@@ -72,6 +45,10 @@ register((moonmap) => {
       moonmap.addExport(name, "BatchedStoreListener", {
         type: ModuleExportType.Function,
         find: " tried to load a non-existent store."
+      });
+      moonmap.addExport(name, "createFetchStore", {
+        type: ModuleExportType.Function,
+        find: "let{dangerousAbortOnCleanup:"
       });
       moonmap.addExport(name, "Dispatcher", {
         type: ModuleExportType.Function,
@@ -102,5 +79,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default Flux;

@@ -1,6 +1,12 @@
 import { ModuleExportType } from "@moonlight-mod/moonmap";
 import register from "../../../registry";
 
+type Exports = {
+  isLinkTrusted: (link: string, unk?: string) => boolean;
+  handleClick: (link: string, unk?: string) => void;
+};
+export default Exports;
+
 register((moonmap) => {
   const name = "discord/utils/MaskedLinkUtils";
   moonmap.register({

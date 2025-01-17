@@ -1,4 +1,3 @@
-import { ModuleExportType } from "@moonlight-mod/moonmap";
 import register from "../registry";
 
 register((moonmap) => {

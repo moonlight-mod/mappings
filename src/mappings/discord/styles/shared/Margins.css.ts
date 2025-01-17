@@ -1,6 +1,6 @@
 import register from "../../../../registry";
 
-export type MarginsCSS = {
+type Exports = {
   marginReset: string;
   marginTop4: string;
   marginBottom4: string;
@@ -15,6 +15,7 @@ export type MarginsCSS = {
   marginCenterHorz: string;
   marginLeft8: string;
 };
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/styles/shared/Margins.css";
@@ -28,5 +29,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default MarginsCSS;

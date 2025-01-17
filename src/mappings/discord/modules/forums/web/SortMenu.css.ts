@@ -1,9 +1,10 @@
 import register from "../../../../../registry";
 
-export type SortMenuCSS = {
+type Exports = {
   container: string;
   clearText: string;
 };
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/modules/forums/web/SortMenu.css";
@@ -17,5 +18,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default SortMenuCSS;

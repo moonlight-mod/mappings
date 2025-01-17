@@ -1,9 +1,12 @@
 import register from "../../../registry";
 
-// TODO
 type NativeUtils = {
   copyImage: (url: string) => void;
 };
+type Exports = {
+  default: NativeUtils;
+};
+export default Exports;
 
 register((moonmap) => {
   const name = "discord/utils/NativeUtils";
@@ -17,5 +20,3 @@ register((moonmap) => {
     }
   });
 });
-
-export default NativeUtils;
