@@ -45,11 +45,7 @@ declare class UserRecord extends BaseRecord {
 
   get createdAt(): Date;
   hasVerifiedEmailOrPhone(): boolean;
-  getAvatarURL(
-    guildId: string | undefined,
-    size: number,
-    canAnimate?: boolean
-  ): string | undefined;
+  getAvatarURL(guildId: string | undefined, size: number, canAnimate?: boolean): string | undefined;
   addGuildAvatarHash(guildId: string, hash: string): this;
   removeGuildAvatarHash(guildId: string): this;
   getAvatarSource(guildId: string | undefined): { uri: string } | undefined;

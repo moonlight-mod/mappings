@@ -2,19 +2,11 @@ import { ModuleExportType } from "@moonlight-mod/moonmap";
 import register from "../../../../registry";
 import type { Dispatcher } from "./Dispatcher";
 import type { Store } from "./Store";
-import type {
-  DeviceSettingsStore,
-  OfflineCacheStore,
-  PersistedStore
-} from "./PersistedStore";
+import type { DeviceSettingsStore, OfflineCacheStore, PersistedStore } from "./PersistedStore";
 import type { Emitter } from "./Emitter";
 import type { ConnectStores } from "./connectStores";
 import type { BatchedStoreListener } from "./BatchedStoreListener";
-import type {
-  UseStateFromStores,
-  UseStateFromStoresArray,
-  UseStateFromStoresObject
-} from "./useStateFromStores";
+import type { UseStateFromStores, UseStateFromStoresArray, UseStateFromStoresObject } from "./useStateFromStores";
 
 type Flux = {
   Emitter: typeof Emitter;

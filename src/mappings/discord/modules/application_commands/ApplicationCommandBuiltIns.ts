@@ -2,8 +2,7 @@ import { ModuleExportType } from "@moonlight-mod/moonmap";
 import register from "../../../../registry";
 
 register((moonmap) => {
-  const name =
-    "discord/modules/application_commands/ApplicationCommandBuiltIns";
+  const name = "discord/modules/application_commands/ApplicationCommandBuiltIns";
   moonmap.register({
     name,
     find: ["BUILT_IN,get name"],

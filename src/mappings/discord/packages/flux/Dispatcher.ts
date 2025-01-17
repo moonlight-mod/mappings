@@ -32,10 +32,7 @@ export declare class Dispatcher<T extends BasePayload> {
   flushWaitQueue(): void;
   _dispatchWithDevtools(payload: T): void;
   _dispatchWithLogging(payload: T): void;
-  _dispatch(
-    payload: T,
-    callback: (key: T["type"], callback: () => void) => void
-  ): void;
+  _dispatch(payload: T, callback: (key: T["type"], callback: () => void) => void): void;
   addInterceptor(interceptor: Interceptor<T>): void;
   wait(payload: T): void;
   subscribe(type: T["type"], listener: Listener<T>): void;
@@ -48,10 +45,7 @@ export declare class Dispatcher<T extends BasePayload> {
     token?: string
   ): string;
   createToken(): string;
-  addDependencies(
-    type: T["type"],
-    dependencies: ActionHandlerRecord<T>[]
-  ): void;
+  addDependencies(type: T["type"], dependencies: ActionHandlerRecord<T>[]): void;
 
   constructor(band?: number, logger?: ActionLogger, unused?: unknown);
 }
@@ -61,9 +55,7 @@ export declare class ActionHandlers<T extends BasePayload> {
   _lastID: number;
   _dependencyGraph: DepGraph<ActionHandlerRecord<T>>;
 
-  getOrderedActionHandlers(
-    type: T["type"]
-  ): Record<T["type"], ActionHandlerRecord<T>[]>;
+  getOrderedActionHandlers(type: T["type"]): Record<T["type"], ActionHandlerRecord<T>[]>;
   register(
     type: T["type"],
     handlers: Record<T["type"], ActionHandler<T>>,
@@ -72,14 +64,8 @@ export declare class ActionHandlers<T extends BasePayload> {
     token?: string
   ): string;
   createToken(): string;
-  addDependencies(
-    type: T["type"],
-    dependencies: ActionHandlerRecord<T>[]
-  ): void;
-  _validateDependencies(
-    type: T["type"],
-    dependencies: ActionHandlerRecord<T>[]
-  ): void;
+  addDependencies(type: T["type"], dependencies: ActionHandlerRecord<T>[]): void;
+  _validateDependencies(type: T["type"], dependencies: ActionHandlerRecord<T>[]): void;
   _invalidateCaches(): void;
   _bandToken(band: number): string;
   _addToBand(type: T["type"], band: number): void;

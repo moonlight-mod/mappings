@@ -101,6 +101,4 @@ export type MappedModules = {
   "uuid/v4": UUID;
 };
 
-export declare function WebpackRequire<T extends keyof MappedModules>(
-  module: T
-): MappedModules[T];
+export declare function WebpackRequire<T extends keyof MappedModules>(module: T): MappedModules[T];

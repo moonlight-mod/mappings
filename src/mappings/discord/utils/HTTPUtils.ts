@@ -17,9 +17,7 @@ export type HTTPUtilsResponse = {
   body?: any;
 };
 
-export type HTTPUtilsFunction = (
-  data: HTTPUtilsRequest
-) => Promise<HTTPUtilsResponse>;
+export type HTTPUtilsFunction = (data: HTTPUtilsRequest) => Promise<HTTPUtilsResponse>;
 
 type HTTP = {
   get: HTTPUtilsFunction;

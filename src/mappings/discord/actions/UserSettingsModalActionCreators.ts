@@ -15,31 +15,16 @@ export type AccountChanges = {
 };
 
 export type UserSettingsModalActionCreators = {
-  open: (
-    section?: string,
-    subsection?: string,
-    options?: UserSettingsOpenOptions
-  ) => void;
-  init: (
-    section?: string,
-    subsection?: string,
-    options?: UserSettingsOpenOptions
-  ) => void;
+  open: (section?: string, subsection?: string, options?: UserSettingsOpenOptions) => void;
+  init: (section?: string, subsection?: string, options?: UserSettingsOpenOptions) => void;
   close: () => void;
-  setSection: (
-    section: string,
-    subsection?: string,
-    options?: UserSettingsOpenOptions
-  ) => void;
+  setSection: (section: string, subsection?: string, options?: UserSettingsOpenOptions) => void;
   clearSubsection: (section: string) => void;
   clearScrollPosition: (section: string) => void;
   updateAccount: (settings: any) => void;
   submitComplete: () => void;
   reset: () => void;
-  saveAccountChanges: (
-    changes: AccountChanges,
-    options: { close: boolean }
-  ) => any;
+  saveAccountChanges: (changes: AccountChanges, options: { close: boolean }) => any;
 };
 
 type Exports = {

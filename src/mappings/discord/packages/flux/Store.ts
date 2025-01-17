@@ -31,10 +31,7 @@ export declare abstract class Store<T extends BasePayload> {
   static initialize(): void;
   static destroy(): void;
   static getAll: () => Store<any>[];
-  registerActionHandlers(
-    handlers: Record<T["type"], ActionHandler<T>>,
-    band?: number
-  ): void;
+  registerActionHandlers(handlers: Record<T["type"], ActionHandler<T>>, band?: number): void;
   getName(): string;
   initializeIfNeeded(): void;
   initialize(): void;
@@ -44,11 +41,7 @@ export declare abstract class Store<T extends BasePayload> {
   getDispatchToken(): string;
   mustEmitChanges(should?: () => boolean): void;
 
-  constructor(
-    dispatcher: typeof Dispatcher,
-    actionHandlers?: Record<T["type"], ActionHandler<T>>,
-    band?: number
-  );
+  constructor(dispatcher: typeof Dispatcher, actionHandlers?: Record<T["type"], ActionHandler<T>>, band?: number);
 }
 
 export type Exports = {

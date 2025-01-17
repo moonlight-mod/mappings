@@ -13,9 +13,7 @@ export type ClearAll = {
 
 type Callback = () => void;
 
-export declare abstract class PersistedStore<
-  T extends BasePayload
-> extends Store<T> {
+export declare abstract class PersistedStore<T extends BasePayload> extends Store<T> {
   _version: number;
   callback: (callback: Callback) => void;
   throttledCallback: DebouncedFunc<Callback>;
@@ -34,10 +32,7 @@ export declare abstract class PersistedStore<
   /**
    * Returns `this.constructor`
    */
-  getClass(): (
-    dispatcher: typeof Dispatcher,
-    actionHandlers?: Record<T["type"], ActionHandler<T>>
-  ) => this;
+  getClass(): (dispatcher: typeof Dispatcher, actionHandlers?: Record<T["type"], ActionHandler<T>>) => this;
   static clearAll(toClear: ClearAll): Promise<void> | null | undefined;
   static shouldClear(toClear: ClearAll, store: string): boolean;
   static clearPersistQueue(store: string): void;
@@ -46,10 +41,7 @@ export declare abstract class PersistedStore<
   initializeFromState(state: T): void;
   static destroy(): void;
   initializeIfNeeded(): void;
-  static migrateAndReadStoreState(
-    store: string,
-    migrators: (() => any)[]
-  ): { state?: any; requiresPersist: boolean };
+  static migrateAndReadStoreState(store: string, migrators: (() => any)[]): { state?: any; requiresPersist: boolean };
   asyncPersist(): Promise<void>;
   persist(): void;
   clear(): void;
@@ -57,26 +49,17 @@ export declare abstract class PersistedStore<
   initialize(state?: T): void;
   getState(): T;
 
-  constructor(
-    dispatcher: typeof Dispatcher,
-    actionHandlers?: Record<T["type"], ActionHandler<T>>
-  );
+  constructor(dispatcher: typeof Dispatcher, actionHandlers?: Record<T["type"], ActionHandler<T>>);
 }
 
-declare abstract class UserAgnosticStore<
-  T extends BasePayload
-> extends PersistedStore<T> {
+declare abstract class UserAgnosticStore<T extends BasePayload> extends PersistedStore<T> {
   initializeFromState(state: T): void;
   initializeIfNeeded(): void;
   getState(): T;
 }
 
-export declare abstract class DeviceSettingsStore<
-  T extends BasePayload
-> extends UserAgnosticStore<T> {}
-export declare abstract class OfflineCacheStore<
-  T extends BasePayload
-> extends UserAgnosticStore<T> {}
+export declare abstract class DeviceSettingsStore<T extends BasePayload> extends UserAgnosticStore<T> {}
+export declare abstract class OfflineCacheStore<T extends BasePayload> extends UserAgnosticStore<T> {}
 
 export type Exports = {
   PersistedStore: typeof PersistedStore;

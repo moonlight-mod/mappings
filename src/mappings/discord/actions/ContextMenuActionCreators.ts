@@ -4,10 +4,7 @@ import register from "../../../registry";
 type Exports = {
   closeContextMenu: () => void;
   // TODO: these have some extra args
-  openContextMenu: (
-    event: React.SyntheticEvent,
-    element: () => React.ReactNode
-  ) => void;
+  openContextMenu: (event: React.SyntheticEvent, element: () => React.ReactNode) => void;
   openContextMenuLazy: Function;
 };
 export default Exports;

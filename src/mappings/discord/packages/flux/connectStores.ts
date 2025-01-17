@@ -3,11 +3,7 @@ import type { Store } from "./Store";
 import register from "../../../../registry";
 
 export interface ConnectStores {
-  <T>(
-    stores: Store<any>[],
-    callback: T,
-    context?: any
-  ): ComponentConstructor<T>;
+  <T>(stores: Store<any>[], callback: T, context?: any): ComponentConstructor<T>;
 }
 
 type Exports = {

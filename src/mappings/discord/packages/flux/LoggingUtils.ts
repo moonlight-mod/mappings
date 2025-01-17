@@ -29,9 +29,7 @@ export declare class ActionLogger {
 
   log(type: string, value: any): ActionLog; // TODO: this function is a mess to decipher as its like a stack of 3 function calls for the parameter
   getSlowestActions(type: string): ActionLog[];
-  getLastActionMetrics(
-    type: string
-  ): [traceName: string, name: string, time: number][];
+  getLastActionMetrics(type: string): [traceName: string, name: string, time: number][];
 
   constructor(options: { persist: boolean });
 }
