@@ -46,7 +46,7 @@ export interface Flex
   Align: typeof FlexAlign;
   Justify: typeof FlexJustify;
   Wrap: typeof FlexWrap;
-  Child: Component<
+  Child: ComponentClass<
     PropsWithChildren<{
       className?: string;
       shrink?: CSS.Property.FlexShrink;

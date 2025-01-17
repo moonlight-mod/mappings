@@ -6,6 +6,7 @@ export type HTTPUtilsRequest = {
   query?: Record<string, string>;
   headers?: Record<string, string>;
   body?: any;
+  oldFormErrors?: boolean;
 };
 
 export type HTTPUtilsResponse = {

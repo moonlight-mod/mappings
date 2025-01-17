@@ -136,7 +136,7 @@ interface FormText
       style?: CSSProperties;
     }>
   > {
-  Types: FormTextTypes;
+  Types: typeof FormTextTypes;
 }
 // #endregion
 
@@ -380,6 +380,7 @@ export enum ModalTransitionState {
 
 export type ModalProps = PropsWithoutRef<{
   transitionState?: ModalTransitionState;
+  onClose: () => void;
 }>;
 
 export type ModalCallback = (props: ModalProps) => React.ReactNode;
@@ -1001,6 +1002,7 @@ type Exports = IconComponents &
         disabled?: boolean;
         required?: boolean;
         error?: string;
+        style?: CSSProperties;
       }>
     >;
     FormSwitch: ComponentClass<
@@ -1012,7 +1014,7 @@ type Exports = IconComponents &
         hideBorder?: boolean;
         tooltipNote?: string;
         onChange?: (value: boolean) => void;
-        note?: string;
+        note?: React.ReactNode;
         disabledText?: string;
       }>
     >;
