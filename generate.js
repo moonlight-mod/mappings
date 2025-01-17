@@ -122,7 +122,6 @@ function generateDeclares(prefix) {
 
   for (const path of Object.keys(mappedTypes).sort()) {
     str += `declare module "${prefix}${path}" {\n`;
-    str += `  import { MappedModules } from "@moonlight-mod/mappings";\n`;
 
     let sourcePath = "./src/mappings/" + path + ".ts";
     if (!fs.existsSync(sourcePath))
@@ -142,9 +141,11 @@ function generateDeclares(prefix) {
     const properties = type.getProperties().map((p) => p.getName());
 
     if (properties.some((s) => s === "__mappings_exportEquals")) {
+      str += `  import { MappedModules } from "@moonlight-mod/mappings";\n`;
       str += `  const _: Omit<MappedModules["${path}"], "__mappings_exportEquals">;\n`;
       str += `  export = _;\n`;
-    } else {
+    } else if (properties.length > 0) {
+      str += `  import { MappedModules } from "@moonlight-mod/mappings";\n`;
       for (const name of properties) {
         if (name === "default") {
           str += `  const _default: MappedModules["${path}"]["default"];\n`;
