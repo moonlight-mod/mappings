@@ -5,12 +5,15 @@ const ts = require("typescript");
 const mappedTypes = {
   "discord/actions/ContextMenuActionCreators": "ContextMenuActionCreators",
   "discord/actions/UserSettingsModalActionCreators": "UserSettingsModalActionCreators",
+  "discord/components/common/Alerts": "Alerts",
   "discord/components/common/BaseHeaderBar": "BaseHeaderBar",
+  "discord/components/common/FileUpload": "FileUpload",
   "discord/components/common/FormSwitch.css": "FormSwitchCSS",
   "discord/components/common/HeaderBar.css": "HeaderBarCSS",
   "discord/components/common/HelpMessage.css": "HelpMessageCSS",
   "discord/components/common/index": "Components",
   "discord/components/common/PanelButton": "PanelButton",
+  "discord/components/common/Scroller.css": "ScrollerCSS",
   "discord/components/modals/ConfirmModal": "ConfirmModal",
   "discord/Constants": "Constants",
   "discord/Dispatcher": "_Dispatcher", // "Dispatcher" may be reserved in some scenarios
@@ -29,6 +32,7 @@ const mappedTypes = {
   "discord/modules/guild_settings/web/SearchSection.css": "GuildSettingsSearchSectionCSS",
   "discord/modules/markup/MarkupUtils": "MarkupUtils",
   "discord/modules/menus/web/Menu": "Menu",
+  "discord/modules/oauth2/index": "Oauth2",
   "discord/modules/user_settings/web/openUserSettings": "OpenUserSettings",
   "discord/modules/messages/web/Markup.css": "MarkupCSS",
   "discord/modules/messages/web/Message.css": "MessageCSS",
