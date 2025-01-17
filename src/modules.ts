@@ -48,7 +48,6 @@ import "./mappings/discord/modules/forums/web/SortMenu.css";
 import "./mappings/discord/modules/forums/web/Tag";
 import "./mappings/discord/modules/gateway/GatewayConnectionStore";
 import "./mappings/discord/modules/guild_settings/GuildRoleMemberCountStore";
-import "./mappings/discord/modules/guild_settings/IntegrationCard.css";
 import "./mappings/discord/modules/guild_settings/roles/web/GuildSettingsRoleEdit.css";
 import "./mappings/discord/modules/guild_settings/web/AppCard.css";
 import "./mappings/discord/modules/guild_settings/web/AppCardItem.css";
