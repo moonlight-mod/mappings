@@ -25,7 +25,6 @@ const mappedTypes = {
   "discord/modules/forums/web/Header.css": "ForumHeaderCSS",
   "discord/modules/forums/web/SortMenu.css": "ForumSortMenuCSS",
   "discord/modules/forums/web/Tag": "ForumTag",
-  "discord/modules/guild_settings/IntegrationCard.css": "IntegrationCardCSS",
   "discord/modules/guild_settings/roles/web/GuildSettingsRoleEdit.css": "GuildSettingsRoleEditCSS",
   "discord/modules/guild_settings/web/AppCard.css": "AppCardCSS",
   "discord/modules/guild_settings/web/AppCardItem.css": "AppCardItemCSS",

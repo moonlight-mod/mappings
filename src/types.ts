@@ -23,7 +23,6 @@ import ForumsCSS from "./mappings/discord/modules/forums/web/Forums.css";
 import ForumHeaderCSS from "./mappings/discord/modules/forums/web/Header.css";
 import ForumSortMenuCSS from "./mappings/discord/modules/forums/web/SortMenu.css";
 import ForumTag from "./mappings/discord/modules/forums/web/Tag";
-import IntegrationCardCSS from "./mappings/discord/modules/guild_settings/IntegrationCard.css";
 import GuildSettingsRoleEditCSS from "./mappings/discord/modules/guild_settings/roles/web/GuildSettingsRoleEdit.css";
 import AppCardCSS from "./mappings/discord/modules/guild_settings/web/AppCard.css";
 import AppCardItemCSS from "./mappings/discord/modules/guild_settings/web/AppCardItem.css";
@@ -74,7 +73,6 @@ export type MappedModules = {
   "discord/modules/forums/web/Header.css": ForumHeaderCSS;
   "discord/modules/forums/web/SortMenu.css": ForumSortMenuCSS;
   "discord/modules/forums/web/Tag": ForumTag;
-  "discord/modules/guild_settings/IntegrationCard.css": IntegrationCardCSS;
   "discord/modules/guild_settings/roles/web/GuildSettingsRoleEdit.css": GuildSettingsRoleEditCSS;
   "discord/modules/guild_settings/web/AppCard.css": AppCardCSS;
   "discord/modules/guild_settings/web/AppCardItem.css": AppCardItemCSS;
