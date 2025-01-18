@@ -46,7 +46,7 @@ export type HeaderBarTitleProps = {
 };
 export type Title = ComponentType<HeaderBarTitleProps>;
 
-export type Divider = ComponentType<{ className: string }>;
+export type Divider = ComponentType<{ className?: string }>;
 
 export type Caret = ComponentType<{ direction?: "left" | "right" }>;
 

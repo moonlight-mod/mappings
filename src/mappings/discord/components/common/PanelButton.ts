@@ -4,7 +4,7 @@ import { IconComponent, TooltipColors } from "./index";
 
 export type PanelButtonProps = {
   tooltipText?: ReactNode;
-  children: ReactNode;
+  children?: ReactNode;
   onContextMenu?: (event: MouseEvent) => void;
   onClick?: (event: MouseEvent) => void;
   disabled?: boolean;
