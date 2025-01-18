@@ -20,7 +20,7 @@ export type Exports = {
 export default Exports;
 
 register((moonmap) => {
-  const name = "discord/packages/flux/Dispatcher";
+  const name = "discord/packages/flux/ChangeListeners";
   moonmap.register({
     name,
     find: "invokeAll(){this.listeners.forEach(",
