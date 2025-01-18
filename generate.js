@@ -126,7 +126,9 @@ function generateDeclares(prefix) {
     });
     const source = program.getSourceFile(sourcePath);
     const typeChecker = program.getTypeChecker();
-    const alias = source.statements.find((s) => ts.isTypeAliasDeclaration(s) && s.name.getText(source) === "Exports");
+    const alias = source.statements.find(
+      (s) => (ts.isTypeAliasDeclaration(s) || ts.isInterfaceDeclaration(s)) && s.name.getText(source) === "Exports"
+    );
     const type = typeChecker.getTypeAtLocation(alias);
     const properties = type.getProperties().map((p) => p.getName());
 
