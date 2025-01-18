@@ -22,6 +22,11 @@ export type PanelButtonProps = {
   tooltipComponentClassName?: string;
 };
 
+type Exports = {
+  default: ComponentType<PanelButtonProps>;
+};
+export default Exports;
+
 register((moonmap) => {
   const name = "discord/components/common/PanelButton";
   moonmap.register({
@@ -34,6 +39,3 @@ register((moonmap) => {
     }
   });
 });
-
-type PanelButton = ComponentType<PanelButtonProps>;
-export default PanelButton;

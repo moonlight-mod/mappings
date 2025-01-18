@@ -13,7 +13,7 @@ export type ConfirmModalProps = {
   onConfirm?: () => void;
   onConfirmSecondary?: () => void;
   title?: ReactNode;
-  transitionState?: ModalTransitionState;
+  transitionState: ModalTransitionState | null;
   titleClassName?: string;
 };
 export type ConfirmModal = ComponentType<ConfirmModalProps>;

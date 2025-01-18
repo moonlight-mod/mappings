@@ -72,6 +72,8 @@ export type BaseHeaderBar = ComponentType<BaseHeaderBarProps> & {
 };
 
 type Exports = {
+  Icon: Icon;
+  Divider: Divider;
   default: BaseHeaderBar;
 };
 export default Exports;

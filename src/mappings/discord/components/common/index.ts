@@ -379,7 +379,7 @@ export enum ModalTransitionState {
 }
 
 export type ModalProps = PropsWithoutRef<{
-  transitionState?: ModalTransitionState;
+  transitionState: ModalTransitionState | null;
   onClose: () => void;
 }>;
 
