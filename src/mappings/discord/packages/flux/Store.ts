@@ -15,7 +15,7 @@ export declare abstract class Store<T extends BasePayload> {
   _reactChangeCallbacks: ChangeListeners;
   _syncsWith: SyncsWith[];
   _dispatchToken: string;
-  _dispatcher: typeof Dispatcher;
+  _dispatcher: Dispatcher<any>;
   _mustEmitChanges: () => boolean;
   _isInitialized: boolean;
   __getLocalVars(): any; // most discord stores dont add it anymore o7
@@ -41,7 +41,7 @@ export declare abstract class Store<T extends BasePayload> {
   getDispatchToken(): string;
   mustEmitChanges(should?: () => boolean): void;
 
-  constructor(dispatcher: typeof Dispatcher, actionHandlers?: Record<T["type"], ActionHandler<T>>, band?: number);
+  constructor(dispatcher: Dispatcher<any>, actionHandlers?: Record<T["type"], ActionHandler<T>>, band?: number);
 }
 
 export type Exports = {

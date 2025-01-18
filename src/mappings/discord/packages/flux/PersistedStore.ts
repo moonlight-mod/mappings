@@ -32,7 +32,7 @@ export declare abstract class PersistedStore<T extends BasePayload> extends Stor
   /**
    * Returns `this.constructor`
    */
-  getClass(): (dispatcher: typeof Dispatcher, actionHandlers?: Record<T["type"], ActionHandler<T>>) => this;
+  getClass(): (dispatcher: Dispatcher<any>, actionHandlers?: Record<T["type"], ActionHandler<T>>) => this;
   static clearAll(toClear: ClearAll): Promise<void> | null | undefined;
   static shouldClear(toClear: ClearAll, store: string): boolean;
   static clearPersistQueue(store: string): void;
@@ -49,7 +49,7 @@ export declare abstract class PersistedStore<T extends BasePayload> extends Stor
   initialize(state?: T): void;
   getState(): T;
 
-  constructor(dispatcher: typeof Dispatcher, actionHandlers?: Record<T["type"], ActionHandler<T>>);
+  constructor(dispatcher: Dispatcher<any>, actionHandlers?: Record<T["type"], ActionHandler<T>>);
 }
 
 declare abstract class UserAgnosticStore<T extends BasePayload> extends PersistedStore<T> {

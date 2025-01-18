@@ -24,8 +24,8 @@ export type IconSize = "xxs" | "xs" | "sm" | "md" | "lg" | "custom" | "refresh_s
 
 export type IconProps = {
   size?: IconSize;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   color?: CSS.DataType.Color;
   colorClass?: string;
   [index: string]: any;

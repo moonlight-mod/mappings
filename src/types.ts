@@ -92,13 +92,11 @@ export type MappedModules = {
   "discord/utils/NativeUtils": NativeUtils;
   "highlight.js": HighlightJS;
   "highlight.js/lib/core": HighlightJSCore;
-  "lodash": lodash;
-  "murmurhash": murmurhash;
+  lodash: lodash;
+  murmurhash: murmurhash;
   "platform.js": PlatformJS;
-  "react": React;
+  react: React;
   "uuid/v4": UUID;
 };
 
-export declare function WebpackRequire<T extends keyof MappedModules>(
-  module: T
-): MappedModules[T];
+export declare function WebpackRequire<T extends keyof MappedModules>(module: T): MappedModules[T];
