@@ -954,335 +954,335 @@ type UntypedFunctions = Record<FunctionNames, any>;
 
 // TODO: wtaf is up with react types not working in jsx
 // FIXME: tsc doesnt see [index: string]: any;
-type Exports = IconComponents &
-  UntypedComponents &
-  UntypedFunctions &
-  UnsortedComponentTypes &
-  ComponentConstants & {
-    [index: string]: any;
-    Clickable: ComponentClass<
-      PropsWithChildren<{
-        onClick?: () => void;
-        href?: any;
-        onKeyPress?: () => void;
-        ignoreKeyPress?: boolean;
-        innerRef?: Ref<any>;
-        focusProps?: any;
-        tag?: string | Component;
-        role?: any;
-        tabIndex?: any;
-        className?: string;
-      }>
-    >;
-    TextInput: TextInput;
-    TextArea: TextArea;
-    FormDivider: ComponentClass<
-      PropsWithoutRef<{
-        className?: string;
-        style?: CSSProperties;
-      }>
-    >;
-    FormSection: ComponentClass<
-      PropsWithChildren<{
-        className?: string;
-        titleClassName?: string;
-        title?: ReactNode;
-        icon?: ReactNode;
-        disabled?: boolean;
-        htmlFor?: any;
-        tag?: string;
-      }>
-    >;
-    FormText: FormText;
-    FormTitle: ComponentClass<
-      PropsWithChildren<{
-        tag?: TitleTag;
-        className?: string;
-        faded?: boolean;
-        disabled?: boolean;
-        required?: boolean;
-        error?: string;
-        style?: CSSProperties;
-      }>
-    >;
-    FormSwitch: ComponentClass<
-      PropsWithChildren<{
-        className?: string;
-        style?: CSSProperties;
-        value: boolean;
-        disabled?: boolean;
-        hideBorder?: boolean;
-        tooltipNote?: string;
-        onChange?: (value: boolean) => void;
-        note?: React.ReactNode;
-        disabledText?: string;
-      }>
-    >;
-    FormItem: ComponentClass<
-      PropsWithChildren<{
-        className?: string;
-        style?: CSSProperties;
-        disabled?: boolean;
-        titleClassName?: string;
-        tag?: TitleTag;
-        required?: boolean;
-        title?: string;
-        error?: string;
-      }>
-    >;
-    Slider: ComponentClass<
-      PropsWithChildren<{
-        disabled?: boolean;
-        stickToMarkers?: boolean;
-        className?: string;
-        barStyles?: CSSProperties;
-        fillStyles?: CSSProperties;
-        mini?: boolean;
-        hideBubble?: boolean;
-        initialValue?: number;
-        orientation?: "horizontal" | "vertical";
-        onValueRender?: (value: number) => string;
-        renderMarker?: (marker: number) => ReactNode;
-        getAriaValueText?: (value: number) => string;
-        barClassName?: string;
-        grabberClassName?: string;
-        grabberStyles?: CSSProperties;
-        markerPosition?: SliderMarkerPosition;
-        "aria-hidden"?: "true" | "false";
-        "aria-label"?: string;
-        "aria-labelledby"?: string;
-        "aria-describedby"?: string;
-        minValue?: number;
-        maxValue?: number;
-        asValueChanges?: (value: number) => void;
-        onValueChange?: (value: number) => void;
-        keyboardStep?: number;
-      }>
-    >;
-    Switch: ComponentClass<
-      PropsWithChildren<{
-        className?: string;
-        id?: string;
-        onChange?: (value: boolean) => void;
-        checked: boolean;
-        disabled?: boolean;
-        focusProps?: PropsWithoutRef<any>;
-        innerRef?: React.Ref<any>;
-      }>
-    >;
-    Button: Button;
-    Tooltip: Tooltip;
-    Avatar: Avatar;
-    AvatarSizes: AvatarSizes;
-    AvatarSizeSpecs: AvatarSizeSpecs;
-    Scroller: ComponentType<
-      PropsWithChildren<{
-        className?: string;
-        style?: CSSProperties;
-        dir?: "ltr" | "rtl";
-        orientation?: "vertical" | "horizontal";
-        paddingFix?: boolean;
-        fade?: boolean;
-        onScroll?: () => void;
-      }>
-    >;
-    Text: Text;
-    Heading: React.ComponentType<
-      PropsWithChildren<{
-        color?: string;
-        variant?: TextVariant;
-        className?: string;
-      }>
-    >;
-    Card: React.ComponentType<
-      PropsWithChildren<{
-        editable?: boolean;
-        outline?: boolean;
-        type?: string;
-        className?: string;
-      }> &
-        React.HTMLAttributes<HTMLDivElement>
-    > & {
-      Types: {
-        PRIMARY: string;
-        DANGER: string;
-        WARNING: string;
-        SUCCESS: string;
-        BRAND: string;
-        CUSTOM: string;
-      };
-    };
-    Popout: React.ComponentType<
-      {
-        shouldShow?: boolean;
-        position?: string;
-        onRequestOpen?: () => void;
-        onRequestClose?: () => void;
-        align?: "top" | "bottom" | "left" | "right" | "center" | "window_center";
-        autoInvert?: boolean;
-        fixed?: boolean;
-        nudgeAlignIntoViewport?: boolean;
-        useRawTargetDimensions?: boolean;
-        spacing?: number;
-        onShiftClick?: () => void;
-        positionKey?: string;
-        preload?: any;
-        disablePointerEvents?: boolean;
-        ignoreModalClicks?: boolean;
-        closeOnScroll?: boolean;
-        useMouseEnter?: boolean;
-        renderPopout?: (props: { closePopout: () => void }) => ReactNode;
-      } & {
-        children: (props: any, props2: { isShown: boolean }) => ReactElement;
-      }
-    >;
-    Dialog: React.ComponentType<
-      PropsWithChildren<{
-        impressionType?: string;
-        impression?: any;
-        disableTrack?: boolean;
-        returnRef?: React.Ref<any>;
-        ref?: React.Ref<any>;
-      }> &
-        React.HTMLAttributes<HTMLDivElement>
-    >;
-    Menu: Menu;
-    MenuItem: MenuItem;
-    MenuGroup: MenuGroup;
-    MenuRadioItem: MenuRadioItem;
-    MenuCheckboxItem: MenuCheckboxItem;
-    MenuControlItem: MenuControlItem;
-    MenuSeparator: MenuSeparator;
-    SettingsNotice: React.ComponentType<{
-      submitting: boolean;
-      onReset: () => void;
-      onSave: () => void;
-    }>;
-    TabBar: React.ComponentType<
-      PropsWithChildren<{
-        className?: string;
-        type?: "side" | "top" | "top-pill";
-        style?: CSSProperties;
-        "aria-label"?: string;
-        orientation?: "horizontal" | "vertical";
-        selectedItem: any;
-        onItemSelect: (id: any) => void;
-        look?: string;
-      }>
-    > & {
-      Item: React.ComponentType<
-        PropsWithChildren<{
-          className?: string;
-          id?: any;
-          selectedItem?: string;
-          color?: string;
-          disabled?: boolean;
-          onContextMenu?: (event: React.MouseEvent) => void;
-          clickableRef?: React.Ref<any>;
-          look?: string;
-          disableItemStyles?: boolean;
-        }>
-      >;
-    };
-    SingleSelect: React.ComponentType<{
-      autofocus?: boolean;
-      clearable?: boolean;
-      value?: string;
-      options?: SelectOption[];
-      placeholder?: React.ReactNode;
-      onChange?: (value: string) => void;
-    }>;
-    Select: React.ComponentType<
-      | {
-          autofocus?: boolean;
-          clearable?: boolean;
-          closeOnSelect?: boolean;
-          value?: Set<string>;
-          options?: SelectOption[];
-          onChange?: (value: string[]) => void;
-        }
-      | SelectState
-    >;
-    NoticeColors: {
+interface Exports
+  extends IconComponents,
+    UntypedComponents,
+    UntypedFunctions,
+    UnsortedComponentTypes,
+    ComponentConstants {
+  Clickable: ComponentClass<
+    PropsWithChildren<{
+      onClick?: () => void;
+      href?: any;
+      onKeyPress?: () => void;
+      ignoreKeyPress?: boolean;
+      innerRef?: Ref<any>;
+      focusProps?: any;
+      tag?: string | Component;
+      role?: any;
+      tabIndex?: any;
+      className?: string;
+    }>
+  >;
+  TextInput: TextInput;
+  TextArea: TextArea;
+  FormDivider: ComponentClass<
+    PropsWithoutRef<{
+      className?: string;
+      style?: CSSProperties;
+    }>
+  >;
+  FormSection: ComponentClass<
+    PropsWithChildren<{
+      className?: string;
+      titleClassName?: string;
+      title?: ReactNode;
+      icon?: ReactNode;
+      disabled?: boolean;
+      htmlFor?: any;
+      tag?: string;
+    }>
+  >;
+  FormText: FormText;
+  FormTitle: ComponentClass<
+    PropsWithChildren<{
+      tag?: TitleTag;
+      className?: string;
+      faded?: boolean;
+      disabled?: boolean;
+      required?: boolean;
+      error?: string;
+      style?: CSSProperties;
+    }>
+  >;
+  FormSwitch: ComponentClass<
+    PropsWithChildren<{
+      className?: string;
+      style?: CSSProperties;
+      value: boolean;
+      disabled?: boolean;
+      hideBorder?: boolean;
+      tooltipNote?: string;
+      onChange?: (value: boolean) => void;
+      note?: React.ReactNode;
+      disabledText?: string;
+    }>
+  >;
+  FormItem: ComponentClass<
+    PropsWithChildren<{
+      className?: string;
+      style?: CSSProperties;
+      disabled?: boolean;
+      titleClassName?: string;
+      tag?: TitleTag;
+      required?: boolean;
+      title?: string;
+      error?: string;
+    }>
+  >;
+  Slider: ComponentClass<
+    PropsWithChildren<{
+      disabled?: boolean;
+      stickToMarkers?: boolean;
+      className?: string;
+      barStyles?: CSSProperties;
+      fillStyles?: CSSProperties;
+      mini?: boolean;
+      hideBubble?: boolean;
+      initialValue?: number;
+      orientation?: "horizontal" | "vertical";
+      onValueRender?: (value: number) => string;
+      renderMarker?: (marker: number) => ReactNode;
+      getAriaValueText?: (value: number) => string;
+      barClassName?: string;
+      grabberClassName?: string;
+      grabberStyles?: CSSProperties;
+      markerPosition?: SliderMarkerPosition;
+      "aria-hidden"?: "true" | "false";
+      "aria-label"?: string;
+      "aria-labelledby"?: string;
+      "aria-describedby"?: string;
+      minValue?: number;
+      maxValue?: number;
+      asValueChanges?: (value: number) => void;
+      onValueChange?: (value: number) => void;
+      keyboardStep?: number;
+    }>
+  >;
+  Switch: ComponentClass<
+    PropsWithChildren<{
+      className?: string;
+      id?: string;
+      onChange?: (value: boolean) => void;
+      checked: boolean;
+      disabled?: boolean;
+      focusProps?: PropsWithoutRef<any>;
+      innerRef?: React.Ref<any>;
+    }>
+  >;
+  Button: Button;
+  Tooltip: Tooltip;
+  Avatar: Avatar;
+  AvatarSizes: AvatarSizes;
+  AvatarSizeSpecs: AvatarSizeSpecs;
+  Scroller: ComponentType<
+    PropsWithChildren<{
+      className?: string;
+      style?: CSSProperties;
+      dir?: "ltr" | "rtl";
+      orientation?: "vertical" | "horizontal";
+      paddingFix?: boolean;
+      fade?: boolean;
+      onScroll?: () => void;
+    }>
+  >;
+  Text: Text;
+  Heading: React.ComponentType<
+    PropsWithChildren<{
+      color?: string;
+      variant?: TextVariant;
+      className?: string;
+    }>
+  >;
+  Card: React.ComponentType<
+    PropsWithChildren<{
+      editable?: boolean;
+      outline?: boolean;
+      type?: string;
+      className?: string;
+    }> &
+      React.HTMLAttributes<HTMLDivElement>
+  > & {
+    Types: {
+      PRIMARY: string;
+      DANGER: string;
+      WARNING: string;
+      SUCCESS: string;
       BRAND: string;
       CUSTOM: string;
-      DANGER: string;
-      DEFAULT: string;
-      INFO: string;
-      NEUTRAL: string;
-      PLAYSTATION: string; // notice how it's a CSS class instead of having games
-      PREMIUM_TIER_0: string;
-      PREMIUM_TIER_1: string;
-      PREMIUM_TIER_2: string;
-      SPOTIFY: string;
-      STREAMER_MODE: string;
-      WARNING: string;
-    } & Record<string, string>;
-    Notice: React.ComponentType<
-      PropsWithChildren<{
-        color?: string;
-        className?: string;
-        style?: CSSProperties;
-      }>
-    >;
-    NoticeCloseButton: React.ComponentType<{
-      onClick?: React.MouseEventHandler;
-      noticeType: string;
-    }>;
-    PrimaryCTANoticeButton: React.ComponentType<
-      {
-        noticeType: string;
-      } & React.ButtonHTMLAttributes<HTMLButtonElement>
-    >;
-    Breadcrumbs: React.ComponentType<
-      PropsWithChildren<{
-        activeId: string;
-        breadcrumbs: Breadcrumb[];
-        renderCustomBreadcrumb?: (breadcrumb: Breadcrumb, last: boolean) => ReactNode;
-        onBreadcrumbClick?: (breadcrumb: Breadcrumb) => void;
-        className?: string;
-        separatorClassName?: string;
-      }>
-    >;
-    Image: React.ComponentType<
-      React.PropsWithChildren<{
-        className?: string;
-        imageClassName?: string;
-        readyState?: string;
-        src?: string;
-        srcIsAnimated?: boolean;
-        placeholder?: string;
-        placeholderVersion?: number;
-        alt?: string;
-        width?: number;
-        height?: number;
-        maxWidth?: number;
-        maxHeight?: number;
-        minWidth?: number;
-        minHeight?: number;
-        mediaLayoutType?: string;
-        limitResponsiveWidth?: boolean;
-        zoomable?: boolean;
-        original?: string;
-        onClick?: React.MouseEventHandler;
-        tabIndex?: number;
-        dataSafeSrc?: string;
-        useFullWidth?: boolean;
-      }>
-    >;
-
-    tokens: Tokens;
-    useVariableSelect: (props: SelectProps) => SelectState;
-    useMultiSelectState: (props: SelectProps) => SelectState;
-    useSingleSelectState: (props: SelectProps) => SelectState;
-    useMultiSelect: (value: any) => [Set<any>, (...args: any[]) => any];
-    useSingleSelect: (value: any) => [Set<any>, (...args: any[]) => any];
-    multiSelect: SelectInteractionCallback;
-    openModal: (modal: ModalCallback) => string;
-    openModalLazy: (modal: () => Promise<ModalCallback>) => Promise<string>;
-    closeModal: (id: string) => void;
-    useModalsStore: any;
+    };
   };
+  Popout: React.ComponentType<
+    {
+      shouldShow?: boolean;
+      position?: string;
+      onRequestOpen?: () => void;
+      onRequestClose?: () => void;
+      align?: "top" | "bottom" | "left" | "right" | "center" | "window_center";
+      autoInvert?: boolean;
+      fixed?: boolean;
+      nudgeAlignIntoViewport?: boolean;
+      useRawTargetDimensions?: boolean;
+      spacing?: number;
+      onShiftClick?: () => void;
+      positionKey?: string;
+      preload?: any;
+      disablePointerEvents?: boolean;
+      ignoreModalClicks?: boolean;
+      closeOnScroll?: boolean;
+      useMouseEnter?: boolean;
+      renderPopout?: (props: { closePopout: () => void }) => ReactNode;
+    } & {
+      children: (props: any, props2: { isShown: boolean }) => ReactElement;
+    }
+  >;
+  Dialog: React.ComponentType<
+    PropsWithChildren<{
+      impressionType?: string;
+      impression?: any;
+      disableTrack?: boolean;
+      returnRef?: React.Ref<any>;
+      ref?: React.Ref<any>;
+    }> &
+      React.HTMLAttributes<HTMLDivElement>
+  >;
+  Menu: Menu;
+  MenuItem: MenuItem;
+  MenuGroup: MenuGroup;
+  MenuRadioItem: MenuRadioItem;
+  MenuCheckboxItem: MenuCheckboxItem;
+  MenuControlItem: MenuControlItem;
+  MenuSeparator: MenuSeparator;
+  SettingsNotice: React.ComponentType<{
+    submitting: boolean;
+    onReset: () => void;
+    onSave: () => void;
+  }>;
+  TabBar: React.ComponentType<
+    PropsWithChildren<{
+      className?: string;
+      type?: "side" | "top" | "top-pill";
+      style?: CSSProperties;
+      "aria-label"?: string;
+      orientation?: "horizontal" | "vertical";
+      selectedItem: any;
+      onItemSelect: (id: any) => void;
+      look?: string;
+    }>
+  > & {
+    Item: React.ComponentType<
+      PropsWithChildren<{
+        className?: string;
+        id?: any;
+        selectedItem?: string;
+        color?: string;
+        disabled?: boolean;
+        onContextMenu?: (event: React.MouseEvent) => void;
+        clickableRef?: React.Ref<any>;
+        look?: string;
+        disableItemStyles?: boolean;
+      }>
+    >;
+  };
+  SingleSelect: React.ComponentType<{
+    autofocus?: boolean;
+    clearable?: boolean;
+    value?: string;
+    options?: SelectOption[];
+    placeholder?: React.ReactNode;
+    onChange?: (value: string) => void;
+  }>;
+  Select: React.ComponentType<
+    | {
+        autofocus?: boolean;
+        clearable?: boolean;
+        closeOnSelect?: boolean;
+        value?: Set<string>;
+        options?: SelectOption[];
+        onChange?: (value: string[]) => void;
+      }
+    | SelectState
+  >;
+  NoticeColors: {
+    BRAND: string;
+    CUSTOM: string;
+    DANGER: string;
+    DEFAULT: string;
+    INFO: string;
+    NEUTRAL: string;
+    PLAYSTATION: string; // notice how it's a CSS class instead of having games
+    PREMIUM_TIER_0: string;
+    PREMIUM_TIER_1: string;
+    PREMIUM_TIER_2: string;
+    SPOTIFY: string;
+    STREAMER_MODE: string;
+    WARNING: string;
+  } & Record<string, string>;
+  Notice: React.ComponentType<
+    PropsWithChildren<{
+      color?: string;
+      className?: string;
+      style?: CSSProperties;
+    }>
+  >;
+  NoticeCloseButton: React.ComponentType<{
+    onClick?: React.MouseEventHandler;
+    noticeType: string;
+  }>;
+  PrimaryCTANoticeButton: React.ComponentType<
+    {
+      noticeType: string;
+    } & React.ButtonHTMLAttributes<HTMLButtonElement>
+  >;
+  Breadcrumbs: React.ComponentType<
+    PropsWithChildren<{
+      activeId: string;
+      breadcrumbs: Breadcrumb[];
+      renderCustomBreadcrumb?: (breadcrumb: Breadcrumb, last: boolean) => ReactNode;
+      onBreadcrumbClick?: (breadcrumb: Breadcrumb) => void;
+      className?: string;
+      separatorClassName?: string;
+    }>
+  >;
+  Image: React.ComponentType<
+    React.PropsWithChildren<{
+      className?: string;
+      imageClassName?: string;
+      readyState?: string;
+      src?: string;
+      srcIsAnimated?: boolean;
+      placeholder?: string;
+      placeholderVersion?: number;
+      alt?: string;
+      width?: number;
+      height?: number;
+      maxWidth?: number;
+      maxHeight?: number;
+      minWidth?: number;
+      minHeight?: number;
+      mediaLayoutType?: string;
+      limitResponsiveWidth?: boolean;
+      zoomable?: boolean;
+      original?: string;
+      onClick?: React.MouseEventHandler;
+      tabIndex?: number;
+      dataSafeSrc?: string;
+      useFullWidth?: boolean;
+    }>
+  >;
+
+  tokens: Tokens;
+  useVariableSelect: (props: SelectProps) => SelectState;
+  useMultiSelectState: (props: SelectProps) => SelectState;
+  useSingleSelectState: (props: SelectProps) => SelectState;
+  useMultiSelect: (value: any) => [Set<any>, (...args: any[]) => any];
+  useSingleSelect: (value: any) => [Set<any>, (...args: any[]) => any];
+  multiSelect: SelectInteractionCallback;
+  openModal: (modal: ModalCallback) => string;
+  openModalLazy: (modal: () => Promise<ModalCallback>) => Promise<string>;
+  closeModal: (id: string) => void;
+  useModalsStore: any;
+}
 export default Exports;
 
 register((moonmap) => {
