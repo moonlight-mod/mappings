@@ -916,7 +916,7 @@ export type StatusTypes = {
 
 type UnsortedComponentTypes = {
   AccessibilityAnnouncer: AccessibilityAnnouncer;
-  BackdropStyles: BackdropStyles;
+  BackdropStyles: typeof BackdropStyles;
   BadgeShapes: BadgeShapes;
   CardTypes: CardTypes;
   CircleIconButtonColors: CircleIconButtonColors;
@@ -927,18 +927,18 @@ type UnsortedComponentTypes = {
   FormNoticeImagePositions: FormNoticeImagePositions;
   FormNoticeTypes: FormNoticeTypes;
   FormTitleTags: FormTitleTags;
-  HelpMessageTypes: HelpMessageTypes;
+  HelpMessageTypes: typeof HelpMessageTypes;
   ModalSize: ModalSize;
-  ModalTransitionState: ModalTransitionState;
+  ModalTransitionState: typeof ModalTransitionState;
   NoticeColors: NoticeColors;
   PRETTY_KEYS: PRETTY_KEYS;
-  SelectLooks: SelectLooks;
+  SelectLooks: typeof SelectLooks;
   ShineSizes: ShineSizes;
   SpinnerTypes: SpinnerTypes;
   StatusTypes: StatusTypes;
-  ToastPosition: ToastPosition;
-  ToastType: ToastType;
-  TransitionStates: TransitionStates;
+  ToastPosition: typeof ToastPosition;
+  ToastType: typeof ToastType;
+  TransitionStates: typeof TransitionStates;
 };
 type ComponentConstants = {
   DEFAULT_MODAL_CONTEXT: "default";
