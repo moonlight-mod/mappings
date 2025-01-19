@@ -824,11 +824,11 @@ export type CircleIconButtonSizes = {
   SIZE_32: string;
   SIZE_36: string;
 };
-export type CopyInputModes = {
-  DEFAULT: "default";
-  SUCCESS: "success";
-  ERROR: "error";
-};
+export enum CopyInputModes {
+  DEFAULT = "default",
+  SUCCESS = "success",
+  ERROR = "error"
+}
 export type FocusRingManager = {
   init: any;
 };
@@ -837,10 +837,10 @@ export type FormErrorBlockColors = {
   BACKGROUND_TERTIARY: string;
   BACKGROUND_ACCENT: string;
 };
-export type FormNoticeImagePositions = {
-  LEFT: "left";
-  RIGHT: "right";
-};
+export enum FormNoticeImagePositions {
+  LEFT = "left",
+  RIGHT = "right"
+}
 export type FormNoticeTypes = {
   PRIMARY: string;
   DANGER: string;
@@ -849,21 +849,21 @@ export type FormNoticeTypes = {
   BRAND: string;
   CUSTOM: string;
 };
-export type FormTitleTags = {
-  H1: "h1";
-  H2: "h2";
-  H3: "h3";
-  H4: "h4";
-  H5: "h5";
-  LABEL: "label";
-  LEGEND: "legend";
-};
-export type ModalSize = {
-  SMALL: "small";
-  MEDIUM: "medium";
-  LARGE: "large";
-  DYNAMIC: "dynamic";
-};
+export enum FormTitleTags {
+  H1 = "h1",
+  H2 = "h2",
+  H3 = "h3",
+  H4 = "h4",
+  H5 = "h5",
+  LABEL = "label",
+  LEGEND = "legend"
+}
+export enum ModalSize {
+  SMALL = "small",
+  MEDIUM = "medium",
+  LARGE = "large",
+  DYNAMIC = "dynamic"
+}
 export type NoticeColors = {
   DEFAULT: string;
   NEUTRAL: string;
@@ -892,27 +892,27 @@ export type PRETTY_KEYS = {
   plus: any;
   return: any;
 };
-export type ShineSizes = {
-  DEFAULT: "default";
-  SMALL: "small";
-};
-export type SpinnerTypes = {
-  WANDERING_CUBES: "wanderingCubes";
-  CHASING_DOTS: "chasingDots";
-  PULSING_ELLIPSIS: "pulsingEllipsis";
-  SPINNING_CIRCLE: "spinningCircle";
-  SPINNING_CIRCLE_SIMPLE: "spinningCircleSimple";
-  LOW_MOTION: "lowMotion";
-};
-export type StatusTypes = {
-  ONLINE: "online";
-  OFFLINE: "offline";
-  IDLE: "idle";
-  DND: "dnd";
-  INVISIBLE: "invisible";
-  STREAMING: "streaming";
-  UNKNOWN: "unknown";
-};
+export enum ShineSizes {
+  DEFAULT = "default",
+  SMALL = "small"
+}
+export enum SpinnerTypes {
+  WANDERING_CUBES = "wanderingCubes",
+  CHASING_DOTS = "chasingDots",
+  PULSING_ELLIPSIS = "pulsingEllipsis",
+  SPINNING_CIRCLE = "spinningCircle",
+  SPINNING_CIRCLE_SIMPLE = "spinningCircleSimple",
+  LOW_MOTION = "lowMotion"
+}
+export enum StatusTypes {
+  ONLINE = "online",
+  OFFLINE = "offline",
+  IDLE = "idle",
+  DND = "dnd",
+  INVISIBLE = "invisible",
+  STREAMING = "streaming",
+  UNKNOWN = "unknown"
+}
 
 type UnsortedComponentTypes = {
   AccessibilityAnnouncer: AccessibilityAnnouncer;
@@ -921,21 +921,21 @@ type UnsortedComponentTypes = {
   CardTypes: CardTypes;
   CircleIconButtonColors: CircleIconButtonColors;
   CircleIconButtonSizes: CircleIconButtonSizes;
-  CopyInputModes: CopyInputModes;
+  CopyInputModes: typeof CopyInputModes;
   FocusRingManager: FocusRingManager;
   FormErrorBlockColors: FormErrorBlockColors;
-  FormNoticeImagePositions: FormNoticeImagePositions;
+  FormNoticeImagePositions: typeof FormNoticeImagePositions;
   FormNoticeTypes: FormNoticeTypes;
-  FormTitleTags: FormTitleTags;
+  FormTitleTags: typeof FormTitleTags;
   HelpMessageTypes: typeof HelpMessageTypes;
-  ModalSize: ModalSize;
+  ModalSize: typeof ModalSize;
   ModalTransitionState: typeof ModalTransitionState;
   NoticeColors: NoticeColors;
   PRETTY_KEYS: PRETTY_KEYS;
   SelectLooks: typeof SelectLooks;
-  ShineSizes: ShineSizes;
-  SpinnerTypes: SpinnerTypes;
-  StatusTypes: StatusTypes;
+  ShineSizes: typeof ShineSizes;
+  SpinnerTypes: typeof SpinnerTypes;
+  StatusTypes: typeof StatusTypes;
   ToastPosition: typeof ToastPosition;
   ToastType: typeof ToastType;
   TransitionStates: typeof TransitionStates;
