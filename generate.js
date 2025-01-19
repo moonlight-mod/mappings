@@ -5,6 +5,7 @@ const ts = require("typescript");
 const mappedTypes = {
   "discord/actions/ContextMenuActionCreators": "ContextMenuActionCreators",
   "discord/actions/UserSettingsModalActionCreators": "UserSettingsModalActionCreators",
+  "discord/Constants": "Constants",
   "discord/components/common/Alerts": "Alerts",
   "discord/components/common/BaseHeaderBar": "BaseHeaderBar",
   "discord/components/common/FileUpload": "FileUpload",
@@ -15,10 +16,9 @@ const mappedTypes = {
   "discord/components/common/PanelButton": "PanelButton",
   "discord/components/common/Scroller.css": "ScrollerCSS",
   "discord/components/modals/ConfirmModal": "ConfirmModal",
-  "discord/Constants": "Constants",
-  "discord/Dispatcher": "_Dispatcher", // "Dispatcher" may be reserved in some scenarios
-  "discord/lib/BaseRecord": "BaseRecord",
+  "discord/Dispatcher": "DispatcherInstance",
   "discord/lib/web/Storage": "Storage",
+  "discord/lib/BaseRecord": "BaseRecord",
   "discord/modules/build_overrides/web/BuildOverride.css": "BuildOverrideCSS",
   "discord/modules/discovery/web/Discovery.css": "DiscoveryCSS",
   "discord/modules/forums/web/Forums.css": "ForumsCSS",
@@ -29,20 +29,32 @@ const mappedTypes = {
   "discord/modules/guild_settings/web/AppCard.css": "AppCardCSS",
   "discord/modules/guild_settings/web/AppCardItem.css": "AppCardItemCSS",
   "discord/modules/guild_settings/web/SearchSection.css": "GuildSettingsSearchSectionCSS",
+  "discord/modules/guild_sidebar/web/CategoryChannel.css": "CategoryChannelCSS",
   "discord/modules/markup/MarkupUtils": "MarkupUtils",
   "discord/modules/menus/web/Menu": "Menu",
-  "discord/modules/oauth2/index": "Oauth2",
   "discord/modules/messages/web/Markup.css": "MarkupCSS",
   "discord/modules/messages/web/Message.css": "MessageCSS",
+  "discord/modules/oauth2/index": "Oauth2",
   "discord/modules/people/web/PeoplePage.css": "PeoplePageCSS",
   "discord/modules/user_profile/web/BiteSizeActivity.css": "ByteSizeActivityCSS",
   "discord/packages/flux": "Flux",
-  "discord/utils/ClipboardUtils": "ClipboardUtils",
-  "discord/utils/HTTPUtils": "HTTPUtils",
-  "discord/utils/NativeUtils": "NativeUtils",
+  "discord/packages/flux/BatchedStoreListener": "BatchedStoreListener",
+  "discord/packages/flux/ChangeListeners": "ChangeListeners",
+  "discord/packages/flux/connectStores": "connectStores",
+  "discord/packages/flux/Dispatcher": "_Dispatcher",
+  "discord/packages/flux/Emitter": "Emitter",
+  "discord/packages/flux/LoggingUtils": "LoggingUtils",
+  "discord/packages/flux/PersistedStore": "PersistedStore",
+  "discord/packages/flux/Store": "Store",
+  "discord/records/UserRecord": "UserRecord",
   "discord/styles/shared/Margins.css": "MarginsCSS",
   "discord/uikit/Flex": "Flex",
+  "discord/utils/ClipboardUtils": "ClipboardUtils",
+  "discord/utils/HTTPUtils": "HTTPUtils",
+  "discord/utils/MaskedLinkUtils": "MaskedLinkUtils",
+  "discord/utils/NativeUtils": "NativeUtils",
   "chroma-js": "ChromaJS",
+  classnames: "classnames",
   "dependency-graph": "DependencyGraph",
   "highlight.js": "HighlightJS",
   "highlight.js/lib/core": "HighlightJSCore",
@@ -54,6 +66,25 @@ const mappedTypes = {
 };
 
 const write = process.argv.includes("--write");
+
+function getExports(path) {
+  let sourcePath = "./src/mappings/" + path + ".ts";
+  if (!fs.existsSync(sourcePath)) sourcePath = "./src/mappings/" + path + "/index.ts";
+  if (!fs.existsSync(sourcePath)) return null;
+  const program = ts.createProgram([sourcePath], {
+    target: ts.ScriptTarget.ES2022,
+    module: ts.ScriptTarget.ES2022,
+    noEmit: true
+  });
+  const source = program.getSourceFile(sourcePath);
+  const typeChecker = program.getTypeChecker();
+  const alias = source.statements.find(
+    (s) => (ts.isTypeAliasDeclaration(s) || ts.isInterfaceDeclaration(s)) && s.name.getText(source) === "Exports"
+  );
+  if (!alias) return null;
+  const type = typeChecker.getTypeAtLocation(alias);
+  return type.getProperties().map((p) => p.getName());
+}
 
 function getPaths() {
   const paths = fs.readdirSync("src/mappings", { recursive: true });
@@ -117,21 +148,7 @@ function generateDeclares(prefix) {
   for (const path of Object.keys(mappedTypes).sort()) {
     str += `declare module "${prefix}${path}" {\n`;
 
-    let sourcePath = "./src/mappings/" + path + ".ts";
-    if (!fs.existsSync(sourcePath)) sourcePath = "./src/mappings/" + path + "/index.ts";
-    const program = ts.createProgram([sourcePath], {
-      target: ts.ScriptTarget.ES2022,
-      module: ts.ScriptTarget.ES2022,
-      noEmit: true
-    });
-    const source = program.getSourceFile(sourcePath);
-    const typeChecker = program.getTypeChecker();
-    const alias = source.statements.find(
-      (s) => (ts.isTypeAliasDeclaration(s) || ts.isInterfaceDeclaration(s)) && s.name.getText(source) === "Exports"
-    );
-    const type = typeChecker.getTypeAtLocation(alias);
-    const properties = type.getProperties().map((p) => p.getName());
-
+    const properties = getExports(path);
     if (properties.some((s) => s === "__mappings_exportEquals")) {
       str += `  import { MappedModules } from "@moonlight-mod/mappings";\n`;
       str += `  const _: Omit<MappedModules["${path}"], "__mappings_exportEquals">;\n`;
@@ -157,6 +174,18 @@ function generateDeclares(prefix) {
   console.log(str);
 }
 
+function generatePaths() {
+  const paths = getPaths();
+  const exclude = ["discord/packages/flux/index"];
+  for (const path of paths) {
+    const properties = getExports(path);
+    if (!properties) continue;
+    if (!(path in mappedTypes) && !exclude.includes(path)) {
+      console.log("Missing:", path);
+    }
+  }
+}
+
 const command = process.argv.length > 2 ? process.argv[2] : null;
 
 switch (command) {
@@ -172,7 +201,11 @@ switch (command) {
     generateDeclares(process.argv[3]);
     break;
 
+  case "paths":
+    generatePaths();
+    break;
+
   default:
-    console.error(`Usage: node generate.js <imports|types|declares>`);
+    console.error(`Usage: node generate.js <imports|types|declares|paths>`);
     break;
 }
