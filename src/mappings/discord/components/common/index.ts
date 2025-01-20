@@ -1073,7 +1073,7 @@ interface Exports
   Button: Button;
   Tooltip: Tooltip;
   Avatar: Avatar;
-  AvatarSizes: AvatarSizes;
+  AvatarSizes: typeof AvatarSizes;
   AvatarSizeSpecs: AvatarSizeSpecs;
   Scroller: ComponentType<
     PropsWithChildren<{
