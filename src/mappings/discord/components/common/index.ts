@@ -550,6 +550,7 @@ export type Avatar = ComponentType<
     "aria-hidden"?: boolean;
     "aria-label"?: string;
     imageClassName?: string;
+    [index: string]: any;
   }>
 >;
 // #endregion
