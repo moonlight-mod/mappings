@@ -3,7 +3,7 @@ import register from "../../../registry";
 
 type Exports = {
   isLinkTrusted: (link: string, unk?: string) => boolean;
-  handleClick: (link: string, unk?: string) => void;
+  handleClick: (options: { href: string }) => void;
 };
 export default Exports;
 
