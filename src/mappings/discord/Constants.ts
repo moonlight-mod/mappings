@@ -1833,7 +1833,7 @@ type Exports = {
   Endpoints: Endpoints;
   MessageFlags: typeof MessageFlags;
   MessageTypes: typeof MessageTypes;
-  Permissions: Permissions;
+  Permissions: typeof Permissions;
   PlatformTypes: typeof PlatformTypes;
   RelationshipTypes: typeof RelationshipTypes;
   Routes: Routes;
