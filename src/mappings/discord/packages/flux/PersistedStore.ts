@@ -13,7 +13,7 @@ export type ClearAll = {
 
 type Callback = () => void;
 
-export declare abstract class PersistedStore<T extends BasePayload> extends Store<T> {
+export declare abstract class PersistedStore<T extends BasePayload, S = any> extends Store<T> {
   _version: number;
   callback: (callback: Callback) => void;
   throttledCallback: DebouncedFunc<Callback>;
@@ -24,7 +24,7 @@ export declare abstract class PersistedStore<T extends BasePayload> extends Stor
   _writeResolvers: Map<string, [callback: Callback, idleCallbackId: number]>;
   _clearAllPromise?: Promise<void>;
   disableWrites: boolean;
-  persistKey?: string;
+  static persistKey?: string;
   disableWrite: boolean;
   throttleDelay: number;
   migrations?: unknown;
@@ -32,13 +32,13 @@ export declare abstract class PersistedStore<T extends BasePayload> extends Stor
   /**
    * Returns `this.constructor`
    */
-  getClass(): (dispatcher: Dispatcher<any>, actionHandlers?: Record<T["type"], ActionHandler<T>>) => this;
+  getClass(): (dispatcher: Dispatcher<T>, actionHandlers?: Record<T["type"], ActionHandler<T>>) => this;
   static clearAll(toClear: ClearAll): Promise<void> | null | undefined;
   static shouldClear(toClear: ClearAll, store: string): boolean;
   static clearPersistQueue(store: string): void;
   static getAllStates(): Record<string, any>;
   static initializeAll(state: BasePayload): void;
-  initializeFromState(state: T): void;
+  initializeFromState(state: S): void;
   static destroy(): void;
   initializeIfNeeded(): void;
   static migrateAndReadStoreState(store: string, migrators: (() => any)[]): { state?: any; requiresPersist: boolean };
@@ -46,16 +46,16 @@ export declare abstract class PersistedStore<T extends BasePayload> extends Stor
   persist(): void;
   clear(): void;
 
-  initialize(state?: T): void;
-  getState(): T;
+  initialize(state?: S): void;
+  getState(): S;
 
-  constructor(dispatcher: Dispatcher<any>, actionHandlers?: Record<T["type"], ActionHandler<T>>);
+  constructor(dispatcher: Dispatcher<T>, actionHandlers?: Record<T["type"], ActionHandler<T>>);
 }
 
-declare abstract class UserAgnosticStore<T extends BasePayload> extends PersistedStore<T> {
-  initializeFromState(state: T): void;
+declare abstract class UserAgnosticStore<T extends BasePayload, S = any> extends PersistedStore<T, S> {
+  initializeFromState(state: S): void;
   initializeIfNeeded(): void;
-  getState(): T;
+  getState(): S;
 }
 
 export declare abstract class DeviceSettingsStore<T extends BasePayload> extends UserAgnosticStore<T> {}
