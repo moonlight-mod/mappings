@@ -1569,7 +1569,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "CircleWarningIcon", {
         type: ModuleExportType.Function,
-        find: "M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0"
+        find: "M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm1.44-15.94L13.06"
       });
       moonmap.addExport(name, "AngleBracketsIcon", {
         type: ModuleExportType.Function,
