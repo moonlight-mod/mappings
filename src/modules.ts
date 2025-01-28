@@ -62,6 +62,7 @@ import "./mappings/discord/modules/messages/web/Markup.css";
 import "./mappings/discord/modules/messages/web/Message.css";
 import "./mappings/discord/modules/messages/web/TimestampTooltip";
 import "./mappings/discord/modules/messages/web/UserMention";
+import "./mappings/discord/modules/modals/Modals";
 import "./mappings/discord/modules/oauth2/index";
 import "./mappings/discord/modules/people/web/PeoplePage.css";
 import "./mappings/discord/modules/replies/PendingReplyStore";
