@@ -34,6 +34,7 @@ const mappedTypes = {
   "discord/modules/menus/web/Menu": "Menu",
   "discord/modules/messages/web/Markup.css": "MarkupCSS",
   "discord/modules/messages/web/Message.css": "MessageCSS",
+  "discord/modules/modals/Modals": "Modals",
   "discord/modules/oauth2/index": "Oauth2",
   "discord/modules/people/web/PeoplePage.css": "PeoplePageCSS",
   "discord/modules/user_profile/web/BiteSizeActivity.css": "ByteSizeActivityCSS",

@@ -1,6 +1,6 @@
 {
   "name": "@moonlight-mod/mappings",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -29,7 +29,8 @@
     "@types/lodash": "^4.17.14",
     "@types/platform": "^1.3.6",
     "@types/react": "^18.3.10",
-    "csstype": "^3.1.3"
+    "csstype": "^3.1.3",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "prettier": "^3.3.3",
@@ -37,6 +38,6 @@
   },
   "peerDependencies": {
     "@moonlight-mod/lunast": "^1.0.0",
-    "@moonlight-mod/moonmap": "^1.0.0"
+    "@moonlight-mod/moonmap": "^1.0.4"
   }
 }
