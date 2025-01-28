@@ -16,6 +16,7 @@ import type {
 import * as CSS from "csstype";
 
 import { FunctionNames, ComponentNames, IconNames } from "./_indexNames";
+import { ModuleExportType } from "@moonlight-mod/moonmap";
 
 type Modify<T, R> = Pick<T, Exclude<keyof T, keyof R>> & R;
 
@@ -825,14 +826,6 @@ export type CircleIconButtonSizes = {
   SIZE_32: string;
   SIZE_36: string;
 };
-export enum CopyInputModes {
-  DEFAULT = "default",
-  SUCCESS = "success",
-  ERROR = "error"
-}
-export type FocusRingManager = {
-  init: any;
-};
 export type FormErrorBlockColors = {
   RED: string;
   BACKGROUND_TERTIARY: string;
@@ -842,14 +835,6 @@ export enum FormNoticeImagePositions {
   LEFT = "left",
   RIGHT = "right"
 }
-export type FormNoticeTypes = {
-  PRIMARY: string;
-  DANGER: string;
-  WARNING: string;
-  SUCCESS: string;
-  BRAND: string;
-  CUSTOM: string;
-};
 export enum FormTitleTags {
   H1 = "h1",
   H2 = "h2",
@@ -865,21 +850,6 @@ export enum ModalSize {
   LARGE = "large",
   DYNAMIC = "dynamic"
 }
-export type NoticeColors = {
-  DEFAULT: string;
-  NEUTRAL: string;
-  BRAND: string;
-  WARNING: string;
-  DANGER: string;
-  INFO: string;
-  STREAMER_MODE: string;
-  CUSTOM: string;
-  SPOTIFY: string;
-  PLAYSTATION: string;
-  PREMIUM_TIER_0: string;
-  PREMIUM_TIER_1: string;
-  PREMIUM_TIER_2: string;
-};
 export type PRETTY_KEYS = {
   mod: any;
   alt: any;
@@ -893,10 +863,6 @@ export type PRETTY_KEYS = {
   plus: any;
   return: any;
 };
-export enum ShineSizes {
-  DEFAULT = "default",
-  SMALL = "small"
-}
 export enum SpinnerTypes {
   WANDERING_CUBES = "wanderingCubes",
   CHASING_DOTS = "chasingDots",
@@ -922,19 +888,14 @@ type UnsortedComponentTypes = {
   CardTypes: CardTypes;
   CircleIconButtonColors: CircleIconButtonColors;
   CircleIconButtonSizes: CircleIconButtonSizes;
-  CopyInputModes: typeof CopyInputModes;
-  FocusRingManager: FocusRingManager;
   FormErrorBlockColors: FormErrorBlockColors;
   FormNoticeImagePositions: typeof FormNoticeImagePositions;
-  FormNoticeTypes: FormNoticeTypes;
   FormTitleTags: typeof FormTitleTags;
   HelpMessageTypes: typeof HelpMessageTypes;
   ModalSize: typeof ModalSize;
   ModalTransitionState: typeof ModalTransitionState;
-  NoticeColors: NoticeColors;
   PRETTY_KEYS: PRETTY_KEYS;
   SelectLooks: typeof SelectLooks;
-  ShineSizes: typeof ShineSizes;
   SpinnerTypes: typeof SpinnerTypes;
   StatusTypes: typeof StatusTypes;
   ToastPosition: typeof ToastPosition;
@@ -1148,17 +1109,6 @@ interface Exports
       React.HTMLAttributes<HTMLDivElement>
   >;
   Menu: Menu;
-  MenuItem: MenuItem;
-  MenuGroup: MenuGroup;
-  MenuRadioItem: MenuRadioItem;
-  MenuCheckboxItem: MenuCheckboxItem;
-  MenuControlItem: MenuControlItem;
-  MenuSeparator: MenuSeparator;
-  SettingsNotice: React.ComponentType<{
-    submitting: boolean;
-    onReset: () => void;
-    onSave: () => void;
-  }>;
   TabBar: React.ComponentType<
     PropsWithChildren<{
       className?: string;
@@ -1282,7 +1232,6 @@ interface Exports
   openModal: (modal: ModalCallback) => string;
   openModalLazy: (modal: () => Promise<ModalCallback>) => Promise<string>;
   closeModal: (id: string) => void;
-  useModalsStore: any;
 }
 export default Exports;
 
@@ -1290,9 +1239,434 @@ register((moonmap) => {
   const name = "discord/components/common/index";
   moonmap.register({
     name,
-    find: "MasonryList:function",
+    // This find is one of the few identifying strings in this module and we're so lucky it's here, lol
+    find: ",Text:()=>",
     process({ id }) {
       moonmap.addModule(id, name);
+
+      // Components
+      moonmap.addExport(name, "FormSection", {
+        type: ModuleExportType.Function,
+        find: ".sectionTitle,",
+        recursive: true
+      });
+      moonmap.addExport(name, "FormDivider", {
+        type: ModuleExportType.Function,
+        find: ".divider,"
+      });
+      moonmap.addExport(name, "Popout", {
+        type: ModuleExportType.Function,
+        find: "Unsupported animation config:"
+      });
+      moonmap.addExport(name, "Tooltip", {
+        type: ModuleExportType.Function,
+        find: "this.shouldShowTooltip("
+      });
+      moonmap.addExport(name, "Menu", {
+        type: ModuleExportType.Function,
+        find: "menuItemProps:"
+      });
+      moonmap.addExport(name, "Button", {
+        type: ModuleExportType.Function,
+        find: ".disabledButtonWrapper,"
+      });
+      moonmap.addExport(name, "TabBar", {
+        type: ModuleExportType.Function,
+        find: "ref:this.tabBarRef,"
+      });
+      moonmap.addExport(name, "Notice", {
+        type: ModuleExportType.Function,
+        find: ".notice,{["
+      });
+      moonmap.addExport(name, "NoticeCloseButton", {
+        type: ModuleExportType.Function,
+        find: "WAI6xs),"
+      });
+      moonmap.addExport(name, "PrimaryCTANoticeButton", {
+        type: ModuleExportType.Function,
+        find: "additionalTrackingProps:"
+      });
+      moonmap.addExport(name, "Card", {
+        type: ModuleExportType.Function,
+        find: ".editable),"
+      });
+      moonmap.addExport(name, "FormSwitch", {
+        type: ModuleExportType.Function,
+        find: ".dividerDefault}"
+      });
+      moonmap.addExport(name, "Breadcrumbs", {
+        type: ModuleExportType.Function,
+        find: "(this.renderBreadcrumb)"
+      });
+      moonmap.addExport(name, "Dialog", {
+        type: ModuleExportType.Function,
+        find: 'role:"dialog"',
+        recursive: true
+      });
+      moonmap.addExport(name, "Heading", {
+        type: ModuleExportType.Function,
+        find: ['"data-excessive-heading-level"', ".defaultColor,"],
+        recursive: true
+      });
+      moonmap.addExport(name, "Select", {
+        type: ModuleExportType.Function,
+        find: "VkKicX),children:"
+      });
+      moonmap.addExport(name, "NumberInputStepper", {
+        type: ModuleExportType.Function,
+        find: "__invalid_subtract"
+      });
+      moonmap.addExport(name, "FormItem", {
+        type: ModuleExportType.Function,
+        find: ".fieldWrapper:void 0,",
+        recursive: true
+      });
+      moonmap.addExport(name, "FormText", {
+        type: ModuleExportType.Function,
+        find: ".DEFAULT,className:"
+      });
+      moonmap.addExport(name, "TextInput", {
+        type: ModuleExportType.Function,
+        find: '"getIsUnderFlowing"'
+      });
+      moonmap.addExport(name, "Slider", {
+        type: ModuleExportType.Function,
+        find: "nextClosestMarkerIndex:"
+      });
+      moonmap.addExport(name, "TextArea", {
+        type: ModuleExportType.Function,
+        find: "getCharsLeftLength(){"
+      });
+      moonmap.addExport(name, "Clickable", {
+        type: ModuleExportType.Function,
+        find: "renderNonInteractive(){"
+      });
+      moonmap.addExport(name, "SingleSelect", {
+        type: ModuleExportType.Function,
+        find: /\(\{value:.,onChange:.\}\)/
+      });
+      moonmap.addExport(name, "Image", {
+        type: ModuleExportType.Function,
+        find: ",dataSafeSrc:"
+      });
+      moonmap.addExport(name, "ModalRoot", {
+        type: ModuleExportType.Function,
+        find: ",fullscreenOnMobile:"
+      });
+      moonmap.addExport(name, "ModalHeader", {
+        type: ModuleExportType.Function,
+        find: "let{headerId:"
+      });
+      moonmap.addExport(name, "ModalCloseButton", {
+        type: ModuleExportType.Function,
+        find: "cpT0Cg),"
+      });
+      moonmap.addExport(name, "ModalContent", {
+        type: ModuleExportType.Function,
+        find: ",scrollbarType:"
+      });
+      moonmap.addExport(name, "ModalFooter", {
+        type: ModuleExportType.Function,
+        find: ".footerSeparator"
+      });
+      moonmap.addExport(name, "HelpMessage", {
+        type: ModuleExportType.Function,
+        find: '"text-sm/medium"}'
+      });
+      moonmap.addExport(name, "FormTitle", {
+        type: ModuleExportType.Function,
+        find: 'case"legend"'
+      });
+      moonmap.addExport(name, "Avatar", {
+        type: ModuleExportType.Function,
+        find: "statusTooltipDelay:"
+      });
+      moonmap.addExport(name, "Switch", {
+        type: ModuleExportType.Function,
+        find: "INTERACTIVE_MUTED:"
+      });
+      moonmap.addExport(name, "Scroller", {
+        type: ModuleExportType.Function,
+        find: '"vertical",paddingFix:'
+      });
+
+      // Hooks
+      moonmap.addExport(name, "useThemeContext", {
+        type: ModuleExportType.Function,
+        find: "useThemeContext must be used within a ThemeContext.Provider"
+      });
+      moonmap.addExport(name, "useVariableSelect", {
+        type: ModuleExportType.Function,
+        find: ",onSelectInteraction:"
+      });
+      moonmap.addExport(name, "useSingleSelectState", {
+        type: ModuleExportType.Function,
+        find: /clear:\(\)=>.\(null\)/
+      });
+      moonmap.addExport(name, "useSingleSelect", {
+        type: ModuleExportType.Function,
+        find: ".useState(()=>new Set(null!="
+      });
+      moonmap.addExport(name, "useMultiSelectState", {
+        type: ModuleExportType.Function,
+        find: /clear:\(\)=>.\(new Set\)/
+      });
+      moonmap.addExport(name, "useMultiSelect", {
+        type: ModuleExportType.Function,
+        find: [".useState(()=>new Set(", ".add("]
+      });
+
+      // Functions
+      moonmap.addExport(name, "multiSelect", {
+        type: ModuleExportType.Function,
+        find: "),{newValues:"
+      });
+      moonmap.addExport(name, "openModal", {
+        type: ModuleExportType.Function,
+        find: /,backdropStyle:.\}=/
+      });
+      moonmap.addExport(name, "closeModal", {
+        type: ModuleExportType.Function,
+        find: "onCloseCallback()"
+      });
+      moonmap.addExport(name, "openModalLazy", {
+        type: ModuleExportType.Function,
+        find: ".modalKey?"
+      });
+
+      // Objects/enums
+      moonmap.addExport(name, "ModalSize", {
+        type: ModuleExportType.Key,
+        find: "DYNAMIC"
+      });
+      moonmap.addExport(name, "HelpMessageTypes", {
+        type: ModuleExportType.Key,
+        find: "POSITIVE"
+      });
+      moonmap.addExport(name, "AvatarSizes", {
+        type: ModuleExportType.KeyValuePair,
+        key: "SIZE_48",
+        value: "SIZE_48"
+      });
+      moonmap.addExport(name, "AvatarSizeSpecs", {
+        type: ModuleExportType.Key,
+        find: "SIZE_48.size"
+      });
+      moonmap.addExport(name, "NoticeColors", {
+        type: ModuleExportType.Key,
+        find: "STREAMER_MODE"
+      });
+      moonmap.addExport(name, "tokens", {
+        type: ModuleExportType.Key,
+        find: "unsafe_rawColors"
+      });
+      moonmap.addExport(name, "AccessibilityAnnouncer", {
+        type: ModuleExportType.Key,
+        find: "clearAnnouncements"
+      });
+      moonmap.addExport(name, "BackdropStyles", {
+        type: ModuleExportType.Key,
+        find: "SUBTLE"
+      });
+      moonmap.addExport(name, "BadgeShapes", {
+        type: ModuleExportType.Key,
+        find: "ROUND_RIGHT"
+      });
+      moonmap.addExport(name, "CardTypes", {
+        type: ModuleExportType.Key,
+        find: "SUCCESS"
+      });
+      moonmap.addExport(name, "CircleIconButtonColors", {
+        type: ModuleExportType.Key,
+        find: "TERTIARY"
+      });
+      moonmap.addExport(name, "CircleIconButtonSizes", {
+        type: ModuleExportType.Key,
+        find: "SIZE_36"
+      });
+      moonmap.addExport(name, "FormErrorBlockColors", {
+        type: ModuleExportType.Key,
+        find: "BACKGROUND_TERTIARY"
+      });
+      moonmap.addExport(name, "FormNoticeImagePositions", {
+        type: ModuleExportType.Key,
+        find: "LEFT"
+      });
+      moonmap.addExport(name, "TransitionStates", {
+        type: ModuleExportType.Key,
+        find: "YEETED"
+      });
+      moonmap.addExport(name, "StatusTypes", {
+        type: ModuleExportType.Key,
+        find: "INVISIBLE"
+      });
+      moonmap.addExport(name, "SpinnerTypes", {
+        type: ModuleExportType.Key,
+        find: "WANDERING_CUBES"
+      });
+      moonmap.addExport(name, "SelectLooks", {
+        type: ModuleExportType.KeyValuePair,
+        key: "CUSTOM",
+        value: 1
+      });
+      moonmap.addExport(name, "PRETTY_KEYS", {
+        type: ModuleExportType.Key,
+        find: "any-character"
+      });
+      moonmap.addExport(name, "ModalTransitionState", {
+        type: ModuleExportType.Key,
+        find: "EXITING"
+      });
+      moonmap.addExport(name, "FormTitleTags", {
+        type: ModuleExportType.Key,
+        find: "H5"
+      });
+
+      // Icons
+      moonmap.addExport(name, "PlayIcon", {
+        type: ModuleExportType.Function,
+        find: "M9.25 3.35C7.87 2.45 6 3.38 6 4.96v14.08c0 1.58"
+      });
+      moonmap.addExport(name, "PauseIcon", {
+        type: ModuleExportType.Function,
+        find: "M6 4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3a1"
+      });
+      moonmap.addExport(name, "ThemeDarkIcon", {
+        type: ModuleExportType.Function,
+        find: "m17.73 9.27-.76-2.02a.5.5 0 0 0-.94 0l-.76"
+      });
+      moonmap.addExport(name, "ScreenIcon", {
+        type: ModuleExportType.Function,
+        find: "M5 2a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h14a3"
+      });
+      moonmap.addExport(name, "MobilePhoneIcon", {
+        type: ModuleExportType.Function,
+        find: "M5 4a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v16a3 3 0 0 1-3"
+      });
+      moonmap.addExport(name, "GlobeEarthIcon", {
+        type: ModuleExportType.Function,
+        find: "M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Zm-4.16 5.85A9"
+      });
+      moonmap.addExport(name, "GameControllerIcon", {
+        type: ModuleExportType.Function,
+        find: "M20.97 4.06c0 .18.08.35.24.43.55.28.9.82 1.04 1.42.3"
+      });
+      moonmap.addExport(name, "RetryIcon", {
+        type: ModuleExportType.Function,
+        find: "M4 12a8 8 0 0 1 14.93-4H15a1 1 0 1 0 0 2h6a1"
+      });
+      moonmap.addExport(name, "ChevronSmallUpIcon", {
+        type: ModuleExportType.Function,
+        find: "M5.3 14.7a1 1 0 0 0 1.4 0L12 9.42l5.3 5.3a1"
+      });
+      moonmap.addExport(name, "ChevronSmallDownIcon", {
+        type: ModuleExportType.Function,
+        find: "M5.3 9.3a1 1 0 0 1 1.4 0l5.3 5.29 5.3-5.3a1"
+      });
+      moonmap.addExport(name, "CircleInformationIcon", {
+        type: ModuleExportType.Function,
+        find: "M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Zm-9.5-4.75a1.25 1.25"
+      });
+      moonmap.addExport(name, "CircleWarningIcon", {
+        type: ModuleExportType.Function,
+        find: "M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0"
+      });
+      moonmap.addExport(name, "AngleBracketsIcon", {
+        type: ModuleExportType.Function,
+        find: "M9.6 7.8 4 12l5.6 4.2a1 1 0 0 1 .4.8v1.98c0"
+      });
+      moonmap.addExport(name, "ChannelListIcon", {
+        type: ModuleExportType.Function,
+        find: "M2 4a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1ZM2"
+      });
+      moonmap.addExport(name, "HeartIcon", {
+        type: ModuleExportType.Function,
+        find: "M12.47 21.73a.92.92 0 0 1-.94 0C9.43 20.48 1 15.09"
+      });
+      moonmap.addExport(name, "WindowTopOutlineIcon", {
+        type: ModuleExportType.Function,
+        find: "M4 5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v.18a1 1 0 1 0 2 0V5a3"
+      });
+      moonmap.addExport(name, "ScienceIcon", {
+        type: ModuleExportType.Function,
+        find: "M19.5 15.46a13.2 13.2 0 0 0-.72-1.62"
+      });
+      moonmap.addExport(name, "WarningIcon", {
+        type: ModuleExportType.Function,
+        find: "M10 3.1a2.37 2.37 0 0 1 4 0l8.71 14.75c.84"
+      });
+      moonmap.addExport(name, "TrashIcon", {
+        type: ModuleExportType.Function,
+        find: "14.25 1c.41 0 .75.34.75.75V3h5.25c.41"
+      });
+      moonmap.addExport(name, "DownloadIcon", {
+        type: ModuleExportType.Function,
+        find: "M12 2a1 1 0 0 1 1 1v10.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5"
+      });
+      moonmap.addExport(name, "ArrowsUpDownIcon", {
+        type: ModuleExportType.Function,
+        find: "M16.3 21.7a1 1 0 0 0 1.4 0l4-4a1 1 0 0"
+      });
+      moonmap.addExport(name, "XSmallIcon", {
+        type: ModuleExportType.Function,
+        find: "M17.3 18.7a1 1 0 0 0 1.4-1.4L13.42 12l5.3-5.3a1"
+      });
+      moonmap.addExport(name, "BookCheckIcon", {
+        type: ModuleExportType.Function,
+        find: "M15 2a3 3 0 0 1 3 3v12H5.5a1.5 1.5 0 0 0 0 3h14a.5.5"
+      });
+      moonmap.addExport(name, "ClydeIcon", {
+        type: ModuleExportType.Function,
+        find: "M19.73 4.87a18.2 18.2 0 0 0-4.6-1.44c-.21.4-.4.8-.58"
+      });
+      moonmap.addExport(name, "CircleXIcon", {
+        type: ModuleExportType.Function,
+        find: "M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm4.7-15.7a1"
+      });
+      moonmap.addExport(name, "XLargeIcon", {
+        type: ModuleExportType.Function,
+        find: "M19.3 20.7a1 1 0 0 0 1.4-1.4L13.42"
+      });
+      moonmap.addExport(name, "CopyIcon", {
+        type: ModuleExportType.Function,
+        find: "M3 16a1 1 0 0 1-1-1v-5a8 8 0 0 1 8-8h5a1"
+      });
+      moonmap.addExport(name, "LinkIcon", {
+        type: ModuleExportType.Function,
+        find: "M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3.98"
+      });
+      moonmap.addExport(name, "PlusLargeIcon", {
+        type: ModuleExportType.Function,
+        find: "M13 3a1 1 0 1 0-2 0v8H3a1 1 0 1 0 0 2h8v8a1"
+      });
+      moonmap.addExport(name, "MinusIcon", {
+        type: ModuleExportType.Function,
+        find: "M22 12a1 1 0 0 1-1 1H3a1 1 0 1 1 0-2h18a1 1 0 0 1 1 1Z"
+      });
+      moonmap.addExport(name, "FullscreenEnterIcon", {
+        type: ModuleExportType.Function,
+        find: "2h3ZM20 18a2 2 0 0 1-2 2h-3a1 1 0 1 0 0 2h3a4 4 0 0 0 4-4v-3a1 1 0 1 0-2 0v3Z"
+      });
+      moonmap.addExport(name, "ArrowAngleLeftUpIcon", {
+        type: ModuleExportType.Function,
+        find: "M2.3 7.3a1 1 0 0 0 0 1.4l5 5a1 1 0 0 0 1.4-1.4L5.42 9H11a7"
+      });
+      moonmap.addExport(name, "ArrowAngleRightUpIcon", {
+        type: ModuleExportType.Function,
+        find: "M21.7 7.3a1 1 0 0 1 0 1.4l-5 5a1 1 0 0 1-1.4-1.4L18.58 9H13a7"
+      });
+      moonmap.addExport(name, "WindowLaunchIcon", {
+        type: ModuleExportType.Function,
+        find: "1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6a1"
+      });
+      moonmap.addExport(name, "MaximizeIcon", {
+        type: ModuleExportType.Function,
+        find: "M14 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0V5.41l-5.3"
+      });
+      moonmap.addExport(name, "StarIcon", {
+        type: ModuleExportType.Function,
+        find: "M10.81 2.86c.38-1.15 2-1.15 2.38 0l1.89 5.83h6.12c1.2 0 1.71"
+      });
 
       return true;
     }
