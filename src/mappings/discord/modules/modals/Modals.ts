@@ -22,7 +22,9 @@ export type ModalStore = StoreApi<Record<ModalContext, Modal[]>>;
 
 type Exports = {
   closeAllModals: () => void;
+  closeAllModalsForContext: (context?: ModalContext) => void;
   closeModal: (key: string, context?: ModalContext) => void;
+  closeModalInAllContexts: (key: string) => void;
   getInteractingModalContext: () => ModalContext;
   hasAnyModalOpen: () => boolean;
   hasAnyModalOpenSelector: (store: any) => boolean;
@@ -59,9 +61,18 @@ register((moonmap) => {
         type: ModuleExportType.Function,
         find: /for\(let . of .\[.\]\)/
       });
+      // guessing, exported but not used by anything
+      moonmap.addExport(name, "closeAllModalsForContext", {
+        type: ModuleExportType.Function,
+        find: /null!=.\)for\(let . of .\)/
+      });
       moonmap.addExport(name, "closeModal", {
         type: ModuleExportType.Function,
         find: "onCloseCallback()"
+      });
+      moonmap.addExport(name, "closeModalInAllContexts", {
+        type: ModuleExportType.Function,
+        find: ".onCloseCallback)||void 0==="
       });
       moonmap.addExport(name, "getInteractingModalContext", {
         type: ModuleExportType.Function,
@@ -85,7 +96,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "modalContextFromAppContext", {
         type: ModuleExportType.Function,
-        find: /return .===.\.+?\.POPOUT\?/
+        find: ".POPOUT?"
       });
       moonmap.addExport(name, "openModal", {
         type: ModuleExportType.Function,
@@ -94,6 +105,10 @@ register((moonmap) => {
       moonmap.addExport(name, "openModalLazy", {
         type: ModuleExportType.Function,
         find: ":{},{contextKey:"
+      });
+      moonmap.addExport(name, "updateModal", {
+        type: ModuleExportType.Function,
+        find: "onCloseRequest:null=="
       });
       moonmap.addExport(name, "useHasAnyModalOpen", {
         type: ModuleExportType.Function,
