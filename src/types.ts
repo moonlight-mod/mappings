@@ -50,6 +50,7 @@ import UserRecord from "./mappings/discord/records/UserRecord";
 import MarginsCSS from "./mappings/discord/styles/shared/Margins.css";
 import Flex from "./mappings/discord/uikit/Flex";
 import ClipboardUtils from "./mappings/discord/utils/ClipboardUtils";
+import ComponentDispatchUtils from "./mappings/discord/utils/ComponentDispatchUtils";
 import HTTPUtils from "./mappings/discord/utils/HTTPUtils";
 import MaskedLinkUtils from "./mappings/discord/utils/MaskedLinkUtils";
 import NativeUtils from "./mappings/discord/utils/NativeUtils";
@@ -113,6 +114,7 @@ export type MappedModules = {
   "discord/styles/shared/Margins.css": MarginsCSS;
   "discord/uikit/Flex": Flex;
   "discord/utils/ClipboardUtils": ClipboardUtils;
+  "discord/utils/ComponentDispatchUtils": ComponentDispatchUtils;
   "discord/utils/HTTPUtils": HTTPUtils;
   "discord/utils/MaskedLinkUtils": MaskedLinkUtils;
   "discord/utils/NativeUtils": NativeUtils;
