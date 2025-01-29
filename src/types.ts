@@ -33,6 +33,7 @@ import MarkupUtils from "./mappings/discord/modules/markup/MarkupUtils";
 import Menu from "./mappings/discord/modules/menus/web/Menu";
 import MarkupCSS from "./mappings/discord/modules/messages/web/Markup.css";
 import MessageCSS from "./mappings/discord/modules/messages/web/Message.css";
+import Modals from "./mappings/discord/modules/modals/Modals";
 import Oauth2 from "./mappings/discord/modules/oauth2/index";
 import PeoplePageCSS from "./mappings/discord/modules/people/web/PeoplePage.css";
 import ByteSizeActivityCSS from "./mappings/discord/modules/user_profile/web/BiteSizeActivity.css";
@@ -62,7 +63,7 @@ import UUID from "./mappings/uuid/v4";
 
 export type MappedModules = {
   "chroma-js": ChromaJS;
-  classnames: classnames;
+  "classnames": classnames;
   "dependency-graph": DependencyGraph;
   "discord/Constants": Constants;
   "discord/Dispatcher": DispatcherInstance;
@@ -95,6 +96,7 @@ export type MappedModules = {
   "discord/modules/menus/web/Menu": Menu;
   "discord/modules/messages/web/Markup.css": MarkupCSS;
   "discord/modules/messages/web/Message.css": MessageCSS;
+  "discord/modules/modals/Modals": Modals;
   "discord/modules/oauth2/index": Oauth2;
   "discord/modules/people/web/PeoplePage.css": PeoplePageCSS;
   "discord/modules/user_profile/web/BiteSizeActivity.css": ByteSizeActivityCSS;
@@ -116,11 +118,13 @@ export type MappedModules = {
   "discord/utils/NativeUtils": NativeUtils;
   "highlight.js": HighlightJS;
   "highlight.js/lib/core": HighlightJSCore;
-  lodash: lodash;
-  murmurhash: murmurhash;
+  "lodash": lodash;
+  "murmurhash": murmurhash;
   "platform.js": PlatformJS;
-  react: React;
+  "react": React;
   "uuid/v4": UUID;
 };
 
-export declare function WebpackRequire<T extends keyof MappedModules>(module: T): MappedModules[T];
+export declare function WebpackRequire<T extends keyof MappedModules>(
+  module: T
+): MappedModules[T];
