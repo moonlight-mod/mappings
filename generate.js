@@ -51,6 +51,7 @@ const mappedTypes = {
   "discord/styles/shared/Margins.css": "MarginsCSS",
   "discord/uikit/Flex": "Flex",
   "discord/utils/ClipboardUtils": "ClipboardUtils",
+  "discord/utils/ComponentDispatchUtils": "ComponentDispatchUtils",
   "discord/utils/HTTPUtils": "HTTPUtils",
   "discord/utils/MaskedLinkUtils": "MaskedLinkUtils",
   "discord/utils/NativeUtils": "NativeUtils",
