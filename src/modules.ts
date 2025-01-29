@@ -125,6 +125,7 @@ import "./mappings/discord/utils/AvatarUtils";
 import "./mappings/discord/utils/BigFlagUtils";
 import "./mappings/discord/utils/ClipboardUtils";
 import "./mappings/discord/utils/ColorUtils";
+import "./mappings/discord/utils/ComponentDispatchUtils";
 import "./mappings/discord/utils/FileUtils";
 import "./mappings/discord/utils/FlagUtils";
 import "./mappings/discord/utils/HTTPUtils";

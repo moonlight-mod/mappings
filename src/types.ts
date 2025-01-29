@@ -63,7 +63,7 @@ import UUID from "./mappings/uuid/v4";
 
 export type MappedModules = {
   "chroma-js": ChromaJS;
-  "classnames": classnames;
+  classnames: classnames;
   "dependency-graph": DependencyGraph;
   "discord/Constants": Constants;
   "discord/Dispatcher": DispatcherInstance;
@@ -118,13 +118,11 @@ export type MappedModules = {
   "discord/utils/NativeUtils": NativeUtils;
   "highlight.js": HighlightJS;
   "highlight.js/lib/core": HighlightJSCore;
-  "lodash": lodash;
-  "murmurhash": murmurhash;
+  lodash: lodash;
+  murmurhash: murmurhash;
   "platform.js": PlatformJS;
-  "react": React;
+  react: React;
   "uuid/v4": UUID;
 };
 
-export declare function WebpackRequire<T extends keyof MappedModules>(
-  module: T
-): MappedModules[T];
+export declare function WebpackRequire<T extends keyof MappedModules>(module: T): MappedModules[T];
