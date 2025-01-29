@@ -1409,7 +1409,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "useMultiSelectState", {
         type: ModuleExportType.Function,
-        find: /clear:\(\)=>.\(new Set\)/
+        find: /.\.has\(.\)\?.\.delete\(.\):.\.add\(.\),.\(.\)/
       });
       moonmap.addExport(name, "useMultiSelect", {
         type: ModuleExportType.Function,
