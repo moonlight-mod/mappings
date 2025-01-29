@@ -1,6 +1,6 @@
 import register from "../../../registry";
 
-import { Component, ComponentClass, CSSProperties, PropsWithChildren } from "react";
+import { ComponentClass, CSSProperties, PropsWithChildren } from "react";
 import * as CSS from "csstype";
 
 export enum FlexDirection {
@@ -67,7 +67,7 @@ register((moonmap) => {
   const name = "discord/uikit/Flex";
   moonmap.register({
     name,
-    find: ".flexChild,style",
+    find: ".alignStretch,BASELINE:",
     process({ id }) {
       moonmap.addModule(id, name);
 
