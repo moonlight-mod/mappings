@@ -1387,7 +1387,8 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "Scroller", {
         type: ModuleExportType.Function,
-        find: '"vertical",paddingFix:'
+        find: '"vertical",paddingFix:',
+        recursive: true
       });
 
       // Hooks
