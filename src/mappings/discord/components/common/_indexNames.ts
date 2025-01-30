@@ -67,6 +67,7 @@ export type ComponentNames =
   | "PrimaryCTANoticeButton"
   | "Select"
   | "SingleSelect"
+  | "SearchableSelect"
   | "Slider"
   | "Switch"
   | "TabBar"
