@@ -1345,6 +1345,11 @@ register((moonmap) => {
         type: ModuleExportType.Function,
         find: /\(\{value:.,onChange:.\}\)/
       });
+      moonmap.addExport(name, "SearchableSelect", {
+        type: ModuleExportType.Function,
+        find: '"SearchableSelect"',
+        recursive: true
+      });
       moonmap.addExport(name, "Image", {
         type: ModuleExportType.Function,
         find: ",dataSafeSrc:"
