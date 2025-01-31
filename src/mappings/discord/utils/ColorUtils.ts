@@ -5,7 +5,7 @@ register((moonmap) => {
   const name = "discord/utils/ColorUtils";
   moonmap.register({
     name,
-    find: ["<=16777215", ", calc(var(--saturation-factor, 1) * "],
+    find: [".alpha()).css()", ", calc(var(--saturation-factor, 1) * "],
     process({ id }) {
       moonmap.addModule(id, name);
 
@@ -23,7 +23,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "int2hex", {
         type: ModuleExportType.Function,
-        find: '<=16777215?"#".concat'
+        find: '<=0xffffff){'
       });
       moonmap.addExport(name, "int2hsl", {
         type: ModuleExportType.Function,
