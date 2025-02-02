@@ -23,7 +23,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "int2hex", {
         type: ModuleExportType.Function,
-        find: '<=0xffffff){'
+        find: "<=0xffffff){"
       });
       moonmap.addExport(name, "int2hsl", {
         type: ModuleExportType.Function,
