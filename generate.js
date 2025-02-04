@@ -6,6 +6,7 @@ const mappedTypes = {
   "discord/actions/ContextMenuActionCreators": "ContextMenuActionCreators",
   "discord/actions/UserSettingsModalActionCreators": "UserSettingsModalActionCreators",
   "discord/Constants": "Constants",
+  "discord/common/AppStartPerformance": "AppStartPerformance",
   "discord/components/common/Alerts": "Alerts",
   "discord/components/common/BaseHeaderBar": "BaseHeaderBar",
   "discord/components/common/FileUpload": "FileUpload",

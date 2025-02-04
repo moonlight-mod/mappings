@@ -11,6 +11,7 @@ import "./mappings/discord/actions/MessageActionCreators";
 import "./mappings/discord/actions/UserActionCreators";
 import "./mappings/discord/actions/UserProfileModalActionCreators";
 import "./mappings/discord/actions/UserSettingsModalActionCreators";
+import "./mappings/discord/common/AppStartPerformance";
 import "./mappings/discord/components/common/Alerts";
 import "./mappings/discord/components/common/BaseHeaderBar";
 import "./mappings/discord/components/common/Breadcrumbs.css";

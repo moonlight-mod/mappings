@@ -6,6 +6,7 @@ import Constants from "./mappings/discord/Constants";
 import DispatcherInstance from "./mappings/discord/Dispatcher";
 import ContextMenuActionCreators from "./mappings/discord/actions/ContextMenuActionCreators";
 import UserSettingsModalActionCreators from "./mappings/discord/actions/UserSettingsModalActionCreators";
+import AppStartPerformance from "./mappings/discord/common/AppStartPerformance";
 import Alerts from "./mappings/discord/components/common/Alerts";
 import BaseHeaderBar from "./mappings/discord/components/common/BaseHeaderBar";
 import FileUpload from "./mappings/discord/components/common/FileUpload";
@@ -70,6 +71,7 @@ export type MappedModules = {
   "discord/Dispatcher": DispatcherInstance;
   "discord/actions/ContextMenuActionCreators": ContextMenuActionCreators;
   "discord/actions/UserSettingsModalActionCreators": UserSettingsModalActionCreators;
+  "discord/common/AppStartPerformance": AppStartPerformance;
   "discord/components/common/Alerts": Alerts;
   "discord/components/common/BaseHeaderBar": BaseHeaderBar;
   "discord/components/common/FileUpload": FileUpload;

@@ -1,5 +1,4 @@
-import { ModuleExportType } from "@moonlight-mod/moonmap";
-import register from "../../registry";
+import register from "../../../registry";
 
 export interface Log {
   delta?: number;
