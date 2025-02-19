@@ -21,8 +21,13 @@ register((moonmap, lunast) => {
       const propertyGetters = getPropertyGetters(ast);
 
       for (const [exportName, binding] of Object.entries(propertyGetters)) {
-        if (!is.identifier(binding.expression)) continue;
-        const definition = binding.scope.getOwnBinding(binding.expression.name);
+        if (!is.identifier(binding.expression) && !is.arrowFunctionExpression(binding.expression)) continue;
+        const definition =
+          is.arrowFunctionExpression(binding.expression) && is.identifier(binding.expression.body)
+            ? binding.scope.getOwnBinding(binding.expression.body.name)
+            : is.identifier(binding.expression)
+              ? binding.scope.getOwnBinding(binding.expression.name)
+              : null;
 
         if (definition?.path.type === "FunctionDeclaration") {
           moonmap.addExport(name, "copy", {

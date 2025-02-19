@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@moonlight-mod/lunast':
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^1.0.1
+        version: 1.0.1
       '@moonlight-mod/moonmap':
         specifier: ^1.0.4
         version: 1.0.4
@@ -48,8 +48,8 @@ importers:
 
 packages:
 
-  '@moonlight-mod/lunast@1.0.0':
-    resolution: {integrity: sha512-kJgf41K12i6/2LbXK97CNO+pNO7ADGh9N4bCQcOPwosocKMcwKHDEZUgPqeihNshY3c3AEW1LiyXjlsl24PdDw==}
+  '@moonlight-mod/lunast@1.0.1':
+    resolution: {integrity: sha512-K3vxzDlfFuYKjciIW2FMlcZ1qrrkAGDGpSBlNqYGtJ0sMt9bRCd2lpSpg6AX/giSljDtmAUXa/5mOfUoDQxjBA==}
 
   '@moonlight-mod/moonmap@1.0.4':
     resolution: {integrity: sha512-NES5a+ZSfgyRBZ7pBL8PZL40Au5vTDskvC/Gqx0bs3woikkkdjbZiW9RPypwUQqzdBDIP//ga+xF9UhKSADdLw==}
@@ -128,7 +128,7 @@ packages:
 
 snapshots:
 
-  '@moonlight-mod/lunast@1.0.0':
+  '@moonlight-mod/lunast@1.0.1':
     dependencies:
       astring: 1.9.0
       estree-toolkit: 1.7.8

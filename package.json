@@ -37,7 +37,7 @@
     "typescript": "^5.6.2"
   },
   "peerDependencies": {
-    "@moonlight-mod/lunast": "^1.0.0",
+    "@moonlight-mod/lunast": "^1.0.1",
     "@moonlight-mod/moonmap": "^1.0.4"
   }
 }
