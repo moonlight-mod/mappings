@@ -53,7 +53,7 @@ register((moonmap) => {
   const name = "discord/modules/modals/Modals";
   moonmap.register({
     name,
-    find: "onCloseCallback()",
+    find: ',["contextKey"]),',
     process({ id }) {
       moonmap.addModule(id, name);
 
