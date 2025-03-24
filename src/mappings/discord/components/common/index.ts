@@ -15,8 +15,9 @@ import type {
 } from "react";
 import * as CSS from "csstype";
 
-import { FunctionNames, ComponentNames, IconNames } from "./_indexNames";
 import { ModuleExportType } from "@moonlight-mod/moonmap";
+import { FunctionNames, ComponentNames, IconNames } from "./_indexNames";
+import type { Card, CardTypes } from "./Card.ts";
 
 type Modify<T, R> = Pick<T, Exclude<keyof T, keyof R>> & R;
 
@@ -808,14 +809,6 @@ export type BadgeShapes = {
   ROUND_RIGHT: string;
   SQUARE: "";
 };
-export type CardTypes = {
-  PRIMARY: string;
-  DANGER: string;
-  WARNING: string;
-  SUCCESS: string;
-  BRAND: string;
-  CUSTOM: string;
-};
 export type CircleIconButtonColors = {
   TERTIARY: string;
   SECONDARY: string;
@@ -1056,24 +1049,7 @@ interface Exports
       className?: string;
     }>
   >;
-  Card: React.ComponentType<
-    PropsWithChildren<{
-      editable?: boolean;
-      outline?: boolean;
-      type?: string;
-      className?: string;
-    }> &
-      React.HTMLAttributes<HTMLDivElement>
-  > & {
-    Types: {
-      PRIMARY: string;
-      DANGER: string;
-      WARNING: string;
-      SUCCESS: string;
-      BRAND: string;
-      CUSTOM: string;
-    };
-  };
+  Card: Card;
   Popout: React.ComponentType<
     {
       shouldShow?: boolean;
@@ -1287,8 +1263,9 @@ register((moonmap) => {
         find: "additionalTrackingProps:"
       });
       moonmap.addExport(name, "Card", {
-        type: ModuleExportType.Function,
-        find: ".editable),"
+        type: ModuleExportType.KeyValuePair,
+        key: "displayName",
+        value: "Card"
       });
       moonmap.addExport(name, "FormSwitch", {
         type: ModuleExportType.Function,
