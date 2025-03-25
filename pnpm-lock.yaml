@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  '@moonlight-mod/moonmap': link:../moonmap
-
 importers:
 
   .:
@@ -15,8 +12,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1
       '@moonlight-mod/moonmap':
-        specifier: link:../moonmap
-        version: link:../moonmap
+        specifier: ^1.0.5
+        version: 1.0.5
       '@types/chroma-js':
         specifier: ^3.1.0
         version: 3.1.0
@@ -53,6 +50,9 @@ packages:
 
   '@moonlight-mod/lunast@1.0.1':
     resolution: {integrity: sha512-K3vxzDlfFuYKjciIW2FMlcZ1qrrkAGDGpSBlNqYGtJ0sMt9bRCd2lpSpg6AX/giSljDtmAUXa/5mOfUoDQxjBA==}
+
+  '@moonlight-mod/moonmap@1.0.5':
+    resolution: {integrity: sha512-Fdpxj8ghdulKB6TlTnchlCPey2YUKgEf1chuO1ofOIcvlqnVPBcQwSf2S80naOUQpXCDo4dQ+LWSE2fmhdDiiw==}
 
   '@types/chroma-js@3.1.0':
     resolution: {integrity: sha512-Uwl3SOtUkbQ6Ye6ZYu4q4xdLGBzmY839sEHYtOT7i691neeyd+7fXWT5VIkcUSfNwIFrIjQutNYQn9h4q5HFvg==}
@@ -133,6 +133,8 @@ snapshots:
       astring: 1.9.0
       estree-toolkit: 1.7.8
       meriyah: 6.0.2
+
+  '@moonlight-mod/moonmap@1.0.5': {}
 
   '@types/chroma-js@3.1.0': {}
 
