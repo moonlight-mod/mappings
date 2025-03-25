@@ -38,6 +38,6 @@
   },
   "peerDependencies": {
     "@moonlight-mod/lunast": "^1.0.1",
-    "@moonlight-mod/moonmap": "^1.0.4"
+    "@moonlight-mod/moonmap": "^1.0.5"
   }
 }
