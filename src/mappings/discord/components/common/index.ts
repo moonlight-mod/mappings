@@ -17,7 +17,9 @@ import * as CSS from "csstype";
 
 import { ModuleExportType } from "@moonlight-mod/moonmap";
 import { FunctionNames, ComponentNames, IconNames } from "./_indexNames";
+
 import type { Card, CardTypes } from "./Card.ts";
+import type { Image } from "./Image.ts";
 
 type Modify<T, R> = Pick<T, Exclude<keyof T, keyof R>> & R;
 
@@ -1171,32 +1173,7 @@ interface Exports
       separatorClassName?: string;
     }>
   >;
-  Image: React.ComponentType<
-    React.PropsWithChildren<{
-      className?: string;
-      imageClassName?: string;
-      readyState?: string;
-      src?: string;
-      srcIsAnimated?: boolean;
-      placeholder?: string;
-      placeholderVersion?: number;
-      alt?: string;
-      width?: number;
-      height?: number;
-      maxWidth?: number;
-      maxHeight?: number;
-      minWidth?: number;
-      minHeight?: number;
-      mediaLayoutType?: string;
-      limitResponsiveWidth?: boolean;
-      zoomable?: boolean;
-      original?: string;
-      onClick?: React.MouseEventHandler;
-      tabIndex?: number;
-      dataSafeSrc?: string;
-      useFullWidth?: boolean;
-    }>
-  >;
+  Image: Image;
 
   tokens: Tokens;
   useVariableSelect: (props: SelectProps) => SelectState;
@@ -1328,8 +1305,9 @@ register((moonmap) => {
         recursive: true
       });
       moonmap.addExport(name, "Image", {
-        type: ModuleExportType.Function,
-        find: ",dataSafeSrc:"
+        type: ModuleExportType.KeyValuePair,
+        key: "displayName",
+        value: "Image"
       });
       moonmap.addExport(name, "ModalRoot", {
         type: ModuleExportType.Function,
