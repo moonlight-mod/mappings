@@ -1177,10 +1177,7 @@ interface Exports
 
   tokens: Tokens;
   useVariableSelect: (props: SelectProps) => SelectState;
-  useMultiSelectState: (props: SelectProps) => SelectState;
-  useSingleSelectState: (props: SelectProps) => SelectState;
   useMultiSelect: (value: any) => [Set<any>, (...args: any[]) => any];
-  useSingleSelect: (value: any) => [Set<any>, (...args: any[]) => any];
   multiSelect: SelectInteractionCallback;
   openModal: (modal: ModalCallback) => string;
   openModalLazy: (modal: () => Promise<ModalCallback>) => Promise<string>;
@@ -1359,18 +1356,6 @@ register((moonmap) => {
       moonmap.addExport(name, "useVariableSelect", {
         type: ModuleExportType.Function,
         find: ",onSelectInteraction:"
-      });
-      moonmap.addExport(name, "useSingleSelectState", {
-        type: ModuleExportType.Function,
-        find: /clear:\(\)=>.\(null\)/
-      });
-      moonmap.addExport(name, "useSingleSelect", {
-        type: ModuleExportType.Function,
-        find: ".useState(()=>new Set(null!="
-      });
-      moonmap.addExport(name, "useMultiSelectState", {
-        type: ModuleExportType.Function,
-        find: /.\.has\(.\)\?.\.delete\(.\):.\.add\(.\),.\(.\)/
       });
       moonmap.addExport(name, "useMultiSelect", {
         type: ModuleExportType.Function,

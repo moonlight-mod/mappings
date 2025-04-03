@@ -88,7 +88,8 @@ register((moonmap) => {
 
       moonmap.addExport(name, "Icon", {
         type: ModuleExportType.Function,
-        find: 'size:"custom",className:'
+        find: 'size:"custom",className:',
+        recursive: true
       });
       moonmap.addExport(name, "Divider", {
         type: ModuleExportType.Function,

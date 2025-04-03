@@ -85,5 +85,4 @@ export type FunctionNames =
   | "popToast"
   | "showToast"
   | "useMultiSelect"
-  | "useMultiSelectState"
   | "useThemeContext";

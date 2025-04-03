@@ -24,13 +24,11 @@ type Exports = {
   closeAllModals: () => void;
   closeAllModalsForContext: (context?: ModalContext) => void;
   closeModal: (key: string, context?: ModalContext) => void;
-  closeModalInAllContexts: (key: string) => void;
   getInteractingModalContext: () => ModalContext;
   hasAnyModalOpen: () => boolean;
   hasAnyModalOpenSelector: (store: any) => boolean;
   hasModalOpen: (key: string, context?: ModalContext) => boolean;
   hasModalOpenSelector: (store: any, key: string, context?: ModalContext) => boolean;
-  modalContextFromAppContext: (context: any) => ModalContext;
   openModal: (render: ModalRenderFunction, props?: ModalProps, context?: ModalContext) => string;
   openModalLazy: (
     render: () => Promise<ModalRenderFunction>,
@@ -70,10 +68,6 @@ register((moonmap) => {
         type: ModuleExportType.Function,
         find: "onCloseCallback()"
       });
-      moonmap.addExport(name, "closeModalInAllContexts", {
-        type: ModuleExportType.Function,
-        find: ".onCloseCallback)||void 0==="
-      });
       moonmap.addExport(name, "getInteractingModalContext", {
         type: ModuleExportType.Function,
         find: "();return null!="
@@ -93,10 +87,6 @@ register((moonmap) => {
       moonmap.addExport(name, "hasModalOpenSelector", {
         type: ModuleExportType.Function,
         find: /return null!=.&&.\.some\(/
-      });
-      moonmap.addExport(name, "modalContextFromAppContext", {
-        type: ModuleExportType.Function,
-        find: ".POPOUT?"
       });
       moonmap.addExport(name, "openModal", {
         type: ModuleExportType.Function,

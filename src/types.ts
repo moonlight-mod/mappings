@@ -9,10 +9,12 @@ import UserSettingsModalActionCreators from "./mappings/discord/actions/UserSett
 import AppStartPerformance from "./mappings/discord/common/AppStartPerformance";
 import Alerts from "./mappings/discord/components/common/Alerts";
 import BaseHeaderBar from "./mappings/discord/components/common/BaseHeaderBar";
+import Card from "./mappings/discord/components/common/Card";
 import FileUpload from "./mappings/discord/components/common/FileUpload";
 import FormSwitchCSS from "./mappings/discord/components/common/FormSwitch.css";
 import HeaderBarCSS from "./mappings/discord/components/common/HeaderBar.css";
 import HelpMessageCSS from "./mappings/discord/components/common/HelpMessage.css";
+import Image from "./mappings/discord/components/common/Image";
 import PanelButton from "./mappings/discord/components/common/PanelButton";
 import ScrollerCSS from "./mappings/discord/components/common/Scroller.css";
 import Components from "./mappings/discord/components/common/index";
@@ -74,10 +76,12 @@ export type MappedModules = {
   "discord/common/AppStartPerformance": AppStartPerformance;
   "discord/components/common/Alerts": Alerts;
   "discord/components/common/BaseHeaderBar": BaseHeaderBar;
+  "discord/components/common/Card": Card;
   "discord/components/common/FileUpload": FileUpload;
   "discord/components/common/FormSwitch.css": FormSwitchCSS;
   "discord/components/common/HeaderBar.css": HeaderBarCSS;
   "discord/components/common/HelpMessage.css": HelpMessageCSS;
+  "discord/components/common/Image": Image;
   "discord/components/common/PanelButton": PanelButton;
   "discord/components/common/Scroller.css": ScrollerCSS;
   "discord/components/common/index": Components;
