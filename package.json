@@ -1,7 +1,14 @@
 {
   "name": "@moonlight-mod/mappings",
-  "version": "1.1.22",
+  "version": "1.1.23",
   "license": "MIT",
+  "engineStrict": false,
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=10",
+    "npm": "pnpm",
+    "yarn": "pnpm"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/moonlight-mod/mappings.git"

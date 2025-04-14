@@ -28,7 +28,6 @@ export type IconNames =
   | "ScienceIcon"
   | "ScreenIcon"
   | "StarIcon"
-  | "ThemeDarkIcon"
   | "TrashIcon"
   | "WarningIcon"
   | "WindowLaunchIcon"

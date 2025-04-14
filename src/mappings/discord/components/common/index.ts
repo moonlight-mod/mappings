@@ -1477,10 +1477,6 @@ register((moonmap) => {
         type: ModuleExportType.Function,
         find: "M6 4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3a1"
       });
-      moonmap.addExport(name, "ThemeDarkIcon", {
-        type: ModuleExportType.Function,
-        find: "m17.73 9.27-.76-2.02a.5.5 0 0 0-.94 0l-.76"
-      });
       moonmap.addExport(name, "ScreenIcon", {
         type: ModuleExportType.Function,
         find: "M5 2a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h14a3"
