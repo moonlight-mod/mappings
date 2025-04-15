@@ -9,7 +9,7 @@ export default Exports;
 
 register((moonmap, lunast) => {
   const name = "discord/utils/ClipboardUtils";
-  const find = 'document.queryCommandEnabled("copy")';
+  const find = 'Error("Clipboard API not supported.")';
 
   lunast.register({
     name,
