@@ -30,14 +30,14 @@ importers:
         specifier: ^1.3.6
         version: 1.3.6
       '@types/react':
-        specifier: ^18.3.10
-        version: 18.3.10
+        specifier: ^19.0.0
+        version: 19.1.2
       csstype:
         specifier: ^3.1.3
         version: 3.1.3
       zustand:
         specifier: ^5.0.3
-        version: 5.0.3(@types/react@18.3.10)
+        version: 5.0.3(@types/react@19.1.2)
     devDependencies:
       prettier:
         specifier: ^3.3.3
@@ -78,11 +78,8 @@ packages:
   '@types/platform@1.3.6':
     resolution: {integrity: sha512-ZmSaqHuvzv+jC232cFoz2QqPUkaj6EvMmCrWcx3WRr7xTPVFCMUOTcOq8m2d+Zw1iKRc1kDiaA+jtNrV0hkVew==}
 
-  '@types/prop-types@15.7.13':
-    resolution: {integrity: sha512-hCZTSvwbzWGvhqxp/RqVqwU999pBf2vp7hzIjiYOsl8wqOmUxkQ6ddw1cV3l8811+kdUFus/q4d1Y3E3SyEifA==}
-
-  '@types/react@18.3.10':
-    resolution: {integrity: sha512-02sAAlBnP39JgXwkAq3PeU9DVaaGpZyF3MGcC0MKgQVkZor5IiiDAipVaxQHtDJAmO4GIy/rVBy/LzVj76Cyqg==}
+  '@types/react@19.1.2':
+    resolution: {integrity: sha512-oxLPMytKchWGbnQM9O7D67uPa9paTNxO7jVoNMXgkkErULBPhPARCfkKL9ytcIJJRGjbsVwW4ugJzyFFvm/Tiw==}
 
   astring@1.9.0:
     resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
@@ -149,7 +146,7 @@ snapshots:
   '@types/flux@3.1.14':
     dependencies:
       '@types/fbemitter': 2.0.35
-      '@types/react': 18.3.10
+      '@types/react': 19.1.2
 
   '@types/highlightjs@9.12.6': {}
 
@@ -157,11 +154,8 @@ snapshots:
 
   '@types/platform@1.3.6': {}
 
-  '@types/prop-types@15.7.13': {}
-
-  '@types/react@18.3.10':
+  '@types/react@19.1.2':
     dependencies:
-      '@types/prop-types': 15.7.13
       csstype: 3.1.3
 
   astring@1.9.0: {}
@@ -179,6 +173,6 @@ snapshots:
 
   typescript@5.6.2: {}
 
-  zustand@5.0.3(@types/react@18.3.10):
+  zustand@5.0.3(@types/react@19.1.2):
     optionalDependencies:
-      '@types/react': 18.3.10
+      '@types/react': 19.1.2
