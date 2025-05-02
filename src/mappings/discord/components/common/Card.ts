@@ -32,7 +32,7 @@ register((moonmap) => {
   const name = "discord/components/common/Card";
   moonmap.register({
     name,
-    find: ".editable),",
+    find: [".editable),", ".Types="],
     process({ id }) {
       moonmap.addModule(id, name);
 
