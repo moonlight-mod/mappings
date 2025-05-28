@@ -1303,6 +1303,12 @@ export type Endpoints = {
   SCHEDULED_MESSAGE: <I extends string>(id: I) => `/users/@me/scheduled-messages/${I}`;
 };
 
+export enum FriendSourceFlags {
+  MUTUAL_FRIENDS = 2,
+  MUTUAL_GUILDS = 4,
+  NO_RELATION = 8
+}
+
 export enum MessageFlags {
   CROSSPOSTED = 1 << 0,
   IS_CROSSPOST = 1 << 1,
@@ -1676,6 +1682,12 @@ export enum StatusTypes {
   UNKNOWN = "unknown"
 }
 
+export enum SpoilerRenderSetting {
+  ALWAYS = "ALWAYS",
+  IF_MODERATOR = "IF_MODERATOR",
+  ON_CLICK = "ON_CLICK"
+}
+
 export enum Themes {
   DARK = "dark",
   DARKER = "darker",
@@ -1831,6 +1843,7 @@ type Exports = {
   ComponentActions: typeof ComponentActions;
   DEFAULT_ROLE_COLOR: DEFAULT_ROLE_COLOR;
   Endpoints: Endpoints;
+  FriendSourceFlags: typeof FriendSourceFlags;
   MessageFlags: typeof MessageFlags;
   MessageTypes: typeof MessageTypes;
   Permissions: typeof Permissions;
@@ -1838,6 +1851,7 @@ type Exports = {
   RelationshipTypes: typeof RelationshipTypes;
   Routes: Routes;
   StatusTypes: typeof StatusTypes;
+  SpoilerRenderSetting: typeof SpoilerRenderSetting;
   Themes: typeof Themes;
   UserSettingsSections: typeof UserSettingsSections;
   UserFlags: typeof UserFlags;
@@ -1893,6 +1907,10 @@ register((moonmap) => {
         type: ModuleExportType.Value,
         find: "/channels"
       });
+      moonmap.addExport(name, "FriendSourceFlags", {
+        type: ModuleExportType.Key,
+        find: "NO_RELATION"
+      });
       moonmap.addExport(name, "MessageFlags", {
         type: ModuleExportType.Key,
         find: "CROSSPOSTED"
@@ -1920,6 +1938,10 @@ register((moonmap) => {
       moonmap.addExport(name, "StatusTypes", {
         type: ModuleExportType.Key,
         find: "DND"
+      });
+      moonmap.addExport(name, "SpoilerRenderSetting", {
+        type: ModuleExportType.Key,
+        find: "IF_MODERATOR"
       });
       moonmap.addExport(name, "Themes", {
         type: ModuleExportType.Key,

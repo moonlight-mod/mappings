@@ -41,6 +41,7 @@ const mappedTypes = {
   "discord/modules/oauth2/index": "Oauth2",
   "discord/modules/people/web/PeoplePage.css": "PeoplePageCSS",
   "discord/modules/user_profile/web/BiteSizeActivity.css": "ByteSizeActivityCSS",
+  "discord/modules/user_settings/UserSettings": "UserSettings",
   "discord/packages/flux": "Flux",
   "discord/packages/flux/BatchedStoreListener": "BatchedStoreListener",
   "discord/packages/flux/ChangeListeners": "ChangeListeners",
