@@ -204,6 +204,10 @@ register((moonmap, lunast) => {
       const { getPropertyGetters, is } = lunast.utils;
       const propertyGetters = getPropertyGetters(ast);
 
+      // Discord has a "FREQUENT_USER_ACTION" version of ActivityRestrictedGuildIds for whatever reason, and it breaks
+      // the processor because duplicate export names
+      const mapped = new Set();
+
       for (const [exportName, binding] of Object.entries(propertyGetters)) {
         if (!is.identifier(binding.expression) && !is.arrowFunctionExpression(binding.expression)) continue;
         const definition =
@@ -250,11 +254,13 @@ register((moonmap, lunast) => {
         if (!settingName?.value) continue;
 
         const niceSettingName = settingName.value.toString().replace(/^(.)/, (_, c) => c.toUpperCase());
+        if (mapped.has(niceSettingName)) continue;
 
         moonmap.addExport(name, niceSettingName, {
           type: ModuleExportType.Constant,
           find: exportName
         });
+        mapped.add(niceSettingName);
       }
 
       return true;
