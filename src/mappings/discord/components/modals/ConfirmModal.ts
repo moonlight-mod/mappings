@@ -27,7 +27,7 @@ register((moonmap) => {
   const name = "discord/components/modals/ConfirmModal";
   moonmap.register({
     name,
-    find: ".minorContainer,children:",
+    find: 'parentComponent:"Alert",',
     process({ id }) {
       moonmap.addModule(id, name);
 

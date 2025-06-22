@@ -4,7 +4,7 @@ register((moonmap) => {
   const name = "discord/uikit/ListSectionItem";
   moonmap.register({
     name,
-    find: ["let{className:", '.container),"aria-label":'],
+    find: '("ListSectionItem")',
     process({ id }) {
       moonmap.addModule(id, name);
 

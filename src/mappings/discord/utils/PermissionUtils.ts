@@ -4,9 +4,11 @@ register((moonmap) => {
   const name = "discord/utils/PermissionUtils";
   moonmap.register({
     name,
-    find: ".computeLurkerPermissionsAllowList())&&void 0",
+    find: ".computeLurkerPermissionsAllowList())",
     process({ id }) {
       moonmap.addModule(id, name);
+
+      // TODO: needs remappings
 
       return true;
     }

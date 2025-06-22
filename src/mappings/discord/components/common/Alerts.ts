@@ -30,7 +30,7 @@ register((moonmap) => {
   const name = "discord/components/common/Alerts";
   moonmap.register({
     name,
-    find: ["secondaryConfirmText:", "this.show({"],
+    find: ["secondaryConfirmText:", "this.show("],
     process({ id }) {
       moonmap.addModule(id, name);
 

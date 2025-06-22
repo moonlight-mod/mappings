@@ -17,7 +17,7 @@ register((moonmap) => {
   const name = "discord/lib/BaseRecord";
   moonmap.register({
     name,
-    find: "{toJS(){return{...this}}set(",
+    find: ["{toJS(){return", "})):this}merge("],
     process({ id }) {
       moonmap.addModule(id, name);
 
