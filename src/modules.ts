@@ -123,7 +123,6 @@ import "./mappings/discord/uikit/ListSectionItem";
 import "./mappings/discord/uikit/OverflowTooltip";
 import "./mappings/discord/uikit/Spinner";
 import "./mappings/discord/uikit/legacy/Button";
-import "./mappings/discord/uikit/legacy/LegacyText";
 import "./mappings/discord/uikit/search/SearchBar";
 import "./mappings/discord/utils/AnalyticsUtils";
 import "./mappings/discord/utils/AvatarUtils";
