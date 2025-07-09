@@ -1,6 +1,7 @@
 import register from "../../../../registry";
 import type { ReactNode, ComponentType } from "react";
-import type { ButtonColors, ModalTransitionState } from "../common/index";
+import type { ModalTransitionState } from "../common/index";
+import type { ButtonColors } from "../../uikit/legacy/Button";
 
 export type ConfirmModalProps = {
   body?: ReactNode;

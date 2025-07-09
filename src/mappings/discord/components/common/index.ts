@@ -9,8 +9,6 @@ import type {
   ReactElement,
   ComponentClass,
   ComponentType,
-  MouseEventHandler,
-  KeyboardEventHandler,
   FunctionComponent
 } from "react";
 import * as CSS from "csstype";
@@ -149,102 +147,6 @@ export enum SliderMarkerPosition {
   ABOVE,
   BELOW
 }
-// #endregion
-
-// #region Button
-export enum ButtonLooks {
-  FILLED = "lookFilled",
-  INVERTED = "lookInverted",
-  OUTLINED = "lookOutlined",
-  LINK = "lookLink",
-  BLANK = "lookBlank"
-}
-export enum ButtonColors {
-  BRAND = "colorBrand",
-  RED = "colorRed",
-  GREEN = "colorGreen",
-  YELLOW = "colorYellow",
-  PRIMARY = "colorPrimary",
-  LINK = "colorLink",
-  WHITE = "colorWhite",
-  BLACK = "colorBlack",
-  TRANSPARENT = "colorTransparent",
-  BRAND_NEW = "colorBrandNew",
-  CUSTOM = ""
-}
-export enum ButtonBorderColors {
-  BRAND = "borderBrand",
-  RED = "borderRed",
-  GREEN = "borderGreen",
-  YELLOW = "borderYellow",
-  PRIMARY = "borderPrimary",
-  LINK = "borderLink",
-  WHITE = "borderWhite",
-  BLACK = "borderBlack",
-  TRANSPARENT = "borderTransparent",
-  BRAND_NEW = "borderBrandNew"
-}
-export enum ButtonHovers {
-  DEFAULT = "",
-  BRAND = "hoverBrand",
-  RED = "hoverRed",
-  GREEN = "hoverGreen",
-  YELLOW = "hoverYellow",
-  PRIMARY = "hoverPrimary",
-  LINK = "hoverLink",
-  WHITE = "hoverWhite",
-  BLACK = "hoverBlack",
-  TRANSPARENT = "hoverTransparent"
-}
-export enum ButtonSizes {
-  NONE = "",
-  TINY = "sizeTiny",
-  SMALL = "sizeSmall",
-  MEDIUM = "sizeMedium",
-  LARGE = "sizeLarge",
-  XLARGE = "sizeXlarge",
-  MIN = "sizeMin",
-  MAX = "sizeMax",
-  ICON = "sizeIcon"
-}
-
-export type Button = ComponentType<
-  PropsWithChildren<{
-    look?: ButtonLooks;
-    color?: ButtonColors;
-    borderColor?: ButtonBorderColors;
-    hover?: ButtonHovers;
-    size?: ButtonSizes;
-    fullWidth?: boolean;
-    grow?: boolean;
-    disabled?: boolean;
-    submitting?: boolean;
-    type?: string;
-    style?: CSSProperties;
-    wrapperClassName?: string;
-    className?: string;
-    innerClassName?: string;
-    onClick?: MouseEventHandler;
-    onDoubleClick?: MouseEventHandler;
-    onMouseDown?: MouseEventHandler;
-    onMouseUp?: MouseEventHandler;
-    onMouseEnter?: MouseEventHandler;
-    onMouseLeave?: MouseEventHandler;
-    onKeyDown?: KeyboardEventHandler;
-    rel?: any;
-    buttonRef?: Ref<any>;
-    focusProps?: PropsWithChildren<any>;
-    "aria-label"?: string;
-    submittingStartedLabel?: string;
-    submittingFinishedLabel?: string;
-  }>
-> & {
-  Looks: typeof ButtonLooks;
-  Colors: typeof ButtonColors;
-  BorderColors: typeof ButtonBorderColors;
-  Hovers: typeof ButtonHovers;
-  Sizes: typeof ButtonSizes;
-};
 // #endregion
 
 // #region Tokens
@@ -1027,7 +929,6 @@ interface Exports
       innerRef?: React.Ref<any>;
     }>
   >;
-  Button: Button;
   Tooltip: Tooltip;
   Avatar: Avatar;
   AvatarSizes: typeof AvatarSizes;
@@ -1215,10 +1116,6 @@ register((moonmap) => {
       moonmap.addExport(name, "Menu", {
         type: ModuleExportType.Function,
         find: "menuItemProps:"
-      });
-      moonmap.addExport(name, "Button", {
-        type: ModuleExportType.Function,
-        find: ".disabledButtonWrapper,"
       });
       moonmap.addExport(name, "TabBar", {
         type: ModuleExportType.Function,
