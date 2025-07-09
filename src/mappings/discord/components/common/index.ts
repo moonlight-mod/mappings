@@ -1195,7 +1195,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "SearchableSelect", {
         type: ModuleExportType.Function,
-        find: '"SearchableSelect"',
+        find: ",selectedOptions:",
         recursive: true
       });
       moonmap.addExport(name, "Image", {
@@ -1237,7 +1237,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "Switch", {
         type: ModuleExportType.Function,
-        find: "INTERACTIVE_MUTED:"
+        find: ".INTERACTIVE_MUTED)"
       });
       moonmap.addExport(name, "Scroller", {
         type: ModuleExportType.Function,
@@ -1266,7 +1266,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "openModal", {
         type: ModuleExportType.Function,
-        find: /,backdropStyle:.\}=/
+        find: "(),{modalKey:"
       });
       moonmap.addExport(name, "closeModal", {
         type: ModuleExportType.Function,
