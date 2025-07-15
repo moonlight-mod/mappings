@@ -11,7 +11,12 @@ register((moonmap) => {
 
       moonmap.addExport(name, "default", {
         type: ModuleExportType.Key,
-        find: "Sizes"
+        find: "defaultProps"
+      });
+
+      moonmap.addExport(name, "SearchIcon", {
+        type: ModuleExportType.Function,
+        find: ".iconContainer,"
       });
 
       return true;

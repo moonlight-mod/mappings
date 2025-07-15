@@ -37,11 +37,6 @@ export type IconComponent = FunctionComponent<IconProps>;
 // #endregion
 
 // #region TextInput
-export enum TextInputSizes {
-  DEFAULT = "inputDefault",
-  MINI = "inputMini"
-}
-
 export type TextInputProps = Modify<
   React.InputHTMLAttributes<HTMLInputElement>,
   {
@@ -51,7 +46,6 @@ export type TextInputProps = Modify<
     inputClassName?: string;
     inputPrefix?: string;
     disabled?: boolean;
-    size?: TextInputSizes;
     editable?: boolean;
     inputRef?: Ref<any>;
     prefixElement?: Component;
@@ -65,9 +59,7 @@ export type TextInputProps = Modify<
   }
 >;
 
-export interface TextInput extends ComponentClass<PropsWithoutRef<TextInputProps>> {
-  Sizes: typeof TextInputSizes;
-}
+export interface TextInput extends ComponentClass<PropsWithoutRef<TextInputProps>> {}
 // #endregion
 
 // #region TextArea
