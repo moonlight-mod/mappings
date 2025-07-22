@@ -36,32 +36,6 @@ export type IconProps = {
 export type IconComponent = FunctionComponent<IconProps>;
 // #endregion
 
-// #region TextInput
-export type TextInputProps = Modify<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  {
-    value?: string;
-    name?: string;
-    className?: string;
-    inputClassName?: string;
-    inputPrefix?: string;
-    disabled?: boolean;
-    editable?: boolean;
-    inputRef?: Ref<any>;
-    prefixElement?: Component;
-    focusProps?: PropsWithoutRef<any>;
-    error?: string;
-    minLength?: number;
-    maxLength?: number;
-    onChange?: (value: string, name: string) => void;
-    onFocus?: (event: any, name: string) => void;
-    onBlur?: (event: any, name: string) => void;
-  }
->;
-
-export interface TextInput extends ComponentClass<PropsWithoutRef<TextInputProps>> {}
-// #endregion
-
 // #region TextArea
 export enum TextAreaAutoComplete {
   ON = "on",
@@ -825,7 +799,6 @@ interface Exports
       className?: string;
     }>
   >;
-  TextInput: TextInput;
   TextArea: TextArea;
   FormDivider: ComponentClass<
     PropsWithoutRef<{
@@ -1164,10 +1137,6 @@ register((moonmap) => {
       moonmap.addExport(name, "FormText", {
         type: ModuleExportType.Function,
         find: ".DEFAULT,className:"
-      });
-      moonmap.addExport(name, "TextInput", {
-        type: ModuleExportType.Function,
-        find: '"getIsUnderFlowing"'
       });
       moonmap.addExport(name, "Slider", {
         type: ModuleExportType.Function,

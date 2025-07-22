@@ -23,7 +23,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "getUser", {
         type: ModuleExportType.Function,
-        find: ".getUser("
+        find: ".USER("
       });
       moonmap.addExport(name, "fetchProfile", {
         type: ModuleExportType.Function,
