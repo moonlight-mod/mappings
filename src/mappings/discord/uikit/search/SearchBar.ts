@@ -5,18 +5,13 @@ register((moonmap) => {
   const name = "discord/uikit/search/SearchBar";
   moonmap.register({
     name,
-    find: ["hideSearchIcon"],
+    find: ["hasContent:", "inputProps:"],
     process({ id }) {
       moonmap.addModule(id, name);
 
       moonmap.addExport(name, "default", {
         type: ModuleExportType.Key,
         find: "defaultProps"
-      });
-
-      moonmap.addExport(name, "SearchIcon", {
-        type: ModuleExportType.Function,
-        find: ".iconContainer,"
       });
 
       return true;
