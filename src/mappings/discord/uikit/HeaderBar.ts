@@ -4,7 +4,7 @@ register((moonmap) => {
   const name = "discord/uikit/HeaderBar";
   moonmap.register({
     name,
-    find: ".HEADER_BAR),",
+    find: ".HEADER_BAR)",
     process({ id }) {
       moonmap.addModule(id, name);
 

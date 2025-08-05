@@ -11,7 +11,7 @@ register((moonmap) => {
 
       moonmap.addExport(name, "isMessageNewerThanImprovedMarkdownEpoch", {
         type: ModuleExportType.Function,
-        find: '"1088216706570268682"'
+        find: "extractTimestamp("
       });
 
       return true;

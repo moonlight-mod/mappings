@@ -1144,7 +1144,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "TextArea", {
         type: ModuleExportType.Function,
-        find: "getCharsLeftLength(){"
+        find: "this._textArea="
       });
       moonmap.addExport(name, "Clickable", {
         type: ModuleExportType.Function,
