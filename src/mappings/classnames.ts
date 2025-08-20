@@ -19,7 +19,7 @@ register((moonmap) => {
   const name = "classnames";
   moonmap.register({
     name,
-    find: "window.classNames=",
+    find: 'define.amd?define("classnames",[],',
     process({ id }) {
       moonmap.addModule(id, name);
 
