@@ -744,7 +744,6 @@ type UnsortedComponentTypes = {
   HelpMessageTypes: typeof HelpMessageTypes;
   ModalSize: typeof ModalSize;
   ModalTransitionState: typeof ModalTransitionState;
-  PRETTY_KEYS: PRETTY_KEYS;
   SelectLooks: typeof SelectLooks;
   SpinnerTypes: typeof SpinnerTypes;
   StatusTypes: typeof StatusTypes;
