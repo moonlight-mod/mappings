@@ -38,7 +38,6 @@ export type IconNames =
 export type ComponentNames =
   | "Avatar"
   | "Breadcrumbs"
-  | "Button"
   | "Card"
   | "Clickable"
   | "ConfirmModal"
@@ -72,7 +71,6 @@ export type ComponentNames =
   | "TabBar"
   | "Text"
   | "TextArea"
-  | "TextInput"
   | "Tooltip";
 
 export type FunctionNames =

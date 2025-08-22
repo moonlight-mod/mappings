@@ -713,19 +713,6 @@ export enum ModalSize {
   LARGE = "large",
   DYNAMIC = "dynamic"
 }
-export type PRETTY_KEYS = {
-  mod: any;
-  alt: any;
-  up: any;
-  down: any;
-  left: any;
-  right: any;
-  pageup: any;
-  pagedown: any;
-  "any-character": any;
-  plus: any;
-  return: any;
-};
 export enum SpinnerTypes {
   WANDERING_CUBES = "wanderingCubes",
   CHASING_DOTS = "chasingDots",
@@ -1127,7 +1114,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "NumberInputStepper", {
         type: ModuleExportType.Function,
-        find: "__invalid_subtract"
+        find: "=parseInt("
       });
       moonmap.addExport(name, "FormItem", {
         type: ModuleExportType.Function,
@@ -1312,10 +1299,6 @@ register((moonmap) => {
         type: ModuleExportType.KeyValuePair,
         key: "CUSTOM",
         value: 1
-      });
-      moonmap.addExport(name, "PRETTY_KEYS", {
-        type: ModuleExportType.Key,
-        find: "any-character"
       });
       moonmap.addExport(name, "ModalTransitionState", {
         type: ModuleExportType.Key,

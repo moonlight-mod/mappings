@@ -42,7 +42,7 @@ register((moonmap) => {
   const name = "discord/uikit/Button";
   moonmap.register({
     name,
-    find: '={sm:"text-sm/medium",md:"text-md/medium"',
+    find: 'sm:"text-sm/medium",md:"text-md/medium"',
     process({ id }) {
       moonmap.addModule(id, name);
 
