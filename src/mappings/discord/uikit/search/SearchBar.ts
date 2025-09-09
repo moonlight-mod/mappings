@@ -5,13 +5,13 @@ register((moonmap) => {
   const name = "discord/uikit/search/SearchBar";
   moonmap.register({
     name,
-    find: ["hasContent:", "inputProps:"],
+    find: ["inputRef:", "query:", "autoComplete:"],
     process({ id }) {
       moonmap.addModule(id, name);
 
       moonmap.addExport(name, "default", {
-        type: ModuleExportType.Key,
-        find: "defaultProps"
+        type: ModuleExportType.Function,
+        find: "autoComplete:"
       });
 
       return true;
