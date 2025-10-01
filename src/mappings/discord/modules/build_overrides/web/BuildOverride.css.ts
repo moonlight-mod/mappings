@@ -19,7 +19,6 @@ type Exports = {
   barLoader: string;
   barTitle: string;
   buttonLoader: string;
-  disabledButtonOverride: string;
 };
 export default Exports;
 
@@ -27,7 +26,7 @@ register((moonmap) => {
   const name = "discord/modules/build_overrides/web/BuildOverride.css";
   moonmap.register({
     name,
-    find: ["disabledButtonOverride:", "buttonLoader:"],
+    find: ["barLoader:", "buttonLoader:"],
     process({ id }) {
       moonmap.addModule(id, name);
 
