@@ -815,17 +815,13 @@ interface Exports
       style?: CSSProperties;
     }>
   >;
-  FormSwitch: ComponentClass<
+  FormSwitch: React.FC<
     PropsWithChildren<{
-      className?: string;
-      style?: CSSProperties;
-      value: boolean;
+      checked?: boolean;
       disabled?: boolean;
-      hideBorder?: boolean;
-      tooltipNote?: string;
       onChange?: (value: boolean) => void;
-      note?: React.ReactNode;
-      disabledText?: string;
+      description?: string;
+      label?: string;
     }>
   >;
   FormItem: ComponentClass<
@@ -1091,7 +1087,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "FormSwitch", {
         type: ModuleExportType.Function,
-        find: ".dividerDefault}"
+        find: '"Switch"'
       });
       moonmap.addExport(name, "Breadcrumbs", {
         type: ModuleExportType.Function,
