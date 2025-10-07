@@ -13,7 +13,6 @@ type Exports = {
   roleHeader: string;
   roleScroller: string;
   timestamp: string;
-  timestampTooltip: string;
 };
 export default Exports;
 
@@ -21,7 +20,7 @@ register((moonmap) => {
   const name = "discord/modules/messages/web/Markup.css";
   moonmap.register({
     name,
-    find: ["markup:", "timestampTooltip:"],
+    find: ["markup:", "inlineFormat:"],
     process({ id }) {
       moonmap.addModule(id, name);
 
