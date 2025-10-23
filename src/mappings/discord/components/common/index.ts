@@ -1074,7 +1074,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "NoticeCloseButton", {
         type: ModuleExportType.Function,
-        find: "WAI6xs),"
+        find: ["noticeType:", ".closeIcon"]
       });
       moonmap.addExport(name, "PrimaryCTANoticeButton", {
         type: ModuleExportType.Function,
@@ -1087,7 +1087,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "FormSwitch", {
         type: ModuleExportType.Function,
-        find: '"Switch"'
+        find: "switchIconsEnabled:"
       });
       moonmap.addExport(name, "Breadcrumbs", {
         type: ModuleExportType.Function,
@@ -1105,7 +1105,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "Select", {
         type: ModuleExportType.Function,
-        find: "VkKicX),children:"
+        find: ["closeOnSelect:", "isSelected:"]
       });
       moonmap.addExport(name, "NumberInputStepper", {
         type: ModuleExportType.Function,
@@ -1156,7 +1156,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "ModalCloseButton", {
         type: ModuleExportType.Function,
-        find: "cpT0Cg),"
+        find: ".closeWithCircleBackground"
       });
       moonmap.addExport(name, "ModalContent", {
         type: ModuleExportType.Function,
@@ -1180,7 +1180,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "Switch", {
         type: ModuleExportType.Function,
-        find: ".INTERACTIVE_MUTED)"
+        find: "checkboxColor:"
       });
       moonmap.addExport(name, "Scroller", {
         type: ModuleExportType.Function,
