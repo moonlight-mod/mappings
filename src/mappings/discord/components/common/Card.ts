@@ -24,7 +24,6 @@ export type Card = React.ComponentType<
 
 type Exports = {
   default: Card;
-  Types: CardTypes;
 };
 export default Exports;
 
@@ -35,11 +34,6 @@ register((moonmap) => {
     find: [".editable),", ".Types="],
     process({ id }) {
       moonmap.addModule(id, name);
-
-      moonmap.addExport(name, "Types", {
-        type: ModuleExportType.Key,
-        find: "CUSTOM"
-      });
 
       return true;
     }

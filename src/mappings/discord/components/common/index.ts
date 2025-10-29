@@ -16,7 +16,7 @@ import * as CSS from "csstype";
 import { ModuleExportType } from "@moonlight-mod/moonmap";
 import { FunctionNames, ComponentNames, IconNames } from "./_indexNames";
 
-import type { Card, CardTypes } from "./Card.ts";
+import type { Card } from "./Card.ts";
 import type { Image } from "./Image.ts";
 
 type Modify<T, R> = Pick<T, Exclude<keyof T, keyof R>> & R;
@@ -735,7 +735,6 @@ type UnsortedComponentTypes = {
   AccessibilityAnnouncer: AccessibilityAnnouncer;
   BackdropStyles: typeof BackdropStyles;
   BadgeShapes: BadgeShapes;
-  CardTypes: CardTypes;
   CircleIconButtonColors: CircleIconButtonColors;
   CircleIconButtonSizes: CircleIconButtonSizes;
   FormErrorBlockColors: FormErrorBlockColors;
@@ -1257,10 +1256,6 @@ register((moonmap) => {
       moonmap.addExport(name, "BadgeShapes", {
         type: ModuleExportType.Key,
         find: "ROUND_RIGHT"
-      });
-      moonmap.addExport(name, "CardTypes", {
-        type: ModuleExportType.Key,
-        find: "SUCCESS"
       });
       moonmap.addExport(name, "CircleIconButtonColors", {
         type: ModuleExportType.Key,
