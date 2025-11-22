@@ -40,6 +40,8 @@ import Modals from "./mappings/discord/modules/modals/Modals";
 import Oauth2 from "./mappings/discord/modules/oauth2/index";
 import PeoplePageCSS from "./mappings/discord/modules/people/web/PeoplePage.css";
 import UserSettings from "./mappings/discord/modules/user_settings/UserSettings";
+import SettingsItemConstants from "./mappings/discord/modules/user_settings/redesign/SettingsItemConstants";
+import SettingsItemCreators from "./mappings/discord/modules/user_settings/redesign/SettingsItemCreators";
 import Flux from "./mappings/discord/packages/flux";
 import BatchedStoreListener from "./mappings/discord/packages/flux/BatchedStoreListener";
 import ChangeListeners from "./mappings/discord/packages/flux/ChangeListeners";
@@ -110,6 +112,8 @@ export type MappedModules = {
   "discord/modules/oauth2/index": Oauth2;
   "discord/modules/people/web/PeoplePage.css": PeoplePageCSS;
   "discord/modules/user_settings/UserSettings": UserSettings;
+  "discord/modules/user_settings/redesign/SettingsItemConstants": SettingsItemConstants;
+  "discord/modules/user_settings/redesign/SettingsItemCreators": SettingsItemCreators;
   "discord/packages/flux": Flux;
   "discord/packages/flux/BatchedStoreListener": BatchedStoreListener;
   "discord/packages/flux/ChangeListeners": ChangeListeners;

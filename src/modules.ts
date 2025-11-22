@@ -79,6 +79,8 @@ import "./mappings/discord/modules/user_profile/web/UserProfileActivityCardWrapp
 import "./mappings/discord/modules/user_settings/ThemeStore";
 import "./mappings/discord/modules/user_settings/UserSettings";
 import "./mappings/discord/modules/user_settings/UserSettingsProtoStore";
+import "./mappings/discord/modules/user_settings/redesign/SettingsItemConstants";
+import "./mappings/discord/modules/user_settings/redesign/SettingsItemCreators";
 import "./mappings/discord/packages/flux/BatchedStoreListener";
 import "./mappings/discord/packages/flux/ChangeListeners";
 import "./mappings/discord/packages/flux/Dispatcher";

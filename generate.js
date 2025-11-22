@@ -40,6 +40,8 @@ const mappedTypes = {
   "discord/modules/modals/Modals": "Modals",
   "discord/modules/oauth2/index": "Oauth2",
   "discord/modules/people/web/PeoplePage.css": "PeoplePageCSS",
+  "discord/modules/user_settings/redesign/SettingsItemConstants": "SettingsItemConstants",
+  "discord/modules/user_settings/redesign/SettingsItemCreators": "SettingsItemCreators",
   "discord/modules/user_settings/UserSettings": "UserSettings",
   "discord/packages/flux": "Flux",
   "discord/packages/flux/BatchedStoreListener": "BatchedStoreListener",
