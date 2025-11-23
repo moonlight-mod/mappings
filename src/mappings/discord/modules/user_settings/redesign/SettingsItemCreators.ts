@@ -51,7 +51,7 @@ export type PanelProps = {
   notice: {
     stores: Store<any>[];
     element: React.FunctionComponent;
-  }
+  };
 } & GenericProps;
 
 export type PaneProps = {

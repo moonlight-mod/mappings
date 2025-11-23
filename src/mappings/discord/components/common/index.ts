@@ -1077,7 +1077,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "PrimaryCTANoticeButton", {
         type: ModuleExportType.Function,
-        find: "additionalTrackingProps:"
+        find: /children:.,noticeType:./
       });
       moonmap.addExport(name, "Card", {
         type: ModuleExportType.KeyValuePair,
