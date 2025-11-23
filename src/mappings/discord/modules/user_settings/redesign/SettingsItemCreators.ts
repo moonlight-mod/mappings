@@ -1,6 +1,7 @@
 import { ModuleExportType } from "@moonlight-mod/moonmap";
 import register from "../../../../../registry";
 import type { ItemType, TrailingType } from "./SettingsItemConstants";
+import type { Store } from "../../../packages/flux/Store";
 
 export type FinalizedItem<Props extends GenericProps, Type extends ItemType> = {
   key: string;
@@ -47,6 +48,10 @@ export type SidebarItemProps = {
 
 export type PanelProps = {
   useBadge?: React.FC<{}>;
+  notice: {
+    stores: Store<any>[];
+    element: React.FunctionComponent;
+  }
 } & GenericProps;
 
 export type PaneProps = {
