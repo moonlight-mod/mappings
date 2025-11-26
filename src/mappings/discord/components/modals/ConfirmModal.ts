@@ -1,26 +1,28 @@
 import register from "../../../../registry";
-import type { ReactNode, ComponentType } from "react";
+import type { ReactNode, ComponentType, PropsWithChildren } from "react";
 import type { ModalTransitionState } from "../common/index";
 import type { ButtonColors } from "../../uikit/legacy/Button";
 
-export type ConfirmModalProps = {
-  body?: ReactNode;
+export type ConfirmModalProps = PropsWithChildren<{
+  header?: ReactNode;
+  confirmText?: ReactNode;
   cancelText?: ReactNode;
   className?: string;
-  confirmColor?: ButtonColors;
-  confirmText?: ReactNode;
-  secondaryConfirmText?: ReactNode;
-  onCancel?: () => void;
   onConfirm?: () => void;
-  onConfirmSecondary?: () => void;
-  title?: ReactNode;
+  onCancel?: () => void;
+  onClose?: () => void;
+  onCloseCallback?: () => void;
+  bodyClassName?: string;
   transitionState: ModalTransitionState | null;
-  titleClassName?: string;
-};
+  loading?: boolean;
+  confirmButtonColor?: ButtonColors;
+  focusCancel?: boolean;
+  impression?: any;
+}>;
 export type ConfirmModal = ComponentType<ConfirmModalProps>;
 
 type Exports = {
-  default: ConfirmModal;
+  ConfirmModal: ConfirmModal;
 };
 export default Exports;
 
@@ -28,7 +30,7 @@ register((moonmap) => {
   const name = "discord/components/modals/ConfirmModal";
   moonmap.register({
     name,
-    find: 'parentComponent:"Alert",',
+    find: 'parentComponent:"ConfirmModal"',
     process({ id }) {
       moonmap.addModule(id, name);
 
