@@ -18,6 +18,7 @@ const mappedTypes = {
   "discord/components/common/index": "Components",
   "discord/components/common/PanelButton": "PanelButton",
   "discord/components/common/Scroller.css": "ScrollerCSS",
+  "discord/components/common/Select": "Select",
   "discord/components/modals/ConfirmModal": "ConfirmModal",
   "discord/Dispatcher": "DispatcherInstance",
   "discord/lib/web/Storage": "Storage",

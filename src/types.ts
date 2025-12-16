@@ -17,6 +17,7 @@ import HelpMessageCSS from "./mappings/discord/components/common/HelpMessage.css
 import Image from "./mappings/discord/components/common/Image";
 import PanelButton from "./mappings/discord/components/common/PanelButton";
 import ScrollerCSS from "./mappings/discord/components/common/Scroller.css";
+import Select from "./mappings/discord/components/common/Select";
 import Components from "./mappings/discord/components/common/index";
 import ConfirmModal from "./mappings/discord/components/modals/ConfirmModal";
 import BaseRecord from "./mappings/discord/lib/BaseRecord";
@@ -89,6 +90,7 @@ export type MappedModules = {
   "discord/components/common/Image": Image;
   "discord/components/common/PanelButton": PanelButton;
   "discord/components/common/Scroller.css": ScrollerCSS;
+  "discord/components/common/Select": Select;
   "discord/components/common/index": Components;
   "discord/components/modals/ConfirmModal": ConfirmModal;
   "discord/lib/BaseRecord": BaseRecord;

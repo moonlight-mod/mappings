@@ -213,34 +213,6 @@ export type Tokens = {
 };
 // #endregion
 
-// #region Select
-export type SelectOption = {
-  value: any;
-  label: string;
-};
-
-export type SelectState = {
-  select: (value: SelectOption) => void;
-  isSelected: (value: SelectOption) => boolean;
-  clear: () => void;
-  serialize: (value: SelectOption) => string;
-};
-
-export type SelectInteraction = {
-  newValues: Set<SelectOption>;
-  updated?: Set<SelectOption>;
-};
-
-export type SelectInteractionCallback = (newValue: SelectOption, oldValue: SelectOption) => SelectInteraction;
-
-export type SelectProps = {
-  value: Set<string>;
-  onSelectInteraction: SelectInteractionCallback;
-  onChange: (value: string) => void;
-  serialize?: (value: any) => string;
-};
-// #endregion
-
 // #region Modal
 export enum ModalTransitionState {
   ENTERING,
@@ -644,10 +616,6 @@ export enum HelpMessageTypes {
   ERROR,
   POSITIVE
 }
-export enum SelectLooks {
-  FILLED,
-  CUSTOM
-}
 export enum ToastPosition {
   TOP,
   BOTTOM
@@ -743,7 +711,6 @@ type UnsortedComponentTypes = {
   HelpMessageTypes: typeof HelpMessageTypes;
   ModalSize: typeof ModalSize;
   ModalTransitionState: typeof ModalTransitionState;
-  SelectLooks: typeof SelectLooks;
   SpinnerTypes: typeof SpinnerTypes;
   StatusTypes: typeof StatusTypes;
   ToastPosition: typeof ToastPosition;
@@ -960,25 +927,6 @@ interface Exports
       }>
     >;
   };
-  SingleSelect: React.ComponentType<{
-    autofocus?: boolean;
-    clearable?: boolean;
-    value?: string;
-    options?: SelectOption[];
-    placeholder?: React.ReactNode;
-    onChange?: (value: string) => void;
-  }>;
-  Select: React.ComponentType<
-    | {
-        autofocus?: boolean;
-        clearable?: boolean;
-        closeOnSelect?: boolean;
-        value?: Set<string>;
-        options?: SelectOption[];
-        onChange?: (value: string[]) => void;
-      }
-    | SelectState
-  >;
   NoticeColors: {
     BRAND: string;
     CUSTOM: string;
@@ -1023,9 +971,6 @@ interface Exports
   Image: Image;
 
   tokens: Tokens;
-  useVariableSelect: (props: SelectProps) => SelectState;
-  useMultiSelect: (value: any) => [Set<any>, (...args: any[]) => any];
-  multiSelect: SelectInteractionCallback;
   openModal: (modal: ModalCallback) => string;
   openModalLazy: (modal: () => Promise<ModalCallback>) => Promise<string>;
   closeModal: (id: string) => void;
@@ -1102,10 +1047,6 @@ register((moonmap) => {
         find: ['"data-excessive-heading-level"', ".defaultColor,"],
         recursive: true
       });
-      moonmap.addExport(name, "Select", {
-        type: ModuleExportType.Function,
-        find: ["closeOnSelect:", "isSelected:"]
-      });
       moonmap.addExport(name, "NumberInputStepper", {
         type: ModuleExportType.Function,
         find: "=parseInt("
@@ -1130,10 +1071,6 @@ register((moonmap) => {
       moonmap.addExport(name, "Clickable", {
         type: ModuleExportType.Function,
         find: "renderNonInteractive(){"
-      });
-      moonmap.addExport(name, "SingleSelect", {
-        type: ModuleExportType.Function,
-        find: /\(\{value:.,onChange:.\}\)/
       });
       moonmap.addExport(name, "SearchableSelect", {
         type: ModuleExportType.Function,
@@ -1192,20 +1129,8 @@ register((moonmap) => {
         type: ModuleExportType.Function,
         find: "useThemeContext must be used within a ThemeContext.Provider"
       });
-      moonmap.addExport(name, "useVariableSelect", {
-        type: ModuleExportType.Function,
-        find: ",onSelectInteraction:"
-      });
-      moonmap.addExport(name, "useMultiSelect", {
-        type: ModuleExportType.Function,
-        find: [".useState(()=>new Set(", ".add("]
-      });
 
       // Functions
-      moonmap.addExport(name, "multiSelect", {
-        type: ModuleExportType.Function,
-        find: "),{newValues:"
-      });
       moonmap.addExport(name, "openModal", {
         type: ModuleExportType.Function,
         find: "(),{modalKey:"
@@ -1284,11 +1209,6 @@ register((moonmap) => {
       moonmap.addExport(name, "SpinnerTypes", {
         type: ModuleExportType.Key,
         find: "WANDERING_CUBES"
-      });
-      moonmap.addExport(name, "SelectLooks", {
-        type: ModuleExportType.KeyValuePair,
-        key: "CUSTOM",
-        value: 1
       });
       moonmap.addExport(name, "ModalTransitionState", {
         type: ModuleExportType.Key,

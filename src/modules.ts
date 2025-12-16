@@ -24,6 +24,7 @@ import "./mappings/discord/components/common/Image";
 import "./mappings/discord/components/common/NoResults";
 import "./mappings/discord/components/common/PanelButton";
 import "./mappings/discord/components/common/Scroller.css";
+import "./mappings/discord/components/common/Select";
 import "./mappings/discord/components/common/SettingsNotice";
 import "./mappings/discord/components/common/SettingsView";
 import "./mappings/discord/components/common/UserSummaryItem";

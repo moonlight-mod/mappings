@@ -63,8 +63,6 @@ export type ComponentNames =
   | "NumberInputStepper"
   | "Popout"
   | "PrimaryCTANoticeButton"
-  | "Select"
-  | "SingleSelect"
   | "SearchableSelect"
   | "Slider"
   | "Switch"
@@ -76,10 +74,8 @@ export type ComponentNames =
 export type FunctionNames =
   | "closeModal"
   | "createToast"
-  | "multiSelect"
   | "openModal"
   | "openModalLazy"
   | "popToast"
   | "showToast"
-  | "useMultiSelect"
   | "useThemeContext";
