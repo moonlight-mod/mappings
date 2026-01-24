@@ -1,5 +1,6 @@
 import register from "../../registry";
 import type { Dispatcher } from "./packages/flux/Dispatcher";
+import { ModuleExportType } from "@moonlight-mod/moonmap";
 
 type Exports = {
   default: Dispatcher<any>;
@@ -13,6 +14,11 @@ register((moonmap) => {
     find: '.Early=0]="Early",',
     process({ id }) {
       moonmap.addModule(id, name);
+
+      moonmap.addExport(name, "default", {
+        type: ModuleExportType.Key,
+        find: "functionCache"
+      });
 
       return true;
     }

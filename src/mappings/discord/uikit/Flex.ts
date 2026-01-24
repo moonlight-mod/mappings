@@ -67,7 +67,7 @@ register((moonmap) => {
   const name = "discord/uikit/Flex";
   moonmap.register({
     name,
-    find: ".alignStretch,BASELINE:",
+    find: ",BASELINE:",
     process({ id }) {
       moonmap.addModule(id, name);
 

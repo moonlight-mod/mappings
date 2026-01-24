@@ -987,14 +987,14 @@ register((moonmap) => {
       moonmap.addModule(id, name);
 
       // Components
-      moonmap.addExport(name, "FormSection", {
+      /*moonmap.addExport(name, "FormSection", {
         type: ModuleExportType.Function,
         find: ".sectionTitle,",
         recursive: true
-      });
+      });*/
       moonmap.addExport(name, "FormDivider", {
         type: ModuleExportType.Function,
-        find: ".divider,"
+        find: /style:{marginTop:.,marginBottom:.}/
       });
       moonmap.addExport(name, "Popout", {
         type: ModuleExportType.Function,
@@ -1053,12 +1053,12 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "FormItem", {
         type: ModuleExportType.Function,
-        find: ".fieldWrapper:void 0,",
+        find: ',"title","error","titleId"]',
         recursive: true
       });
       moonmap.addExport(name, "FormText", {
         type: ModuleExportType.Function,
-        find: ".DEFAULT,className:"
+        find: '["type","className","disabled","children","style"]'
       });
       moonmap.addExport(name, "Slider", {
         type: ModuleExportType.Function,

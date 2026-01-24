@@ -82,7 +82,7 @@ register((moonmap) => {
   const name = "discord/components/common/BaseHeaderBar";
   moonmap.register({
     name,
-    find: [".hamburger}):null,"],
+    find: [".ChannelIcon=", ",toolbarClassName:"],
     process({ id }) {
       moonmap.addModule(id, name);
 
@@ -93,7 +93,7 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "Divider", {
         type: ModuleExportType.Function,
-        find: ".dot,"
+        find: /let{className:.}/
       });
 
       return true;

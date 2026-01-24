@@ -103,13 +103,13 @@ register((moonmap) => {
   const name = "discord/uikit/legacy/Button";
   moonmap.register({
     name,
-    find: ".colorBrandInverted,",
+    find: ",BRAND_INVERTED:",
     process({ id }) {
       moonmap.addModule(id, name);
 
       moonmap.addExport(name, "Button", {
-        type: ModuleExportType.Function,
-        find: ".disabledButtonWrapper,"
+        type: ModuleExportType.Key,
+        find: "Link"
       });
 
       moonmap.addExport(name, "Looks", {

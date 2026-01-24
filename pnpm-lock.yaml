@@ -12,8 +12,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1
       '@moonlight-mod/moonmap':
-        specifier: ^1.0.5
-        version: 1.0.5
+        specifier: ^1.0.7
+        version: 1.0.7
       '@types/chroma-js':
         specifier: ^3.1.0
         version: 3.1.0
@@ -51,8 +51,9 @@ packages:
   '@moonlight-mod/lunast@1.0.1':
     resolution: {integrity: sha512-K3vxzDlfFuYKjciIW2FMlcZ1qrrkAGDGpSBlNqYGtJ0sMt9bRCd2lpSpg6AX/giSljDtmAUXa/5mOfUoDQxjBA==}
 
-  '@moonlight-mod/moonmap@1.0.5':
-    resolution: {integrity: sha512-Fdpxj8ghdulKB6TlTnchlCPey2YUKgEf1chuO1ofOIcvlqnVPBcQwSf2S80naOUQpXCDo4dQ+LWSE2fmhdDiiw==}
+  '@moonlight-mod/moonmap@1.0.7':
+    resolution: {integrity: sha512-K4TXEHYPgAtPjWSPWtO9+jzs7+/OYAF1GGkh1BtXrkeVT8vEFlNMztbZYy+N0bJLWzwytS4mrheMdSaBfJw6fw==}
+    engines: {node: '>=22', npm: pnpm, pnpm: '>=10', yarn: pnpm}
 
   '@types/chroma-js@3.1.0':
     resolution: {integrity: sha512-Uwl3SOtUkbQ6Ye6ZYu4q4xdLGBzmY839sEHYtOT7i691neeyd+7fXWT5VIkcUSfNwIFrIjQutNYQn9h4q5HFvg==}
@@ -131,7 +132,7 @@ snapshots:
       estree-toolkit: 1.7.8
       meriyah: 6.0.2
 
-  '@moonlight-mod/moonmap@1.0.5': {}
+  '@moonlight-mod/moonmap@1.0.7': {}
 
   '@types/chroma-js@3.1.0': {}
 

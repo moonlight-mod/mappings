@@ -1,4 +1,5 @@
 import register from "../../../../registry";
+import { mapCssExport } from "../../../../utils";
 
 type Exports = {
   marginReset: string;
@@ -21,9 +22,23 @@ register((moonmap) => {
   const name = "discord/styles/shared/Margins.css";
   moonmap.register({
     name,
-    find: "marginCenterHorz:",
+    find: '"marginCenterHorz_',
     process({ id }) {
       moonmap.addModule(id, name);
+
+      mapCssExport(moonmap, name, "marginReset");
+      mapCssExport(moonmap, name, "marginTop4");
+      mapCssExport(moonmap, name, "marginBottom4");
+      mapCssExport(moonmap, name, "marginTop8");
+      mapCssExport(moonmap, name, "marginBottom8");
+      mapCssExport(moonmap, name, "marginTop20");
+      mapCssExport(moonmap, name, "marginBottom20");
+      mapCssExport(moonmap, name, "marginTop40");
+      mapCssExport(moonmap, name, "marginBottom40");
+      mapCssExport(moonmap, name, "marginTop60");
+      mapCssExport(moonmap, name, "marginBottom60");
+      mapCssExport(moonmap, name, "marginCenterHorz");
+      mapCssExport(moonmap, name, "marginLeft8");
 
       return true;
     }

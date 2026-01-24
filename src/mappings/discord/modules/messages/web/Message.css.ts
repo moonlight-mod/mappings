@@ -1,4 +1,5 @@
 import register from "../../../../../registry";
+import { mapCssExport } from "../../../../../utils";
 
 type Exports = {
   wrapper: string;
@@ -85,9 +86,87 @@ register((moonmap) => {
   const name = "discord/modules/messages/web/Message.css";
   moonmap.register({
     name,
-    find: ["messageContent:", "edited:"],
+    find: ['"messageContent_', '"edited_'],
     process({ id }) {
       moonmap.addModule(id, name);
+
+      mapCssExport(moonmap, name, "wrapper");
+      mapCssExport(moonmap, name, "compact");
+      mapCssExport(moonmap, name, "cozy");
+      mapCssExport(moonmap, name, "contentOnly");
+      mapCssExport(moonmap, name, "repliedMessage");
+      mapCssExport(moonmap, name, "threadMessageAccessory");
+      mapCssExport(moonmap, name, "executedCommand");
+      mapCssExport(moonmap, name, "latin12CompactTimeStamp");
+      mapCssExport(moonmap, name, "latin24CompactTimeStamp");
+      mapCssExport(moonmap, name, "asianCompactTimeStamp");
+      mapCssExport(moonmap, name, "contextCommandMessage");
+      mapCssExport(moonmap, name, "messageSpine");
+      mapCssExport(moonmap, name, "repliedMessageClickableSpine");
+      mapCssExport(moonmap, name, "repliedMessageContentHovered");
+      mapCssExport(moonmap, name, "threadMessageAccessoryAvatar");
+      mapCssExport(moonmap, name, "replyAvatar");
+      mapCssExport(moonmap, name, "replyBadge");
+      mapCssExport(moonmap, name, "executedCommandAvatar");
+      mapCssExport(moonmap, name, "replyChatIconContainer");
+      mapCssExport(moonmap, name, "replyIcon");
+      mapCssExport(moonmap, name, "clanTagChiplet");
+      mapCssExport(moonmap, name, "userJoinSystemMessageIcon");
+      mapCssExport(moonmap, name, "ticketIcon");
+      mapCssExport(moonmap, name, "commandIcon");
+      mapCssExport(moonmap, name, "username");
+      mapCssExport(moonmap, name, "roleDot");
+      mapCssExport(moonmap, name, "commandName");
+      mapCssExport(moonmap, name, "appsIcon");
+      mapCssExport(moonmap, name, "appLauncherOnboardingCommandName");
+      mapCssExport(moonmap, name, "targetUsername");
+      mapCssExport(moonmap, name, "executedCommandSeparator");
+      mapCssExport(moonmap, name, "repliedTextPreview");
+      mapCssExport(moonmap, name, "threadMessageAccessoryPreview");
+      mapCssExport(moonmap, name, "repliedTextContent");
+      mapCssExport(moonmap, name, "clickable");
+      mapCssExport(moonmap, name, "repliedMessageClickableSpineHovered");
+      mapCssExport(moonmap, name, "threadMessageAccessoryContent");
+      mapCssExport(moonmap, name, "repliedTextPlaceholder");
+      mapCssExport(moonmap, name, "threadMessageAccessoryPlaceholder");
+      mapCssExport(moonmap, name, "repliedTextContentTrailingIcon");
+      mapCssExport(moonmap, name, "threadMessageAccessoryContentTrailingIcon");
+      mapCssExport(moonmap, name, "repliedTextContentLeadingIcon");
+      mapCssExport(moonmap, name, "threadMessageAccessoryContentLeadingIcon");
+      mapCssExport(moonmap, name, "contents");
+      mapCssExport(moonmap, name, "zalgo");
+      mapCssExport(moonmap, name, "messageContent");
+      mapCssExport(moonmap, name, "header");
+      mapCssExport(moonmap, name, "buttonContainer");
+      mapCssExport(moonmap, name, "avatar");
+      mapCssExport(moonmap, name, "avatarDecoration");
+      mapCssExport(moonmap, name, "roleIcon");
+      mapCssExport(moonmap, name, "timestamp");
+      mapCssExport(moonmap, name, "timestampInline");
+      mapCssExport(moonmap, name, "alt");
+      mapCssExport(moonmap, name, "timestampTooltip");
+      mapCssExport(moonmap, name, "timestampVisibleOnHover");
+      mapCssExport(moonmap, name, "nitroAuthorBadgeTootip");
+      mapCssExport(moonmap, name, "headerText");
+      mapCssExport(moonmap, name, "hasRoleIcon");
+      mapCssExport(moonmap, name, "hasBadges");
+      mapCssExport(moonmap, name, "botTagCompact");
+      mapCssExport(moonmap, name, "botTagCozy");
+      mapCssExport(moonmap, name, "nitroBadgeSvg");
+      mapCssExport(moonmap, name, "nitroAuthorBadgeContainer");
+      mapCssExport(moonmap, name, "separator");
+      mapCssExport(moonmap, name, "hasThread");
+      mapCssExport(moonmap, name, "isSystemMessage");
+      mapCssExport(moonmap, name, "hasReply");
+      mapCssExport(moonmap, name, "markupRtl");
+      mapCssExport(moonmap, name, "isSending");
+      mapCssExport(moonmap, name, "isFailed");
+      mapCssExport(moonmap, name, "isUnsupported");
+      mapCssExport(moonmap, name, "edited");
+      mapCssExport(moonmap, name, "communicationDisabled");
+      mapCssExport(moonmap, name, "compactCommunicationDisabled");
+      mapCssExport(moonmap, name, "communicationDisabledOpacity");
+      mapCssExport(moonmap, name, "badgesContainer");
 
       return true;
     }

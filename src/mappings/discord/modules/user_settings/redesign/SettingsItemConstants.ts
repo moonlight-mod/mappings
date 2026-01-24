@@ -6,39 +6,25 @@ export enum ItemType {
   SECTION,
   SIDEBAR_ITEM,
   PANEL,
-  PANE,
   SPLIT,
   CATEGORY,
   ACCORDION,
   LIST,
+  RELATED,
   FIELD_SET,
+  TAB_ITEM,
   STATIC,
   BUTTON,
   TOGGLE,
   SLIDER,
   SELECT,
   RADIO,
-  CHECKBOX,
   NAVIGATOR,
   CUSTOM
 }
 
-export enum TrailingType {
-  POPOVER,
-  BADGE_NEW,
-  BADGE_COUNT,
-  STRONGLY_DISCOURAGED_CUSTOM
-}
-
-export enum NoticeType {
-  INLINE_NOTICE,
-  STRONGLY_DISCOURAGED_CUSTOM
-}
-
 type Exports = {
   ItemType: ItemType;
-  TrailingType: TrailingType;
-  NoticeType: NoticeType;
   hasLayout: (item: any) => boolean;
 };
 export default Exports;
@@ -48,21 +34,13 @@ register((moonmap, lunast) => {
 
   lunast.register({
     name,
-    find: '"STRONGLY_DISCOURAGED_CUSTOM"',
+    find: '.ROOT=0]="ROOT",',
     process({ id, ast }) {
       moonmap.addModule(id, name);
 
       moonmap.addExport(name, "ItemType", {
         type: ModuleExportType.Key,
         find: "ROOT"
-      });
-      moonmap.addExport(name, "TrailingType", {
-        type: ModuleExportType.Key,
-        find: "BADGE_NEW"
-      });
-      moonmap.addExport(name, "NoticeType", {
-        type: ModuleExportType.Key,
-        find: "INLINE_NOTICE"
       });
       moonmap.addExport(name, "hasLayout", {
         type: ModuleExportType.Function,

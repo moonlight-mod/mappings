@@ -1,6 +1,6 @@
 import { ModuleExportType } from "@moonlight-mod/moonmap";
 import register from "../../../../../registry";
-import type { ItemType, TrailingType } from "./SettingsItemConstants";
+import type { ItemType } from "./SettingsItemConstants";
 import type { Store } from "../../../packages/flux/Store";
 
 export type FinalizedItem<Props extends GenericProps, Type extends ItemType> = {
@@ -30,7 +30,7 @@ export type SidebarItemProps = {
   icon?: React.FC<any>;
   trailing?: {
     getDismissibleContentTypes?: () => number[]; // DismissibleContentType enum
-  } & (
+  } /*& (
     | {
         type: TrailingType.BADGE_NEW;
         badgeComponent?: React.FC<{}>;
@@ -43,7 +43,7 @@ export type SidebarItemProps = {
         type: TrailingType.BADGE_COUNT;
         useCount: () => number;
       }
-  );
+  )*/;
 } & GenericProps;
 
 export type PanelProps = {
@@ -65,7 +65,6 @@ type Exports = {
   createSection: (key: string, props: SectionProps) => FinalizedItem<SectionProps, ItemType.SECTION>;
   createSidebarItem: (key: string, props: SidebarItemProps) => FinalizedItem<SidebarItemProps, ItemType.SIDEBAR_ITEM>;
   createPanel: (key: string, props: PanelProps) => FinalizedItem<PanelProps, ItemType.PANEL>;
-  createPane: (key: string, props: PaneProps) => FinalizedItem<PaneProps, ItemType.PANE>;
 };
 export default Exports;
 
@@ -78,10 +77,11 @@ register((moonmap, lunast) => {
     process({ id, ast }) {
       moonmap.addModule(id, name);
 
-      moonmap.addExport(name, "buildItems", {
+      // wrapped in a function that calls the actual function for whatever reason
+      /*moonmap.addExport(name, "buildItems", {
         type: ModuleExportType.Function,
         find: ".buildLayout().map"
-      });
+      });*/
 
       moonmap.addExport(name, "createRoot", {
         type: ModuleExportType.Function,
@@ -99,9 +99,9 @@ register((moonmap, lunast) => {
         type: ModuleExportType.Function,
         find: ".PANEL,"
       });
-      moonmap.addExport(name, "createPane", {
+      moonmap.addExport(name, "createTabItem", {
         type: ModuleExportType.Function,
-        find: ".PANE,"
+        find: ".TAB_ITEM,"
       });
       moonmap.addExport(name, "createSplit", {
         type: ModuleExportType.Function,
@@ -119,9 +119,17 @@ register((moonmap, lunast) => {
         type: ModuleExportType.Function,
         find: ".LIST,"
       });
+      moonmap.addExport(name, "createRelated", {
+        type: ModuleExportType.Function,
+        find: ".RELATED,"
+      });
       moonmap.addExport(name, "createFieldSet", {
         type: ModuleExportType.Function,
         find: ".FIELD_SET,"
+      });
+      moonmap.addExport(name, "createStatic", {
+        type: ModuleExportType.Function,
+        find: ".STATIC,"
       });
       moonmap.addExport(name, "createButton", {
         type: ModuleExportType.Function,

@@ -46,10 +46,6 @@ register((moonmap) => {
         type: ModuleExportType.Function,
         find: " tried to load a non-existent store."
       });
-      moonmap.addExport(name, "createFetchStore", {
-        type: ModuleExportType.Function,
-        find: "let{dangerousAbortOnCleanup:"
-      });
       moonmap.addExport(name, "Dispatcher", {
         type: ModuleExportType.Function,
         find: "_dispatchWithDevtools("
@@ -68,11 +64,11 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "useStateFromStoresArray", {
         type: ModuleExportType.Function,
-        find: /return (.)\((.),(.),(.),(.)\.([^Z])\)/
+        find: /return (.)\((.),(.),(.),(.)\.([^A])\)/
       });
       moonmap.addExport(name, "useStateFromStoresObject", {
         type: ModuleExportType.Function,
-        find: /return (.)\((.),(.),(.),(.)\.Z\)/
+        find: /return (.)\((.),(.),(.),(.)\.A\)/
       });
 
       return true;

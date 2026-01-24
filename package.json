@@ -1,6 +1,6 @@
 {
   "name": "@moonlight-mod/mappings",
-  "version": "1.1.46",
+  "version": "1.1.47",
   "license": "MIT",
   "packageManager": "pnpm@10.7.1",
   "engineStrict": false,
@@ -46,6 +46,6 @@
   },
   "peerDependencies": {
     "@moonlight-mod/lunast": "^1.0.1",
-    "@moonlight-mod/moonmap": "^1.0.5"
+    "@moonlight-mod/moonmap": "^1.0.7"
   }
 }

@@ -1,4 +1,5 @@
 import register from "../../../../../registry";
+import { mapCssExport } from "../../../../../utils";
 
 type Exports = {
   wrapper: string;
@@ -11,8 +12,6 @@ type Exports = {
   content: string;
   infoLink: string;
   buildInfo: string;
-  button: string;
-  buttonSize: string;
   subHead: string;
   icon: string;
   buildDetails: string;
@@ -26,9 +25,26 @@ register((moonmap) => {
   const name = "discord/modules/build_overrides/web/BuildOverride.css";
   moonmap.register({
     name,
-    find: ["barLoader:", "buttonLoader:"],
+    find: ['"barLoader_', '"buttonLoader_'],
     process({ id }) {
       moonmap.addModule(id, name);
+
+      mapCssExport(moonmap, name, "wrapper");
+      mapCssExport(moonmap, name, "titleRegion");
+      mapCssExport(moonmap, name, "title");
+      mapCssExport(moonmap, name, "infoIcon");
+      mapCssExport(moonmap, name, "copyLink");
+      mapCssExport(moonmap, name, "copied");
+      mapCssExport(moonmap, name, "copyLinkIcon");
+      mapCssExport(moonmap, name, "content");
+      mapCssExport(moonmap, name, "infoLink");
+      mapCssExport(moonmap, name, "buildInfo");
+      mapCssExport(moonmap, name, "subHead");
+      mapCssExport(moonmap, name, "icon");
+      mapCssExport(moonmap, name, "buildDetails");
+      mapCssExport(moonmap, name, "barLoader");
+      mapCssExport(moonmap, name, "barTitle");
+      mapCssExport(moonmap, name, "buttonLoader");
 
       return true;
     }
