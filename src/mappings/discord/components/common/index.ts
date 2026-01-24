@@ -1014,11 +1014,11 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "Notice", {
         type: ModuleExportType.Function,
-        find: ".notice,{["
+        find: /let{color:.=.\.DEFAULT,className:.,style:.,/
       });
       moonmap.addExport(name, "NoticeCloseButton", {
         type: ModuleExportType.Function,
-        find: ["noticeType:", ".closeIcon"]
+        find: "WAI6xu"
       });
       moonmap.addExport(name, "PrimaryCTANoticeButton", {
         type: ModuleExportType.Function,
