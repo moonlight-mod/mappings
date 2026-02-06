@@ -57,17 +57,17 @@ register((moonmap) => {
   const name = "discord/components/common/Select";
   moonmap.register({
     name,
-    find: '["renderLeading","renderTrailing","value","onChange"',
+    find: ".preventCloseOnSelect,serialize:",
     process({ id }) {
       moonmap.addModule(id, name);
 
       moonmap.addExport(name, "Select", {
         type: ModuleExportType.Function,
-        find: '["renderLeading","renderTrailing"]'
+        find: /{renderLeading:.,renderTrailing:.,\.\.\./
       });
       moonmap.addExport(name, "SingleSelect", {
         type: ModuleExportType.Function,
-        find: '["renderLeading","renderTrailing","value","onChange"'
+        find: /{renderLeading:.,renderTrailing:.,value:.,onChange:.,\.\.\./
       });
 
       moonmap.addExport(name, "multiSelect", {

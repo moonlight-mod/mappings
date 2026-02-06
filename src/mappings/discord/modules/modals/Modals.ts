@@ -1,5 +1,5 @@
 // path is pure guessing as mobile doesn't use modals
-import { ModuleExportType } from "@moonlight-mod/moonmap";
+//import { ModuleExportType } from "@moonlight-mod/moonmap";
 import register from "../../../../registry";
 import type { StoreApi, UseBoundStore } from "zustand";
 
@@ -22,8 +22,10 @@ export type ModalStore = StoreApi<Record<ModalContext, Modal[]>>;
 
 type Exports = {
   closeAllModals: () => void;
-  closeAllModalsForContext: (context?: ModalContext) => void;
+  closeAllModalsInContext: (context?: ModalContext) => void;
   closeModal: (key: string, context?: ModalContext) => void;
+  closeModalInAllContexts: (key: string) => void;
+  doesTopModalAllowNavigation: () => boolean;
   getInteractingModalContext: () => ModalContext;
   hasAnyModalOpen: () => boolean;
   hasAnyModalOpenSelector: (store: any) => boolean;
@@ -42,6 +44,7 @@ type Exports = {
     context?: ModalContext
   ) => void;
   useHasAnyModalOpen: () => boolean;
+  useHasModalOpen: (key: string, context?: ModalContext) => boolean;
   useIsModalAtTop: (key: string) => boolean;
   useModalsStore: UseBoundStore<ModalStore>;
 };
@@ -51,22 +54,30 @@ register((moonmap) => {
   const name = "discord/modules/modals/Modals";
   moonmap.register({
     name,
-    find: ',["contextKey"]),',
+    find: ":{},{contextKey:",
     process({ id }) {
       moonmap.addModule(id, name);
 
-      moonmap.addExport(name, "closeAllModals", {
+      // this module is exported as a Module, unmangled currently
+      /*moonmap.addExport(name, "closeAllModals", {
         type: ModuleExportType.Function,
         find: /for\(let . of .\[.\]\)/
       });
-      // guessing, exported but not used by anything
-      moonmap.addExport(name, "closeAllModalsForContext", {
+      moonmap.addExport(name, "closeAllModalsInContext", {
         type: ModuleExportType.Function,
         find: /null!=.\)for\(let . of .\)/
       });
       moonmap.addExport(name, "closeModal", {
         type: ModuleExportType.Function,
         find: "onCloseCallback()"
+      });
+      moonmap.addExport(name, "closeModalInAllContexts", {
+        type: ModuleExportType.Function,
+        find: ".forEach("
+      });
+      moonmap.addExport(name, "doesTopModalAllowNavigation", {
+        type: ModuleExportType.Function,
+        find: ".at(-1)?.allowsNavigation??!1"
       });
       moonmap.addExport(name, "getInteractingModalContext", {
         type: ModuleExportType.Function,
@@ -104,6 +115,10 @@ register((moonmap) => {
         type: ModuleExportType.Function,
         find: /return .\(.\(\)\)/
       });
+      moonmap.addExport(name, "useHasModalOpen", {
+        type: ModuleExportType.Function,
+        find: /return .\(.\(\),.,.\)/
+      });
       moonmap.addExport(name, "useIsModalAtTop", {
         type: ModuleExportType.Function,
         find: "let{default:"
@@ -111,7 +126,7 @@ register((moonmap) => {
       moonmap.addExport(name, "useModalsStore", {
         type: ModuleExportType.Function,
         find: /^.=>.\(.,.\)$/
-      });
+      });*/
 
       return true;
     }

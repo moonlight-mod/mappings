@@ -3,7 +3,6 @@ import { mapCssExport } from "../../../../../utils";
 
 type Exports = {
   container: string;
-  clearText: string;
 };
 export default Exports;
 
@@ -11,12 +10,13 @@ register((moonmap) => {
   const name = "discord/modules/forums/web/SortMenu.css";
   moonmap.register({
     name,
-    find: ['"container_', '"clearText_'],
+    // theres no way to have this actually be non-breaking anymore, this is the only class
+    // there are currently 37 modules that are just a single class of container
+    find: '"container_f8b2d2"',
     process({ id }) {
       moonmap.addModule(id, name);
 
       mapCssExport(moonmap, name, "container");
-      mapCssExport(moonmap, name, "clearText");
 
       return true;
     }

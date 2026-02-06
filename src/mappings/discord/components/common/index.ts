@@ -1053,12 +1053,12 @@ register((moonmap) => {
       });
       moonmap.addExport(name, "FormItem", {
         type: ModuleExportType.Function,
-        find: ',"title","error","titleId"]',
+        find: /title:.,error:.,titleId:.,\.\.\./,
         recursive: true
       });
       moonmap.addExport(name, "FormText", {
         type: ModuleExportType.Function,
-        find: '["type","className","disabled","children","style"]'
+        find: /,children:.,style:.,\.\.\./
       });
       moonmap.addExport(name, "Slider", {
         type: ModuleExportType.Function,

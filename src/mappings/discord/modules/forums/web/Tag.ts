@@ -35,7 +35,7 @@ register((moonmap) => {
   const name = "discord/modules/forums/web/Tag";
   moonmap.register({
     name,
-    find: ['"forum-tag-"'],
+    find: ["forum-tag-"],
     process({ id }) {
       moonmap.addModule(id, name);
 
